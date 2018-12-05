@@ -379,10 +379,10 @@ bool CyCity::canConscript()
 	return m_pCity ? m_pCity->canConscript() : false;
 }
 
-void CyCity::conscript()
+void CyCity::conscript(bool bForce)
 {
 	if (m_pCity)
-		m_pCity->conscript();
+		m_pCity->conscript(bForce);
 }
 
 int CyCity::getBonusHealth(int /*BonusTypes*/ iBonus)
@@ -2551,6 +2551,14 @@ void CyCity::setBuildingYieldChange(int /*BuildingClassTypes*/ eBuildingClass, i
 	}
 }
 
+void CyCity::changeBuildingYieldChange(int /*BuildingClassTypes*/ eBuildingClass, int /*YieldTypes*/ eYield, int iChange)
+{
+	if (m_pCity)
+	{
+		m_pCity->changeBuildingYieldChange((BuildingClassTypes)eBuildingClass, (YieldTypes)eYield, iChange);
+	}
+}
+
 void CyCity::updateBuildingCommerce()
 {
 	if (m_pCity)
@@ -2620,11 +2628,6 @@ void CyCity::changeBuildingCommerceChange(int eBuildingClass, int eCommerce, int
 int CyCity::getRegionID()
 {
 	return m_pCity ? m_pCity->getRegionID() : -1;
-}
-
-bool CyCity::canEnslave(bool bGeneral)
-{
-	return m_pCity ? m_pCity->canEnslave(bGeneral) : false;
 }
 
 void CyCity::setWeLoveTheKingDay(bool bNewValue)
@@ -2719,4 +2722,44 @@ void CyCity::spreadReligion(int eReligion)
 void CyCity::setBuildingOriginalOwner(int eBuilding, int ePlayer)
 {
 	if (m_pCity) m_pCity->setBuildingOriginalOwner((BuildingTypes)eBuilding, (PlayerTypes)ePlayer);
+}
+
+int CyCity::getHappinessYield(int eYield)
+{
+	return m_pCity ? m_pCity->getHappinessYield((YieldTypes)eYield) : 0;
+}
+
+void CyCity::triggerMeltdown(int eBuilding)
+{
+	if (m_pCity) m_pCity->triggerMeltdown((BuildingTypes)eBuilding);
+}
+
+bool CyCity::isColony()
+{
+	return m_pCity ? m_pCity->isColony() : false;
+}
+
+bool CyCity::hasBonusEffect(int eBonus)
+{
+	return m_pCity ? m_pCity->hasBonusEffect((BonusTypes)eBonus) : false;
+}
+
+int CyCity::getCultureRank()
+{
+	return m_pCity ? m_pCity->getCultureRank() : -1;
+}
+
+bool CyCity::isHasBuildingEffect(int eBuilding)
+{
+	return m_pCity ? m_pCity->isHasBuildingEffect((BuildingTypes)eBuilding) : false;
+}
+
+int CyCity::getStabilityPopulation()
+{
+	return m_pCity ? m_pCity->getStabilityPopulation() : -1;
+}
+
+void CyCity::setStabilityPopulation(int iNewValue)
+{
+	if (m_pCity) m_pCity->setStabilityPopulation(iNewValue);
 }

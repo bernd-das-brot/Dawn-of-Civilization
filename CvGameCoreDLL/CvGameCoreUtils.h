@@ -217,6 +217,13 @@ inline int distanceInfluence(int iCenterValue, int iRange, int iDistance)
 	return (iCenterValue - 1) * (iDistance - iRange) * (iDistance - iRange) / (iRange * iRange) + 1;
 }
 
+inline int sgn(int x)
+{
+	return (x > 0) - (x < 0);
+}
+
+bool isHumanVictoryWonder(BuildingTypes eBuilding, int eWonder, PlayerTypes ePlayer);
+
 CvPlot* plotCity(int iX, int iY, int iIndex);																			// Exposed to Python
 CvPlot* plotCity3(int iX, int iY, int iIndex); // Leoreth
 int plotCityXY(int iDX, int iDY);																									// Exposed to Python
@@ -289,7 +296,8 @@ DllExport void setTradeItem(TradeData* pItem, TradeableItems eItemType = TRADE_I
 
 bool isPlotEventTrigger(EventTriggerTypes eTrigger);
 
-TechTypes getDiscoveryTech(UnitTypes eUnit, PlayerTypes ePlayer);
+TechTypes getDiscoveryTech(UnitTypes eUnit, PlayerTypes ePlayer, TechTypes eIgnoreTech = NO_TECH);
+int getDiscoverResearch(UnitTypes eUnit, PlayerTypes ePlayer, TechTypes eTech);
 
 void setListHelp(wchar* szBuffer, const wchar* szStart, const wchar* szItem, const wchar* szSeparator, bool bFirst);
 void setListHelp(CvWString& szBuffer, const wchar* szStart, const wchar* szItem, const wchar* szSeparator, bool bFirst);
@@ -309,9 +317,11 @@ bool PUF_canSiege( const CvUnit* pUnit, int iData1, int iData2 = -1);
 bool PUF_isPotentialEnemy( const CvUnit* pUnit, int iData1, int iData2 = -1);
 bool PUF_canDeclareWar( const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
 bool PUF_canDefend( const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
+bool PUF_canDefendAgainst( const CvUnit* pUnit, int iData1 = -1, int iData2 = -1); // Leoreth
 bool PUF_cannotDefend( const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
 bool PUF_canDefendGroupHead( const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
 bool PUF_canDefendEnemy( const CvUnit* pUnit, int iData1, int iData2 = -1);
+bool PUF_canDefendAgainstEnemy( const CvUnit* pUnit, int iData1, int iData2 = 1); // Leoreth
 bool PUF_canDefendPotentialEnemy( const CvUnit* pUnit, int iData1, int iData2 = -1);
 bool PUF_canAirAttack( const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
 bool PUF_canAirDefend( const CvUnit* pUnit, int iData1 = -1, int iData2 = -1);
@@ -377,6 +387,8 @@ BuildingTypes getUniqueBuilding(CivilizationTypes eCivilization, BuildingTypes e
 UnitTypes getUniqueUnit(CivilizationTypes eCivilization, UnitTypes eUnit); // Leoreth
 
 bool isPrecursor(ReligionTypes ePrecursor, ReligionTypes eReligion); // Leoreth
+
+void setDirty(InterfaceDirtyBits eDirtyBit, bool bNewValue);
 
 void log(char* format, ...);
 void log(CvWString message);

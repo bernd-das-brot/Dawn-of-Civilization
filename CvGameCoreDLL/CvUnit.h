@@ -34,6 +34,8 @@ struct DllExport CombatDetails					// Exposed to Python
 	int iCityDefenseModifier;
 	int iHillsAttackModifier;
 	int iHillsDefenseModifier;
+	int iPlainsAttackModifier; // Leoreth
+	int iPlainsDefenseModifier; // Leoreth
 	int iFeatureAttackModifier;
 	int iFeatureDefenseModifier;
 	int iTerrainAttackModifier;
@@ -180,7 +182,7 @@ public:
 	//SuperSpies: TSHEEP Assassin Mission
 	bool canAssassin(const CvPlot* pPlot, bool bTestVisible) const;																										// Exposed to Python
 	//TSHEEP Other functions
-	bool awardSpyExperience(TeamTypes eTargetTeam, int iCost, int iModifier);
+	bool awardSpyExperience(TeamTypes eTargetTeam, EspionageMissionTypes eMission);
 	//SuperSpies: TSHEEP End
 	//SuperSpies: glider1 start
 	bool canBribe(const CvPlot* pPlot, bool bTestVisible) const;
@@ -222,7 +224,7 @@ public:
 	bool canConstruct(const CvPlot* pPlot, BuildingTypes eBuilding, bool bTestVisible = false) const;				// Exposed to Python
 	bool construct(BuildingTypes eBuilding);
 
-	TechTypes getDiscoveryTech() const;																														// Exposed to Python
+	TechTypes getDiscoveryTech(TechTypes eIgnoreTech = NO_TECH) const;																														// Exposed to Python
 	int getDiscoverResearch(TechTypes eTech) const;																								// Exposed to Python
 	bool canDiscover(const CvPlot* pPlot) const;																									// Exposed to Python
 	bool discover();
@@ -281,6 +283,9 @@ public:
 
 	bool canGreatMission(const CvPlot* pPlot) const;
 	bool greatMission();
+
+	bool canSatelliteAttack(const CvPlot* pPlot) const;
+	bool satelliteAttack();
 
 	bool isWorker() const;
 
@@ -362,6 +367,7 @@ public:
 	bool canAttack() const;																														// Exposed to Python
 	bool canAttack(const CvUnit& defender) const;
 	bool canDefend(const CvPlot* pPlot = NULL) const;																	// Exposed to Python
+	bool canDefendAgainst(const CvUnit* pAttacker, const CvPlot* pPlot = NULL) const; // Leoreth
 	bool canSiege(TeamTypes eTeam) const;																							// Exposed to Python
 
 	int airBaseCombatStr() const;																						// Exposed to Python
@@ -370,6 +376,7 @@ public:
 	DllExport float airMaxCombatStrFloat(const CvUnit* pOther) const;																			// Exposed to Python
 	DllExport float airCurrCombatStrFloat(const CvUnit* pOther) const;																		// Exposed to Python
 	int combatLimit() const;																												// Exposed to Python
+	int combatLimitAgainst(const CvUnit* pUnit) const;
 	int airCombatLimit() const;																												// Exposed to Python
 	DllExport bool canAirAttack() const;																							// Exposed to Python
 	DllExport bool canAirDefend(const CvPlot* pPlot = NULL) const;										// Exposed to Python
@@ -419,6 +426,8 @@ public:
 	int animalCombatModifier() const;																				// Exposed to Python
 	int hillsAttackModifier() const;																				// Exposed to Python
 	int hillsDefenseModifier() const;																				// Exposed to Python
+	int plainsAttackModifier() const; // Leoreth
+	int plainsDefenseModifier() const; // Leoreth
 	int terrainAttackModifier(TerrainTypes eTerrain) const;								// Exposed to Python
 	int terrainDefenseModifier(TerrainTypes eTerrain) const;								// Exposed to Python
 	int featureAttackModifier(FeatureTypes eFeature) const;								// Exposed to Python
@@ -620,6 +629,14 @@ public:
 
 	int getExtraHillsDefensePercent() const;																									// Exposed to Python
 	void changeExtraHillsDefensePercent(int iChange);
+
+	// Leoreth
+	int getExtraPlainsAttackPercent() const;
+	void changeExtraPlainsAttackPercent(int iChange);
+
+	// Leoreth
+	int getExtraPlainsDefensePercent() const;
+	void changeExtraPlainsDefensePercent(int iChange);
 
 	int getRevoltProtection() const;																									// Exposed to Python
 	void changeRevoltProtection(int iChange);
@@ -875,6 +892,8 @@ protected:
 	int m_iExtraCityDefensePercent;
 	int m_iExtraHillsAttackPercent;
 	int m_iExtraHillsDefensePercent;
+	int m_iExtraPlainsAttackPercent; // Leoreth
+	int m_iExtraPlainsDefensePercent; // Leoreth
 	int m_iRevoltProtection;
 	int m_iCollateralDamageProtection;
 	int m_iPillageChange;

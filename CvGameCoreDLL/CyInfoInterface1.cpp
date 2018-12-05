@@ -45,7 +45,13 @@ void CyInfoPythonInterface1()
 		.def("getExperience", &CvSpecialistInfo::getExperience, "int ()")
 		.def("getFlavorValue", &CvSpecialistInfo::getFlavorValue, "int (int i)")
 
+		.def("getCultureLevelYieldChange", &CvSpecialistInfo::getCultureLevelYieldChange, "int (CultureLevelTypes eCultureLevel)")
+		.def("getCultureLevelCommerceChange", &CvSpecialistInfo::getCultureLevelCommerceChange, "int (CultureLevelTypes eCultureLevel, CommerceTypes eCommerce")
+		.def("getCultureLevelGreatPeopleRateChange", &CvSpecialistInfo::getCultureLevelGreatPeopleRateChange, "int (CultureLevelTypes eCultureLevel")
+
 		.def("getTexture", &CvSpecialistInfo::getTexture, "string ()")
+
+		.def("isSatellite", &CvSpecialistInfo::isSatellite, "bool ()")
 		;
 
 	python::class_<CvTechInfo, python::bases<CvInfoBase> >("CvTechInfo")
@@ -547,6 +553,9 @@ void CyInfoPythonInterface1()
 		.def("getEspionageDefenseModifier", &CvBuildingInfo::getEspionageDefenseModifier, "int ()")
 		.def("getMissionType", &CvBuildingInfo::getMissionType, "int ()")
 		.def("getVoteSourceType", &CvBuildingInfo::getVoteSourceType, "int ()")
+		.def("getCultureCommerceModifier", &CvBuildingInfo::getCultureCommerceModifier, "int (CommerceTypes eCommerce)")
+		.def("getCultureGreatPeopleRateModifier", &CvBuildingInfo::getCultureGreatPeopleRateModifier, "int ()")
+		.def("getCultureTradeRouteModifier", &CvBuildingInfo::getCultureTradeRouteModifier, "int ()")
 
 		.def("isTeamShare", &CvBuildingInfo::isTeamShare, "bool ()")
 		.def("isWater", &CvBuildingInfo::isWater, "bool ()")

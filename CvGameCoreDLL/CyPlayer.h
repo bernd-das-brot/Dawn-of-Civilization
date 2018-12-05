@@ -154,6 +154,7 @@ public:
 	bool isResearch();
 	bool canEverResearch(int /*TechTypes*/ eTech);
 	bool canResearch(int /*TechTypes*/ eTech, bool bTrade);
+	bool canResearchGiven(int eTech, bool bTrade, int eGivenTech); // Leoreth
 	int /* TechTypes */ getCurrentResearch();
 	bool isCurrentResearchRepeat();
 	bool isNoResearchAvailable();
@@ -561,6 +562,8 @@ public:
 	int getWarValue(int x, int y);
 	int getModifier(int eModifierType);
 	void setModifier(int eModifierType, int iNewValue);
+	int getTechPreference(int eTech);
+	void setTechPreference(int eTech, int iNewValue);
 	int getStartingEra();
 	void setStartingEra(int iNewValue);
 	void setTakenTilesThreshold(int iNewValue);
@@ -573,10 +576,22 @@ public:
 	int getBirthTurn();
 	void setBirthYear(int iNewValue);
 	void AI_chooseFreeTech();
-	bool isEnslave();
 	bool isSlavery();
 	bool isColonialSlavery();
+	bool canUseSlaves();
 	int AI_bestCivic(int iCivicOptionType);
+	void setFreeTechsOnDiscovery(int iNewValue);
+	CyPlot* AI_getCitySite(int iIndex);
+	int AI_getNumCitySites();
+	int AI_getMemoryAttitude(int iPlayer, int iMemory);
+	void restoreGeneralThreshold();
+	void resetGreatPeopleCreated();
+	void changeYieldRateModifier(int iYieldType, int iChange);
+	void setBuildingPreference(int iBuilding, int iNewValue);
+	int getBuildingPreference(int iBuilding);
+	void changeGreatPeopleCreated(int iChange);
+	void changeGreatGeneralsCreated(int iChange);
+	void launch(int iVictory);
 
 private:
 	CvPlayer* m_pPlayer;

@@ -76,6 +76,8 @@ import DiplomacyUtil
 import PlayerUtil
 import TradeUtil
 
+from RFCUtils import utils
+
 # BUG - Mac Support - start
 BugUtil.fixSets(globals())
 # BUG - Mac Support - end
@@ -259,7 +261,8 @@ class BeginActivePlayerTurnCityAlertManager(AbstractCityAlertManager):
 	
 	def onBeginActivePlayerTurn(self, argsList):
 		"Loops over active player's cities, telling each to perform its check."
-		self.checkAllActivePlayerCities()
+		if gc.getGame().getGameTurn() > utils.getScenarioStartTurn():
+			self.checkAllActivePlayerCities()
 
 class EndTurnReadyCityAlertManager(AbstractCityAlertManager):
 	"""
@@ -272,7 +275,8 @@ class EndTurnReadyCityAlertManager(AbstractCityAlertManager):
 	
 	def onEndTurnReady(self, argsList):
 		"Loops over active player's cities, telling each to perform its check."
-		self.checkAllActivePlayerCities()
+		if gc.getGame().getGameTurn() > utils.getScenarioStartTurn():
+			self.checkAllActivePlayerCities()
 
 
 ## City Alerts
@@ -927,6 +931,8 @@ class RefusesToTalk(AbstractStatefulAlert):
 		"""
 		eActiveTeam, activeTeam = PlayerUtil.getActiveTeamAndID()
 		for eTeam in eTeams:
+			if eTeam == -1:
+				return
 			if eActiveTeam != eTeam and not activeTeam.isHasMet(eTeam):
 				return
 		self.check()
@@ -1025,7 +1031,7 @@ class WorstEnemy(AbstractStatefulAlert):
 				if eOldEnemy != -1 and not gc.getTeam(eOldEnemy).isAlive():
 					eOldEnemy = -1
 					enemies[eTeam] = -1
-				if eActiveTeam != eNewEnemy and not activeTeam.isHasMet(eNewEnemy):
+				if eActiveTeam != eNewEnemy and eNewEnemy != -1 and not activeTeam.isHasMet(eNewEnemy):
 					eNewEnemy = -1
 				if eOldEnemy != eNewEnemy:
 					enemies[eTeam] = eNewEnemy

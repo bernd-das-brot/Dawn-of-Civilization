@@ -57,6 +57,10 @@ class Resources:
 		if iGameTurn == getTurnForYear(-1000):
 			self.createResource(88, 37, iHorse)
 			
+		# Assyrian copper appears later to prevent Babylonia from building too strong a defensive military
+		if iGameTurn == getTurnForYear(-800):
+			self.createResource(78, 42, iCopper)
+			
 		# Tamils, 300 BC
 		elif iGameTurn == getTurnForYear(tBirth[iTamils])-1 and data.isPlayerEnabled(iTamils):
 			self.createResource(90, 28, iFish)
@@ -128,6 +132,9 @@ class Resources:
 			self.createResource(57, 45, iClam) # Savoy
 			
 			self.createResource(50, 44, iIron) # Portugal
+			
+			self.removeResource(87, 49) # Orduqent
+			self.removeResource(89, 51) # Orduqent
 			
 		# Leoreth: route to connect Karakorum to Beijing and help the Mongol attackers
 		elif iGameTurn == getTurnForYear(tBirth[iMongolia]):
@@ -257,7 +264,7 @@ class Resources:
 		elif iGameTurn == getTurnForYear(1850):
 			self.createResource(12, 45, iWine) # California
 			self.createResource(31, 10, iWine) # Andes
-			self.createResource(113, 12, iWine) # Barossa Valley, Australia
+			self.createResource(113, 11, iWine) # Barossa Valley, Australia
 			
 			self.createResource(114, 11, iSheep) # Australia
 			self.createResource(116, 13, iSheep) # Australia
@@ -280,4 +287,4 @@ class Resources:
 			# flood plains in California
 			for tPlot in [(11, 46), (11, 47), (11, 48)]:
 				x, y = tPlot
-				gc.getMap().plot(x,y).setFeatureType(3, 0)
+				gc.getMap().plot(x,y).setFeatureType(iFloodPlains, 0)

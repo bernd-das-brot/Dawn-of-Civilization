@@ -589,6 +589,12 @@ bool CyPlayer::canResearch(int /*TechTypes*/ eTech, bool bTrade)
 	return m_pPlayer ? m_pPlayer->canResearch((TechTypes)eTech, bTrade) : false;
 }
 
+// Leoreth
+bool CyPlayer::canResearchGiven(int eTech, bool bTrade, int eGivenTech)
+{
+	return m_pPlayer ? m_pPlayer->canResearch((TechTypes)eTech, bTrade, (TechTypes)eGivenTech) : false;
+}
+
 int /* TechTypes */ CyPlayer::getCurrentResearch()
 {
 	return m_pPlayer ? (int) m_pPlayer->getCurrentResearch() : (int) NO_TECH;
@@ -2590,11 +2596,6 @@ void CyPlayer::AI_chooseFreeTech()
 		m_pPlayer->AI_chooseFreeTech();
 }
 
-bool CyPlayer::isEnslave()
-{
-	return m_pPlayer ? m_pPlayer->isEnslave() : false;
-}
-
 bool CyPlayer::isSlavery()
 {
 	return m_pPlayer ? m_pPlayer->isSlavery() : false;
@@ -2605,7 +2606,83 @@ bool CyPlayer::isColonialSlavery()
 	return m_pPlayer ? m_pPlayer->isColonialSlavery() : false;
 }
 
+bool CyPlayer::canUseSlaves()
+{
+	return m_pPlayer ? m_pPlayer->canUseSlaves() : false;
+}
+
 int CyPlayer::AI_bestCivic(int iCivicOptionType)
 {
 	return m_pPlayer ? m_pPlayer->AI()->AI_bestCivic((CivicOptionTypes)iCivicOptionType) : NO_CIVIC;
+}
+
+void CyPlayer::setFreeTechsOnDiscovery(int iNewValue)
+{
+	if (m_pPlayer)
+		m_pPlayer->setFreeTechsOnDiscovery(iNewValue);
+}
+
+CyPlot* CyPlayer::AI_getCitySite(int iIndex)
+{
+	return m_pPlayer ? new CyPlot(m_pPlayer->AI()->AI_getCitySite(iIndex)) : NULL;
+}
+
+int CyPlayer::AI_getNumCitySites()
+{
+	return m_pPlayer ? m_pPlayer->AI()->AI_getNumCitySites() : 0;
+}
+
+int CyPlayer::AI_getMemoryAttitude(int iPlayer, int iMemory)
+{
+	return m_pPlayer ? m_pPlayer->AI()->AI_getMemoryAttitude((PlayerTypes)iPlayer, (MemoryTypes)iMemory) : 0;
+}
+
+void CyPlayer::restoreGeneralThreshold()
+{
+	if (m_pPlayer) m_pPlayer->restoreGeneralThreshold();
+}
+
+void CyPlayer::resetGreatPeopleCreated()
+{
+	if (m_pPlayer) m_pPlayer->resetGreatPeopleCreated();
+}
+
+void CyPlayer::changeYieldRateModifier(int iYieldType, int iChange)
+{
+	if (m_pPlayer) m_pPlayer->changeYieldRateModifier((YieldTypes)iYieldType, iChange);
+}
+
+int CyPlayer::getTechPreference(int eTech)
+{
+	return m_pPlayer ? m_pPlayer->getTechPreference((TechTypes)eTech) : 0;
+}
+
+void CyPlayer::setTechPreference(int eTech, int iNewValue)
+{
+	if (m_pPlayer) m_pPlayer->setTechPreference((TechTypes)eTech, iNewValue);
+}
+
+void CyPlayer::setBuildingPreference(int iBuilding, int iNewValue)
+{
+	if (m_pPlayer) m_pPlayer->setBuildingPreference((BuildingTypes)iBuilding, iNewValue);
+}
+
+int CyPlayer::getBuildingPreference(int iBuilding)
+{
+	return m_pPlayer ? m_pPlayer->getBuildingPreference((BuildingTypes)iBuilding) : -1;
+}
+
+void CyPlayer::changeGreatPeopleCreated(int iChange)
+{
+	if (m_pPlayer) m_pPlayer->changeGreatPeopleCreated(iChange);
+}
+
+void CyPlayer::changeGreatGeneralsCreated(int iChange)
+{
+	if (m_pPlayer) m_pPlayer->changeGreatGeneralsCreated(iChange);
+}
+
+void CyPlayer::launch(int iVictory)
+{
+	if (m_pPlayer) m_pPlayer->launch((VictoryTypes)iVictory);
 }

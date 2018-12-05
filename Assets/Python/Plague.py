@@ -27,22 +27,29 @@ class Plague:
 	def setup(self):
 		for iPlayer in range(iNumMajorPlayers):
 			data.players[iPlayer].iPlagueCountdown = -utils.getTurns(iImmunity)
-		
-		if utils.getScenario() == i3000BC:  #early start condition
-			data.lGenericPlagueDates[0] = getTurnForYear(400) + gc.getGame().getSorenRandNum(40, 'Variation') - 20
-		else:
-			data.lGenericPlagueDates[0] = 80
 			
-		data.lGenericPlagueDates[1] = getTurnForYear(1300) + gc.getGame().getSorenRandNum(40, 'Variation') - 20
+		data.lGenericPlagueDates[0] = 80
+		data.lGenericPlagueDates[2] = 300 # safe value to prevent plague at start of 1700 AD scenario
+		
+		if utils.getScenario() == i3000BC:
+			data.lGenericPlagueDates[0] = getTurnForYear(400) + utils.variation(20)
+			
+		data.lGenericPlagueDates[1] = getTurnForYear(1300) + utils.variation(20)
+		
+		# Avoid interfering with the Indian UHV
+		if utils.getHumanID() == iIndia and data.lGenericPlagueDates[1] <= getTurnForYear(1200):
+			data.lGenericPlagueDates[1] = getTurnForYear(1200) + 1
+		
 		if utils.getScenario != i1700AD:
-			data.lGenericPlagueDates[2] = getTurnForYear(1650) + gc.getGame().getSorenRandNum(40, 'Variation') - 20
-		else:
-			data.lGenericPlagueDates[2] = 300 # Safe value to prevent plague at start of 1700 scenario
-		data.lGenericPlagueDates[3] = getTurnForYear(1850) + gc.getGame().getSorenRandNum(40, 'Variation') - 20
+			data.lGenericPlagueDates[2] = getTurnForYear(1650) + utils.variation(20)
+			
+		data.lGenericPlagueDates[3] = getTurnForYear(1850) + utils.variation(20)
 
 		undoPlague = gc.getGame().getSorenRandNum(8, 'undo')
 		if undoPlague <= 3:
 			data.lGenericPlagueDates[undoPlague] = -1
+			
+	
 
 
 	def checkTurn(self, iGameTurn):
@@ -284,9 +291,8 @@ class Plague:
 							iPreserveDefenders += 1
 							break
 		if iNumUnitsInAPlot > 0:
-			for iUnit in range(iNumUnitsInAPlot):
-				i = iNumUnitsInAPlot - iUnit - 1
-				unit = pPlot.getUnit(i)
+			for iUnit in reversed(range(iNumUnitsInAPlot)):
+				unit = pPlot.getUnit(iUnit)
 				if gc.getPlayer(unit.getOwner()).isHuman():
 					#print ("iPreserveHumanDefenders", iPreserveHumanDefenders)
 					if iPreserveHumanDefenders > 0:
@@ -353,12 +359,12 @@ class Plague:
 				iImprovement = pPlot.getImprovementType()
 				if iImprovement == iTown:
 					pPlot.setImprovementType(iVillage)
-				elif iImprovement == iVillage:
-					pPlot.setImprovementType(iHamlet)
-				elif iImprovement == iHamlet:
-					pPlot.setImprovementType(iCottage)
-				elif iImprovement == iCottage:
-					pPlot.setImprovementType(-1)
+				#elif iImprovement == iVillage:
+				#	pPlot.setImprovementType(iHamlet)
+				#elif iImprovement == iHamlet:
+				#	pPlot.setImprovementType(iCottage)
+				#elif iImprovement == iCottage:
+				#	pPlot.setImprovementType(-1)
 				if pPlot.isCity():
 					if (city.getX(), city.getY()) == (x, y):
 						self.killUnitsByPlague(city, pPlot, 0, 100, 0)
@@ -368,14 +374,19 @@ class Plague:
 		if iPlayer >= iNumMajorPlayers:
 			if -10 < data.players[iPlayer].iPlagueCountdown <= 0: #more vulnerable
 				return True
-		else:
-			pPlayer = gc.getPlayer(iPlayer)
-			if data.players[iPlayer].iPlagueCountdown == 0: #vulnerable
-				if not gc.getTeam(pPlayer.getTeam()).isHasTech(iMicrobiology):
-					iHealth = self.calculateHealth(iPlayer)
-					if iHealth < 14: #no spread for iHealth >= 74 years
-						return True
-						
+				
+		pPlayer = gc.getPlayer(iPlayer)
+			
+		if gc.getTeam(pPlayer.getTeam()).isHasTech(iMicrobiology): return False
+		
+		if iPlayer in lCivBioNewWorld and not data.lFirstContactConquerors[lCivBioNewWorld.index(iPlayer)]: return False
+			
+		if data.players[iPlayer].iPlagueCountdown == 0: #vulnerable
+			if not gc.getTeam(pPlayer.getTeam()).isHasTech(iMicrobiology):
+				iHealth = self.calculateHealth(iPlayer)
+				if iHealth < 14: #no spread for iHealth >= 74 years
+					return True
+					
 		return False
 
 

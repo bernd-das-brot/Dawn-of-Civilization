@@ -22,8 +22,6 @@ currentCongress = None
 
 ### Constants ###
 
-iCongressInterval = 15
-
 tAmericanClaimsTL = (19, 41)
 tAmericanClaimsBR = (24, 49)
 
@@ -33,18 +31,18 @@ tNewfoundlandBR = (36, 59)
 ### Event Handlers ###
 
 def setup():
-	data.iCongressTurns = utils.getTurns(iCongressInterval)
+	data.iCongressTurns = getCongressInterval()
 
 def checkTurn(iGameTurn):
 	if isCongressEnabled():
-		if not isGlobalWar():
+		if not data.currentCongress:
 			data.iCongressTurns -= 1
 			
-		if data.iCongressTurns == 0:
-			data.iCongressTurns = utils.getTurns(iCongressInterval)
-			currentCongress = Congress()
-			data.currentCongress = currentCongress
-			currentCongress.startCongress()
+			if data.iCongressTurns == 0:
+				data.iCongressTurns = getCongressInterval()
+				currentCongress = Congress()
+				data.currentCongress = currentCongress
+				currentCongress.startCongress()
 
 def onChangeWar(bWar, iPlayer, iOtherPlayer):
 	if isCongressEnabled():
@@ -62,6 +60,12 @@ def onChangeWar(bWar, iPlayer, iOtherPlayer):
 			endGlobalWar(iPlayer, iOtherPlayer)
 			
 ### Global Methods ###
+
+def getCongressInterval():
+	if gc.getGame().getBuildingClassCreatedCount(gc.getBuildingInfo(iPalaceOfNations).getBuildingClassType()) > 0:
+		return utils.getTurns(4)
+		
+	return utils.getTurns(15)
 
 def isCongressEnabled():
 	if data.bNoCongressOption:
@@ -98,10 +102,10 @@ def isGlobalWar():
 	return (data.iGlobalWarAttacker != -1 and data.iGlobalWarDefender != -1)
 	
 def endGlobalWar(iAttacker, iDefender):
-	data.iGlobalWarAttacker = -1
-	data.iGlobalWarDefender = -1
-	
 	if not gc.getPlayer(iAttacker).isAlive() or not gc.getPlayer(iDefender).isAlive():
+		return
+		
+	if data.currentCongress:
 		return
 	
 	lAttackers = [iAttacker]
@@ -505,6 +509,11 @@ class Congress:
 			popup.addPythonButton(localText.getText("TXT_KEY_CONGRESS_OK", ()), '')
 		
 			popup.addPopup(utils.getHumanID())
+			
+		# if this was triggered by a war, reset belligerents
+		if isGlobalWar():
+			data.iGlobalWarAttacker = -1
+			data.iGlobalWarDefender = -1
 		
 		# don't waste memory
 		data.currentCongress = None
@@ -519,7 +528,7 @@ class Congress:
 		self.inviteToCongress()
 		
 		if self.bPostWar:
-			iHostPlayer = self.lWinners[0]
+			iHostPlayer = [iWinner for iWinner in self.lWinners if gc.getPlayer(iWinner).isAlive()][0]
 		else:
 			iHostPlayer = utils.getRandomEntry(self.lInvites)
 			
@@ -529,8 +538,8 @@ class Congress:
 				if iThisPlayer != iThatPlayer:
 					tThisPlayer = gc.getTeam(iThisPlayer)
 					if not tThisPlayer.canContact(iThatPlayer): tThisPlayer.meet(iThatPlayer, False)
-			
-		self.sHostCityName = utils.getRandomEntry(utils.getCoreCityList(iHostPlayer, utils.getReborn(iHostPlayer))).getName()
+
+		self.sHostCityName = utils.getRandomEntry(utils.getOwnedCoreCities(iHostPlayer, utils.getReborn(iHostPlayer))).getName()
 		
 		# moved selection of claims after the introduction event so claims and their resolution take place at the same time
 		if utils.getHumanID() in self.lInvites:
@@ -630,7 +639,19 @@ class Congress:
 					
 	def assignCity(self, iPlayer, iOwner, tPlot):
 		x, y = tPlot
+		city = gc.getMap().plot(x, y).getPlotCity()
+		
+		iNumDefenders = max(2, gc.getPlayer(iPlayer).getCurrentEra()-1)
+		lFlippingUnits, lRelocatedUnits = utils.flipOrRelocateGarrison(city, iNumDefenders)
+		
 		utils.completeCityFlip(x, y, iPlayer, iOwner, 80, False, False, True)
+		
+		utils.flipOrCreateDefenders(iPlayer, lFlippingUnits, (x, y), iNumDefenders)
+		
+		if iOwner < iNumPlayers:
+			utils.relocateUnitsToCore(iPlayer, lRelocatedUnits)
+		else:
+			utils.killUnits(lRelocatedUnits)
 		
 	def foundColony(self, iPlayer, tPlot):
 		x, y = tPlot
@@ -732,7 +753,7 @@ class Congress:
 		print sDebugText
 		
 		# everyone agrees on AI American claims in the west
-		if iClaimant == iAmerica and utils.getHumanID() != iAmerica and iVoter != iOwner:
+		if iClaimant == iAmerica and iVoter != iOwner:
 			if utils.isPlotInArea((x, y), tAmericanClaimsTL, tAmericanClaimsBR):
 				self.vote(iVoter, iClaimant, 1)
 				return
@@ -769,6 +790,9 @@ class Congress:
 			# French UP
 			if iClaimant == iFrance: iFavorClaimant += 10
 			if iOwner == iFrance: iFavorOwner += 10
+			
+			# Palace of Nations
+			if gc.getPlayer(iClaimant).isHasBuildingEffect(iPalaceOfNations): iFavorClaimant += 10
 			
 			# AI memory of human voting behavior
 			if utils.getHumanID() == iClaimant and iVoter in self.dVotingMemory: iFavorClaimant += 5 * self.dVotingMemory[iVoter]
@@ -994,7 +1018,7 @@ class Congress:
 			if iGameTurn < pPlayer.getLatestRebellionTurn() + utils.getTurns(20): continue
 			
 			# recently reborn
-			if utils.isReborn(iLoopPlayer) and tRebirth != -1 and iGameTurn < getTurnForYear(tRebirth[iLoopPlayer]) + utils.getTurns(20): continue
+			if utils.isReborn(iLoopPlayer) and iLoopPlayer in dRebirth and iGameTurn < getTurnForYear(dRebirth[iLoopPlayer]) + utils.getTurns(20): continue
 			
 			# exclude master/vassal relationships
 			if gc.getTeam(iPlayer).isVassal(iLoopPlayer): continue
@@ -1002,6 +1026,9 @@ class Congress:
 			
 			# cannot demand cities while at war
 			if gc.getTeam(iPlayer).isAtWar(iLoopPlayer): continue
+			
+			# Palace of Nations effect
+			if gc.getPlayer(iLoopPlayer).isHasBuildingEffect(iPalaceOfNations): continue
 			
 			for city in utils.getCityList(iLoopPlayer):
 				x, y = city.getX(), city.getY()
@@ -1104,11 +1131,19 @@ class Congress:
 		self.lInvites = lPossibleInvites[:getNumInvitations()]
 		
 		lRemove = []
+		
+		# if not a war congress, exclude civs in global wars
+		if isGlobalWar() and not self.bPostWar:
+			lAttackers, lDefenders = determineAlliances(data.iGlobalWarAttacker, data.iGlobalWarDefender)
+			lRemove.extend(lAttackers)
+			lRemove.extend(lDefenders)
+			
 		for iLoopPlayer in self.lInvites:
 			if not gc.getPlayer(iLoopPlayer).isAlive(): lRemove.append(iLoopPlayer)
 			
 		for iLoopPlayer in lRemove:
-			self.lInvites.remove(iLoopPlayer)
+			if iLoopPlayer in self.lInvites:
+				self.lInvites.remove(iLoopPlayer)
 		
 		# Leoreth: America receives an invite if there are still claims in the west
 		if iAmerica not in self.lInvites and not self.bPostWar and gc.getGame().getGameTurn() > tBirth[iAmerica]:

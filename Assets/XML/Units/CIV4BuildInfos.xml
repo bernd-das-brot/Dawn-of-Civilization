@@ -94,8 +94,8 @@
 				</FeatureStruct>
 				<FeatureStruct>
 					<FeatureType>FEATURE_FLOOD_PLAINS</FeatureType>
-					<PrereqTech>TECH_MICROBIOLOGY</PrereqTech>
-					<iTime>500</iTime>
+					<PrereqTech>NONE</PrereqTech>
+					<iTime>300</iTime>
 					<iProduction>0</iProduction>
 					<bRemove>0</bRemove>
 				</FeatureStruct>
@@ -106,6 +106,50 @@
 			<bCtrlDown>0</bCtrlDown>
 			<iHotKeyPriority>0</iHotKeyPriority>
 			<Button>,Art/Interface/Buttons/Builds/BuildFarm.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,3,7</Button>
+		</BuildInfo>
+		<BuildInfo>
+			<Type>BUILD_PADDY_FIELD</Type>
+			<Description>TXT_KEY_BUILD_PADDY_FIELD</Description>
+			<PrereqTech>TECH_AGRICULTURE</PrereqTech>
+			<iTime>600</iTime>
+			<ImprovementType>IMPROVEMENT_PADDY_FIELD</ImprovementType>
+			<EntityEvent>ENTITY_EVENT_IRRIGATE</EntityEvent>
+			<FeatureStructs>
+				<FeatureStruct>
+					<FeatureType>FEATURE_JUNGLE</FeatureType>
+					<PrereqTech>TECH_MICROBIOLOGY</PrereqTech>
+					<iTime>600</iTime>
+					<iProduction>0</iProduction>
+					<bRemove>1</bRemove>
+				</FeatureStruct>
+				<FeatureStruct>
+					<FeatureType>FEATURE_RAINFOREST</FeatureType>
+					<PrereqTech>TECH_MICROBIOLOGY</PrereqTech>
+					<iTime>600</iTime>
+					<iProduction>0</iProduction>
+					<bRemove>1</bRemove>
+				</FeatureStruct>
+				<FeatureStruct>
+					<FeatureType>FEATURE_FOREST</FeatureType>
+					<PrereqTech>TECH_ALLOYS</PrereqTech>
+					<iTime>400</iTime>
+					<iProduction>30</iProduction>
+					<bRemove>1</bRemove>
+				</FeatureStruct>
+				<FeatureStruct>
+					<FeatureType>FEATURE_FLOOD_PLAINS</FeatureType>
+					<PrereqTech>NONE</PrereqTech>
+					<iTime>300</iTime>
+					<iProduction>0</iProduction>
+					<bRemove>0</bRemove>
+				</FeatureStruct>
+			</FeatureStructs>
+			<HotKey>KB_I</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>0</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>0</iHotKeyPriority>
+			<Button>Art/Interface/Buttons/Builds/PaddyField.dds</Button>
 		</BuildInfo>
 		<BuildInfo>
 			<Type>BUILD_FISHING_BOATS</Type>
@@ -123,12 +167,12 @@
 			<Button>,Art/Interface/Buttons/Builds/BuildFishingBoats.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,7,7</Button>
 		</BuildInfo>
 		<BuildInfo>
-			<Type>BUILD_HIGH_SEA_FISHING_BOATS</Type>
-			<Description>TXT_KEY_BUILD_HIGH_SEA_FISHING_BOATS</Description>
+			<Type>BUILD_OCEAN_FISHERY</Type>
+			<Description>TXT_KEY_BUILD_OCEAN_FISHERY</Description>
 			<PrereqTech>TECH_COMPASS</PrereqTech>
 			<iTime>0</iTime>
 			<bKill>1</bKill>
-			<ImprovementType>IMPROVEMENT_HIGH_SEA_FISHING_BOATS</ImprovementType>
+			<ImprovementType>IMPROVEMENT_OCEAN_FISHERY</ImprovementType>
 			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
 			<HotKey>KB_F</HotKey>
 			<bAltDown>0</bAltDown>
@@ -193,7 +237,7 @@
 			<Type>BUILD_WORKSHOP</Type>
 			<Description>TXT_KEY_BUILD_WORKSHOP</Description>
 			<PrereqTech>TECH_ARTISANRY</PrereqTech>
-			<iTime>600</iTime>
+			<iTime>800</iTime>
 			<ImprovementType>IMPROVEMENT_WORKSHOP</ImprovementType>
 			<EntityEvent>ENTITY_EVENT_MINE</EntityEvent>
 			<FeatureStructs>
@@ -281,7 +325,7 @@
 			<Type>BUILD_WATERMILL</Type>
 			<Description>TXT_KEY_BUILD_WATERMILL</Description>
 			<PrereqTech>TECH_MACHINERY</PrereqTech>
-			<iTime>600</iTime>
+			<iTime>800</iTime>
 			<ImprovementType>IMPROVEMENT_WATERMILL</ImprovementType>
 			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
 			<FeatureStructs>
@@ -393,10 +437,10 @@
 				</FeatureStruct>
 				<FeatureStruct>
 					<FeatureType>FEATURE_RAINFOREST</FeatureType>
-					<PrereqTech>TECH_MICROBIOLOGY</PrereqTech>
+					<PrereqTech>TECH_BLOOMERY</PrereqTech>
 					<iTime>600</iTime>
 					<iProduction>0</iProduction>
-					<bRemove>1</bRemove>
+					<bRemove>0</bRemove>
 				</FeatureStruct>
 				<FeatureStruct>
 					<FeatureType>FEATURE_FOREST</FeatureType>
@@ -561,7 +605,7 @@
 			<Type>BUILD_COTTAGE</Type>
 			<Description>TXT_KEY_BUILD_COTTAGE</Description>
 			<PrereqTech>TECH_PROPERTY</PrereqTech>
-			<iTime>800</iTime>
+			<iTime>700</iTime>
 			<ImprovementType>IMPROVEMENT_COTTAGE</ImprovementType>
 			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
 			<FeatureStructs>
@@ -593,6 +637,44 @@
 			<bCtrlDown>0</bCtrlDown>
 			<iHotKeyPriority>0</iHotKeyPriority>
 			<Button>,Art/Interface/Buttons/Builds/BuildCottage.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,2,7</Button>
+		</BuildInfo>
+		<BuildInfo>
+			<Type>BUILD_HAMLET</Type>
+			<Description>TXT_KEY_BUILD_HAMLET</Description>
+			<PrereqTech>TECH_PROPERTY</PrereqTech>
+			<iTime>700</iTime>
+			<ImprovementType>IMPROVEMENT_HAMLET</ImprovementType>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
+			<FeatureStructs>
+				<FeatureStruct>
+					<FeatureType>FEATURE_JUNGLE</FeatureType>
+					<PrereqTech>TECH_MICROBIOLOGY</PrereqTech>
+					<iTime>600</iTime>
+					<iProduction>0</iProduction>
+					<bRemove>1</bRemove>
+				</FeatureStruct>
+				<FeatureStruct>
+					<FeatureType>FEATURE_RAINFOREST</FeatureType>
+					<PrereqTech>TECH_BLOOMERY</PrereqTech>
+					<iTime>600</iTime>
+					<iProduction>0</iProduction>
+					<bRemove>0</bRemove>
+				</FeatureStruct>
+				<FeatureStruct>
+					<FeatureType>FEATURE_FOREST</FeatureType>
+					<PrereqTech>TECH_ALLOYS</PrereqTech>
+					<iTime>400</iTime>
+					<iProduction>30</iProduction>
+					<bRemove>1</bRemove>
+				</FeatureStruct>
+			</FeatureStructs>
+			<HotKey>KB_T</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>0</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>0</iHotKeyPriority>
+			<Button>,Art/Interface/Buttons/Builds/BuildHamlet.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,2,10</Button>
+			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildInfo>
 		<BuildInfo>
 			<Type>BUILD_FORT</Type>
@@ -688,8 +770,8 @@
 			<FeatureStructs>
 				<FeatureStruct>
 					<FeatureType>FEATURE_FALLOUT</FeatureType>
-					<PrereqTech>TECH_BIOTECHNOLOGY</PrereqTech>
-					<iTime>2000</iTime>
+					<PrereqTech>TECH_NUCLEAR_POWER</PrereqTech>
+					<iTime>4000</iTime>
 					<iProduction>0</iProduction>
 					<bRemove>1</bRemove>
 				</FeatureStruct>
@@ -738,6 +820,25 @@
 			<bCtrlDown>0</bCtrlDown>
 			<iHotKeyPriority>1</iHotKeyPriority>
 			<Button>Art/Interface/Buttons/Builds/BuildMarineReserve.dds</Button>
+		</BuildInfo>
+		<BuildInfo>
+			<Type>BUILD_SOLAR_COLLECTOR</Type>
+			<Description>TXT_KEY_BUILD_SOLAR_COLLECTOR</Description>
+			<Help/>
+			<PrereqTech>TECH_RENEWABLE_ENERGY</PrereqTech>
+			<iTime>3000</iTime>
+			<iCost>20</iCost>
+			<bKill>0</bKill>
+			<ImprovementType>IMPROVEMENT_SOLAR_COLLECTOR</ImprovementType>
+			<RouteType>NONE</RouteType>
+			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
+			<FeatureStructs/>
+			<HotKey>KB_T</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>1</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>1</iHotKeyPriority>
+			<Button>Art/Structures/Improvements/Solar_Collector/Button_SolarPlant.dds</Button>
 		</BuildInfo>
 		<BuildInfo>
 			<Type>BUILD_DEFORESTATION</Type>
@@ -812,13 +913,6 @@
 					<iProduction>30</iProduction>
 					<bRemove>1</bRemove>
 				</FeatureStruct>
-				<FeatureStruct>
-					<FeatureType>FEATURE_FLOOD_PLAINS</FeatureType>
-					<PrereqTech>TECH_MICROBIOLOGY</PrereqTech>
-					<iTime>500</iTime>
-					<iProduction>0</iProduction>
-					<bRemove>0</bRemove>
-				</FeatureStruct>
 			</FeatureStructs>
 			<HotKey>KB_I</HotKey>
 			<bAltDown>0</bAltDown>
@@ -826,6 +920,44 @@
 			<bCtrlDown>0</bCtrlDown>
 			<iHotKeyPriority>0</iHotKeyPriority>
 			<Button>,Art/Interface/Buttons/Builds/BuildFarm.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,3,7</Button>
+			<bGraphicalOnly>1</bGraphicalOnly>
+		</BuildInfo>
+		<BuildInfo>
+			<Type>BUILD_PADDY_FIELD_DEFORESTATION</Type>
+			<Description>TXT_KEY_BUILD_PADDY_FIELD</Description>
+			<PrereqTech>TECH_AGRICULTURE</PrereqTech>
+			<iTime>600</iTime>
+			<ImprovementType>IMPROVEMENT_PADDY_FIELD</ImprovementType>
+			<EntityEvent>ENTITY_EVENT_IRRIGATE</EntityEvent>
+			<FeatureStructs>
+				<FeatureStruct>
+					<FeatureType>FEATURE_JUNGLE</FeatureType>
+					<PrereqTech>TECH_MICROBIOLOGY</PrereqTech>
+					<iTime>600</iTime>
+					<iProduction>40</iProduction>
+					<bRemove>1</bRemove>
+				</FeatureStruct>
+				<FeatureStruct>
+					<FeatureType>FEATURE_RAINFOREST</FeatureType>
+					<PrereqTech>TECH_MICROBIOLOGY</PrereqTech>
+					<iTime>600</iTime>
+					<iProduction>40</iProduction>
+					<bRemove>1</bRemove>
+				</FeatureStruct>
+				<FeatureStruct>
+					<FeatureType>FEATURE_FOREST</FeatureType>
+					<PrereqTech>TECH_ALLOYS</PrereqTech>
+					<iTime>400</iTime>
+					<iProduction>30</iProduction>
+					<bRemove>1</bRemove>
+				</FeatureStruct>
+			</FeatureStructs>
+			<HotKey>KB_I</HotKey>
+			<bAltDown>0</bAltDown>
+			<bShiftDown>0</bShiftDown>
+			<bCtrlDown>0</bCtrlDown>
+			<iHotKeyPriority>0</iHotKeyPriority>
+			<Button>Art/Interface/Buttons/Builds/PaddyField.dds</Button>
 			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildInfo>
 		<BuildInfo>
@@ -870,7 +1002,7 @@
 			<Type>BUILD_WORKSHOP_DEFORESTATION</Type>
 			<Description>TXT_KEY_BUILD_WORKSHOP</Description>
 			<PrereqTech>TECH_ARTISANRY</PrereqTech>
-			<iTime>600</iTime>
+			<iTime>800</iTime>
 			<ImprovementType>IMPROVEMENT_WORKSHOP</ImprovementType>
 			<EntityEvent>ENTITY_EVENT_MINE</EntityEvent>
 			<FeatureStructs>
@@ -946,7 +1078,7 @@
 			<Type>BUILD_WATERMILL_DEFORESTATION</Type>
 			<Description>TXT_KEY_BUILD_WATERMILL</Description>
 			<PrereqTech>TECH_MACHINERY</PrereqTech>
-			<iTime>600</iTime>
+			<iTime>800</iTime>
 			<ImprovementType>IMPROVEMENT_WATERMILL</ImprovementType>
 			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
 			<FeatureStructs>
@@ -1035,10 +1167,10 @@
 				</FeatureStruct>
 				<FeatureStruct>
 					<FeatureType>FEATURE_RAINFOREST</FeatureType>
-					<PrereqTech>TECH_MICROBIOLOGY</PrereqTech>
+					<PrereqTech>TECH_BLOOMERY</PrereqTech>
 					<iTime>600</iTime>
-					<iProduction>40</iProduction>
-					<bRemove>1</bRemove>
+					<iProduction>0</iProduction>
+					<bRemove>0</bRemove>
 				</FeatureStruct>
 				<FeatureStruct>
 					<FeatureType>FEATURE_FOREST</FeatureType>
@@ -1177,11 +1309,11 @@
 			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildInfo>
 		<BuildInfo>
-			<Type>BUILD_COTTAGE_DEFORESTATION</Type>
-			<Description>TXT_KEY_BUILD_COTTAGE</Description>
+			<Type>BUILD_HAMLET_DEFORESTATION</Type>
+			<Description>TXT_KEY_BUILD_HAMLET</Description>
 			<PrereqTech>TECH_PROPERTY</PrereqTech>
-			<iTime>800</iTime>
-			<ImprovementType>IMPROVEMENT_COTTAGE</ImprovementType>
+			<iTime>700</iTime>
+			<ImprovementType>IMPROVEMENT_HAMLET</ImprovementType>
 			<EntityEvent>ENTITY_EVENT_BUILD</EntityEvent>
 			<FeatureStructs>
 				<FeatureStruct>
@@ -1211,7 +1343,7 @@
 			<bShiftDown>0</bShiftDown>
 			<bCtrlDown>0</bCtrlDown>
 			<iHotKeyPriority>0</iHotKeyPriority>
-			<Button>,Art/Interface/Buttons/Builds/BuildCottage.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,2,7</Button>
+			<Button>,Art/Interface/Buttons/Builds/BuildHamlet.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,2,10</Button>
 			<bGraphicalOnly>1</bGraphicalOnly>
 		</BuildInfo>
 	</BuildInfos>

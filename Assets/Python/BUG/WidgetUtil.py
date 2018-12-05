@@ -41,10 +41,9 @@
 from CvPythonExtensions import *
 import BugConfig
 import BugUtil
-import RFCUtils
+from RFCUtils import utils
+import TechPrefs
 gc = CyGlobalContext()
-
-utils = RFCUtils.RFCUtils()
 
 ## Widget Types
 
@@ -129,6 +128,12 @@ def getWidgetHelp(argsList):
 	# Leoreth: Byzantine UP: bribe button
 	if iData1 == 10001:
 		return CyTranslator().getText("TXT_KEY_ACTION_BYZANTINE_UP", ())
+		
+	if iData1 == 12001:
+		szText = BugUtil.getPlainText("TXT_KEY_BUG_TECH_PREFS_ALL") + "\n"
+		for pTech in TechPrefs.TechPrefs().getAllFlavorTechs(iData2):
+			szText += "<img=%s size=24></img>" % pTech.getInfo().getButton().replace(" ", "_")
+		return szText
 	
 	func = g_widgetHelp.get(eWidgetType)
 	if func:
@@ -276,6 +281,10 @@ def getWidgetHelp(argsList):
 				return CyTranslator().getText("TXT_KEY_WB_DOCMAPS", ())
 			elif iData2 == 43:
 				return CyTranslator().getText("TXT_KEY_WB_REGION_SELECTION", ())
+			elif iData2 == 44:
+				return CyTranslator().getText("TXT_KEY_WB_MOVEMAP", ())
+			elif iData2 == 45:
+				return CyTranslator().getText("TXT_KEY_WB_FLIPAI", ())
 		elif iData1 > 1029 and iData1 < 1040:
 			if iData1 %2:
 				return "-"
@@ -490,20 +499,6 @@ def getWidgetHelp(argsList):
 			else:
 				sText = CyTranslator().getText("TXT_KEY_WB_DISABLE_CIV", ())
 			return sText
-		elif iData1 == 22011:
-			return CyTranslator().getText("TXT_KEY_WB_CORE_ADD", ())
-		elif iData1 == 22012:
-			return CyTranslator().getText("TXT_KEY_WB_CORE_REMOVE", ())
-		elif iData1 == 22003:
-			return CyTranslator().getText("TXT_KEY_WB_CHANGE_SETTLERVALUE", ())
-
-		elif iData1 == 22005:
-			return " "
-		elif iData1 == 22006:
-			if iData2 == 1:
-				return CyTranslator().getText("TXT_KEY_WB_SHOW", ())
-			else:
-				return CyTranslator().getText("TXT_KEY_WB_HIDE", ())
 
 		elif iData1 == 22007 or iData1 == 22008:
 			return CyTranslator().getText("TXT_KEY_WB_CHANGE", ())

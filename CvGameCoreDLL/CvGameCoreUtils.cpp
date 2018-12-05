@@ -708,7 +708,7 @@ int getCombatOdds(CvUnit* pAttacker, CvUnit* pDefender)
 	// Needed rounds = round_up(health/damage)
 	//////
 
-	iDefenderHitLimit = pDefender->maxHitPoints() - pAttacker->combatLimit();
+	iDefenderHitLimit = pDefender->maxHitPoints() - pAttacker->combatLimitAgainst(pDefender);
 
 	iNeededRoundsAttacker = (std::max(0, pDefender->currHitPoints() - iDefenderHitLimit) + iDamageToDefender - 1 ) / iDamageToDefender;
 	iNeededRoundsDefender = (pAttacker->currHitPoints() + iDamageToAttacker - 1 ) / iDamageToAttacker;
@@ -956,12 +956,12 @@ float getCombatOddsSpecific(CvUnit* pAttacker, CvUnit* pDefender, int n_A, int n
         }
     }
 
-    iDefenderHitLimit = pDefender->maxHitPoints() - pAttacker->combatLimit();
+    iDefenderHitLimit = pDefender->maxHitPoints() - pAttacker->combatLimitAgainst(pDefender);
 
     //iNeededRoundsAttacker = (std::max(0, pDefender->currHitPoints() - iDefenderHitLimit) + iDamageToDefender - (((pAttacker->combatLimit())==GC.getMAX_HIT_POINTS())?1:0) ) / iDamageToDefender;
-    iNeededRoundsAttacker = (pDefender->currHitPoints() - pDefender->maxHitPoints() + pAttacker->combatLimit() - (((pAttacker->combatLimit())==pDefender->maxHitPoints())?1:0))/iDamageToDefender + 1;
+    iNeededRoundsAttacker = (pDefender->currHitPoints() - pDefender->maxHitPoints() + pAttacker->combatLimitAgainst(pDefender) - (((pAttacker->combatLimitAgainst(pDefender)) == pDefender->maxHitPoints()) ? 1 : 0)) / iDamageToDefender + 1;
 
-    int N_D = (std::max(0, pDefender->currHitPoints() - iDefenderHitLimit) + iDamageToDefender - (((pAttacker->combatLimit())==GC.getMAX_HIT_POINTS())?1:0) ) / iDamageToDefender;
+    int N_D = (std::max(0, pDefender->currHitPoints() - iDefenderHitLimit) + iDamageToDefender - (((pAttacker->combatLimitAgainst(pDefender))==GC.getMAX_HIT_POINTS())?1:0) ) / iDamageToDefender;
 
     //int N_A = (pAttacker->currHitPoints() + iDamageToAttacker - 1 ) / iDamageToAttacker;  //same as next line
     int N_A = (pAttacker->currHitPoints() - 1)/iDamageToAttacker + 1;
@@ -1190,14 +1190,19 @@ bool isPlotEventTrigger(EventTriggerTypes eTrigger)
 	return false;
 }
 
-TechTypes getDiscoveryTech(UnitTypes eUnit, PlayerTypes ePlayer)
+TechTypes getDiscoveryTech(UnitTypes eUnit, PlayerTypes ePlayer, TechTypes eIgnoreTech)
 {
 	TechTypes eBestTech = NO_TECH;
 	int iBestValue = 0;
 
 	for (int iI = 0; iI < GC.getNumTechInfos(); iI++)
 	{
-		if (GET_PLAYER(ePlayer).canResearch((TechTypes)iI))
+		if ((TechTypes)iI == eIgnoreTech)
+		{
+			continue;
+		}
+
+		if (GET_PLAYER(ePlayer).canResearch((TechTypes)iI, false, eIgnoreTech))
 		{
 			int iValue = 0;
 
@@ -1215,6 +1220,27 @@ TechTypes getDiscoveryTech(UnitTypes eUnit, PlayerTypes ePlayer)
 	}
 
 	return eBestTech;
+}
+
+
+int getDiscoverResearch(UnitTypes eUnit, PlayerTypes ePlayer, TechTypes eTech)
+{
+	int iResearch;
+	CvUnitInfo& kUnitInfo = GC.getUnitInfo(eUnit);
+	CvPlayer& kPlayer = GET_PLAYER(ePlayer);
+
+	iResearch = (kUnitInfo.getBaseDiscover() + (kUnitInfo.getDiscoverMultiplier() * GET_TEAM(kPlayer.getTeam()).getTotalPopulation()));
+
+	iResearch *= GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getUnitDiscoverPercent();
+	iResearch /= 100;
+
+	// Leoreth: House of Wisdom effect
+	if (GET_PLAYER(ePlayer).isHasBuildingEffect((BuildingTypes)HOUSE_OF_WISDOM))
+	{
+		iResearch *= 3;
+	}
+
+	return std::max(0, iResearch);
 }
 
 
@@ -1373,6 +1399,20 @@ bool PUF_canDefend(const CvUnit* pUnit, int iData1, int iData2)
 	return pUnit->canDefend();
 }
 
+bool PUF_canDefendAgainst(const CvUnit* pUnit, int iData1, int iData2)
+{
+	// Leoreth: Turkic UP
+	if (pUnit->getOwnerINLINE() == BARBARIAN && iData1 == TURKS && GET_TEAM(GET_PLAYER((PlayerTypes)iData1).getTeam()).isAtWarWithMajorPlayer())
+	{
+		if (pUnit->getUnitCombatType() == 2 || pUnit->getUnitCombatType() == 3)
+		{
+			return false;
+		}
+	}
+
+	return pUnit->canDefend();
+}
+
 bool PUF_cannotDefend(const CvUnit* pUnit, int iData1, int iData2)
 {
 	return !(pUnit->canDefend());
@@ -1388,6 +1428,13 @@ bool PUF_canDefendEnemy(const CvUnit* pUnit, int iData1, int iData2)
 	FAssertMsg(iData1 != -1, "Invalid data argument, should be >= 0");
 	FAssertMsg(iData2 != -1, "Invalid data argument, should be >= 0");
 	return (PUF_canDefend(pUnit, iData1, iData2) && PUF_isEnemy(pUnit, iData1, iData2));
+}
+
+bool PUF_canDefendAgainstEnemy(const CvUnit* pUnit, int iData1, int iData2)
+{
+	FAssertMsg(iData1 != -1, "Invalid data argument, should be >= 0");
+	FAssertMsg(iData2 != -1, "Invalid data argument, should be >= 0");
+	return PUF_canDefendAgainst(pUnit, iData1, iData2) && PUF_isEnemy(pUnit, iData1, iData2);
 }
 
 bool PUF_canDefendPotentialEnemy(const CvUnit* pUnit, int iData1, int iData2)
@@ -2474,6 +2521,7 @@ void getMissionTypeString(CvWString& szString, MissionTypes eMissionType)
 	case MISSION_DIPLOMATIC_MISSION: szString = L"MISSION_DIPLOMATIC_MISSION"; break;
 	case MISSION_PERSECUTE: szString = L"MISSION_PERSECUTION"; break;
 	case MISSION_GREAT_MISSION: szString = L"MISSION_GREAT_MISSION"; break;
+	case MISSION_SATELLITE_ATTACK: szString = L"MISSION_SATELLITE_ATTACK"; break;
 
 	case MISSION_DIE_ANIMATION: szString = L"MISSION_DIE_ANIMATION"; break;
 
@@ -2586,7 +2634,7 @@ void getUnitAIString(CvWString& szString, UnitAITypes eUnitAI)
 int calculateExperience(int iLevel, PlayerTypes ePlayer)
 {
 	FAssertMsg(ePlayer != NO_PLAYER, "ePlayer must be a valid player");
-	FAssertMsg(iLevel > 0, "iLevel must be greater than zero");
+	//FAssertMsg(iLevel > 0, "iLevel must be greater than zero");
 
 	// Japanese UP: cheaper promotions
 	/*if (ePlayer == JAPAN)
@@ -2672,4 +2720,14 @@ void log(CvWString message)
 void log(CvString logfile, CvString message)
 {
 	gDLL->logMsg(logfile, message);
+}
+
+bool isHumanVictoryWonder(BuildingTypes eBuilding, int eWonder, PlayerTypes ePlayer)
+{
+	return eBuilding == (BuildingTypes)eWonder && GET_PLAYER(ePlayer).isHuman() && GC.getGameINLINE().getGameTurn() < GET_PLAYER(ePlayer).getBirthTurn()+5;
+}
+
+void setDirty(InterfaceDirtyBits eDirtyBit, bool bNewValue)
+{
+	gDLL->getInterfaceIFace()->setDirty(eDirtyBit, bNewValue);
 }

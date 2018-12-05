@@ -1219,7 +1219,7 @@ void CvPlot::verifyUnitValidPlot()
 						{
 							if (isVisibleEnemyUnit(pLoopUnit))
 							{
-								if (!(pLoopUnit->isInvisible(getTeam(), false)))
+								if (!(pLoopUnit->isInvisible(getTeam(), false)) && (pLoopUnit->getInvisibleType() == NO_INVISIBLE || !pLoopUnit->isRivalTerritory()))
 								{
 									if (!pLoopUnit->jumpToNearestValidPlot())
 									{
@@ -2561,7 +2561,7 @@ bool CvPlot::canHaveImprovement(ImprovementTypes eImprovement, TeamTypes eTeam, 
 	if (GC.getImprovementInfo(eImprovement).isWater())
 	{
 		if (eImprovement == GC.getInfoTypeForString("IMPROVEMENT_FISHING_BOATS") && getTerrainType() != GC.getInfoTypeForString("TERRAIN_COAST")) return false;
-		if (eImprovement == GC.getInfoTypeForString("IMPROVEMENT_HIGH_SEA_FISHING_BOATS") && getTerrainType() != GC.getInfoTypeForString("TERRAIN_OCEAN")) return false;
+		if (eImprovement == GC.getInfoTypeForString("IMPROVEMENT_OCEAN_FISHERY") && getTerrainType() != GC.getInfoTypeForString("TERRAIN_OCEAN")) return false;
 	}
 
 	if (getFeatureType() != NO_FEATURE)
@@ -2790,7 +2790,17 @@ bool CvPlot::canBuild(BuildTypes eBuild, PlayerTypes ePlayer, bool bTestVisible)
 	{
 		if (getRouteType() != NO_ROUTE)
 		{
-			if (GC.getRouteInfo(getRouteType()).getValue() >= GC.getRouteInfo(eRoute).getValue())
+			if (getRouteType() == eRoute)
+			{
+				return false;
+			}
+
+			if (GC.getRouteInfo(getRouteType()).getValue() > GC.getRouteInfo(eRoute).getValue())
+			{
+				return false;
+			}
+
+			if (ePlayer != GC.getGame().getActivePlayer() && GC.getRouteInfo(getRouteType()).getValue() == GC.getRouteInfo(eRoute).getValue())
 			{
 				return false;
 			}
@@ -3197,6 +3207,24 @@ int CvPlot::movementCost(const CvUnit* pUnit, const CvPlot* pFromPlot) const
 	if (!pFromPlot->isValidDomainForLocation(*pUnit))
 	{
 		return pUnit->maxMoves();
+	}
+
+	// Leoreth: entering enemy waters ends the turn
+	if (isWater())
+	{
+		if (getOwner() != NO_PLAYER)
+		{
+			if (getOwner() != pUnit->getOwner())
+			{
+				if (atWar(getTeam(), pUnit->getTeam()))
+				{
+					if (pFromPlot->getTeam() == NO_TEAM || !atWar(pUnit->getTeam(), pFromPlot->getTeam()))
+					{
+						return pUnit->maxMoves();
+					}
+				}
+			}
+		}
 	}
 
 	if (!isValidDomainForAction(*pUnit))
@@ -3876,6 +3904,35 @@ bool CvPlot::isFriendlyCity(const CvUnit& kUnit, bool bCheckImprovement) const
 }
 
 
+// Leoreth
+bool CvPlot::isAlliedCity(const CvUnit& kUnit, bool bCheckImprovement) const
+{
+	if (!isFriendlyCity(kUnit, bCheckImprovement))
+	{
+		return false;
+	}
+
+	TeamTypes eTeam = GET_PLAYER(kUnit.getCombatOwner(getTeam(), this)).getTeam();
+
+	if (getTeam() == eTeam)
+	{
+		return true;
+	}
+
+	if (GET_TEAM(getTeam()).isVassal(eTeam))
+	{
+		return true;
+	}
+
+	if (GET_TEAM(eTeam).isDefensivePact(getTeam()))
+	{
+		return true;
+	}
+
+	return false;
+}
+
+
 bool CvPlot::isEnemyCity(const CvUnit& kUnit) const
 {
 	CvCity* pCity = getPlotCity();
@@ -3951,7 +4008,7 @@ int CvPlot::getNumDefenders(PlayerTypes ePlayer) const
 
 int CvPlot::getNumVisibleEnemyDefenders(const CvUnit* pUnit) const
 {
-	return plotCount(PUF_canDefendEnemy, pUnit->getOwnerINLINE(), pUnit->isAlwaysHostile(this), NO_PLAYER, NO_TEAM, PUF_isVisible, pUnit->getOwnerINLINE());
+	return plotCount(PUF_canDefendAgainstEnemy, pUnit->getOwnerINLINE(), pUnit->isAlwaysHostile(this), NO_PLAYER, NO_TEAM, PUF_isVisible, pUnit->getOwnerINLINE());
 }
 
 
@@ -4153,7 +4210,7 @@ bool CvPlot::isTradeNetwork(TeamTypes eTeam) const
 {
 	FAssertMsg(eTeam != NO_TEAM, "eTeam is not assigned a valid value");
 
-	if (atWar(eTeam, getTeam()))
+	if (atWar(eTeam, getTeam()) && !GET_PLAYER(GET_TEAM(eTeam).getLeaderID()).isHasBuildingEffect((BuildingTypes)SALSAL_BUDDHA) && (getOwner() == NO_PLAYER || !GET_PLAYER(getOwner()).isHasBuildingEffect((BuildingTypes)SALSAL_BUDDHA)))
 	{
 		return false;
 	}
@@ -4184,7 +4241,7 @@ bool CvPlot::isTradeNetworkConnected(const CvPlot* pPlot, TeamTypes eTeam) const
 {
 	FAssertMsg(eTeam != NO_TEAM, "eTeam is not assigned a valid value");
 
-	if (atWar(eTeam, getTeam()) || atWar(eTeam, pPlot->getTeam()))
+	if ((atWar(eTeam, getTeam()) || atWar(eTeam, pPlot->getTeam())) && !GET_PLAYER(GET_TEAM(eTeam).getLeaderID()).isHasBuildingEffect((BuildingTypes)SALSAL_BUDDHA) && (getOwner() == NO_PLAYER || !GET_PLAYER(getOwner()).isHasBuildingEffect((BuildingTypes)SALSAL_BUDDHA)))
 	{
 		return false;
 	}
@@ -4348,13 +4405,22 @@ bool CvPlot::at(int iX, int iY) const
 #define MIN_LONGITUDE		-180
 #define MAX_LONGITUDE		180
 
-int CvPlot::calculateMinutes(int iPlotIndex, int iPlotCount, bool bWrap, int iDegreeMin, int iDegreeMax) const
+int CvPlot::calculateMinutes(int iPlotIndex, int iPlotCount, bool bWrap, int iDegreeMin, int iDegreeMax, int iZero) const
 {
 	if (!bWrap)
 	{
 		iPlotCount--;
+
+		if (iZero > 0)
+		{
+			return (iPlotIndex - iZero) * (iPlotIndex < iZero ? abs(iDegreeMin) : abs(iDegreeMax)) * MINUTES_PER_DEGREE / (iPlotIndex < iZero ? iZero : iPlotCount - iZero);
+		}
 	}
-	return iPlotIndex * (iDegreeMax - iDegreeMin) * MINUTES_PER_DEGREE / iPlotCount + iDegreeMin * MINUTES_PER_DEGREE;
+
+	int iOffset = iPlotCount / 2 - iZero;
+	int iAdjustedIndex = (iPlotIndex + iOffset) % iPlotCount;
+
+	return iAdjustedIndex * (iDegreeMax - iDegreeMin) * MINUTES_PER_DEGREE / iPlotCount + iDegreeMin * MINUTES_PER_DEGREE;
 }
 
 int CvPlot::getLongitudeMinutes() const
@@ -4362,17 +4428,17 @@ int CvPlot::getLongitudeMinutes() const
 	if (GC.getMapINLINE().isWrapXINLINE())
 	{
 		// normal and toroidal
-		return calculateMinutes(getX_INLINE(), GC.getMapINLINE().getGridWidthINLINE(), true, MIN_LONGITUDE, MAX_LONGITUDE);
+		return calculateMinutes(getX_INLINE(), GC.getMapINLINE().getGridWidthINLINE(), true, MIN_LONGITUDE, MAX_LONGITUDE, GC.getMapINLINE().getPrimeMeridian());
 	}
 	else if (!GC.getMapINLINE().isWrapYINLINE())
 	{
 		// flat
-		return calculateMinutes(getX_INLINE(), GC.getMapINLINE().getGridWidthINLINE(), false, MIN_LONGITUDE, MAX_LONGITUDE);
+		return calculateMinutes(getX_INLINE(), GC.getMapINLINE().getGridWidthINLINE(), false, MIN_LONGITUDE, MAX_LONGITUDE, GC.getMapINLINE().getPrimeMeridian());
 	}
 	else
 	{
 		// tilted axis
-		return calculateMinutes(getY_INLINE(), GC.getMapINLINE().getGridHeightINLINE(), true, MIN_LONGITUDE, MAX_LONGITUDE);
+		return calculateMinutes(getY_INLINE(), GC.getMapINLINE().getGridHeightINLINE(), true, MIN_LONGITUDE, MAX_LONGITUDE, GC.getMapINLINE().getPrimeMeridian());
 	}
 }
 
@@ -4381,17 +4447,17 @@ int CvPlot::getLatitudeMinutes() const
 	if (GC.getMapINLINE().isWrapXINLINE())
 	{
 		// normal and toroidal
-		return calculateMinutes(getY_INLINE(), GC.getMapINLINE().getGridHeightINLINE(), GC.getMapINLINE().isWrapYINLINE(), GC.getMapINLINE().getBottomLatitude(), GC.getMapINLINE().getTopLatitude());
+		return calculateMinutes(getY_INLINE(), GC.getMapINLINE().getGridHeightINLINE(), GC.getMapINLINE().isWrapYINLINE(), GC.getMapINLINE().getBottomLatitude(), GC.getMapINLINE().getTopLatitude(), GC.getMapINLINE().getEquator());
 	}
 	else if (!GC.getMapINLINE().isWrapYINLINE())
 	{
 		// flat
-		return calculateMinutes(getY_INLINE(), GC.getMapINLINE().getGridHeightINLINE(), false, GC.getMapINLINE().getBottomLatitude(), GC.getMapINLINE().getTopLatitude());
+		return calculateMinutes(getY_INLINE(), GC.getMapINLINE().getGridHeightINLINE(), false, GC.getMapINLINE().getBottomLatitude(), GC.getMapINLINE().getTopLatitude(), GC.getMapINLINE().getEquator());
 	}
 	else
 	{
 		// tilted axis
-		return calculateMinutes(getX_INLINE(), GC.getMapINLINE().getGridWidthINLINE(), false, GC.getMapINLINE().getBottomLatitude(), GC.getMapINLINE().getTopLatitude());
+		return calculateMinutes(getX_INLINE(), GC.getMapINLINE().getGridWidthINLINE(), false, GC.getMapINLINE().getBottomLatitude(), GC.getMapINLINE().getTopLatitude(), GC.getMapINLINE().getEquator());
 	}
 }
 
@@ -5517,7 +5583,7 @@ void CvPlot::setOwner(PlayerTypes eNewValue, bool bCheckUnits, bool bUpdatePlotG
 		{
 			if (getImprovementType() == (ImprovementTypes)GC.getInfoTypeForString("IMPROVEMENT_SLAVE_PLANTATION"))
 			{
-				if (!GET_PLAYER(eNewValue).isColonialSlavery())
+				if (!GET_PLAYER(eNewValue).canUseSlaves())
 				{
 					setImprovementType((ImprovementTypes)GC.getInfoTypeForString("IMPROVEMENT_PLANTATION"));
 				}
@@ -6225,7 +6291,10 @@ void CvPlot::setImprovementType(ImprovementTypes eNewValue)
 		CvCity* pWorkingCity = getWorkingCity();
 		if (NULL != pWorkingCity)
 		{
-			//pWorkingCity->updateWorkedImprovement(eOldImprovement, eNewValue);
+			if (pWorkingCity->isWorkingPlot(this))
+			{
+				pWorkingCity->updateWorkedImprovement(eOldImprovement, eNewValue);
+			}
 
 			if ((NO_IMPROVEMENT != eNewValue && pWorkingCity->getImprovementFreeSpecialists(eNewValue) > 0)	||
 				(NO_IMPROVEMENT != eOldImprovement && pWorkingCity->getImprovementFreeSpecialists(eOldImprovement) > 0))
@@ -6656,7 +6725,16 @@ int CvPlot::calculateNatureYield(YieldTypes eYield, TeamTypes eTeam, bool bIgnor
 	if (isPeak())
 	{
 		if (eTeam == INCA)
-			return 0 + GC.getYieldInfo(eYield).getLakeChange() + GC.getYieldInfo(eYield).getLakeChange() + GC.getYieldInfo(eYield).getHillsChange() + GC.getYieldInfo(eYield).getLakeChange();
+		{
+			if (eYield == YIELD_FOOD) 
+			{
+				return 2;
+			}
+			if (eYield == YIELD_PRODUCTION)
+			{
+				return 1;
+			}
+		}
 		else
 			return 0;
 	}
@@ -6765,6 +6843,13 @@ int CvPlot::calculateImprovementYieldChange(ImprovementTypes eImprovement, Yield
 		iYield += GC.getImprovementInfo(eImprovement).getHillsYieldChange(eYield);
 	}
 
+	// Leoreth
+	int iCoastalYieldChange = GC.getImprovementInfo(eImprovement).getCoastalYieldChange(eYield);
+	if (iCoastalYieldChange != 0 && isCoastalLand())
+	{
+		iYield += iCoastalYieldChange;
+	}
+
 	if ((bOptimal) ? true : isIrrigationAvailable())
 	{
 		iYield += GC.getImprovementInfo(eImprovement).getIrrigatedYieldChange(eYield);
@@ -6805,6 +6890,7 @@ int CvPlot::calculateImprovementYieldChange(ImprovementTypes eImprovement, Yield
 	{
 		iYield += GET_PLAYER(ePlayer).getImprovementYieldChange(eImprovement, eYield);
 		iYield += GET_TEAM(GET_PLAYER(ePlayer).getTeam()).getImprovementYieldChange(eImprovement, eYield);
+		if (!isWater() && !isPeak()) iYield -= GET_PLAYER(ePlayer).getUnimprovedTileYield(eYield);
 	}
 
 	if (ePlayer != NO_PLAYER)
@@ -6876,6 +6962,26 @@ int CvPlot::calculateYield(YieldTypes eYield, bool bDisplay) const
 	}
 
 	iYield = calculateNatureYield(eYield, ((ePlayer != NO_PLAYER) ? GET_PLAYER(ePlayer).getTeam() : NO_TEAM));
+	
+	// Leoreth + Merijn: Burj Khalifa effect
+	if (ePlayer != NO_PLAYER)
+	{
+		if (getTerrainType() == TERRAIN_DESERT)
+		{
+			if (eYield == YIELD_FOOD || eYield == YIELD_COMMERCE)
+			{
+				pWorkingCity = getWorkingCity();
+				
+				if (pWorkingCity != NULL)
+				{
+					if (pWorkingCity->isHasBuildingEffect((BuildingTypes)BURJ_KHALIFA))
+					{
+						iYield = std::max(2, iYield);;
+					}
+				}
+			}
+		}
+	}
 
 	if (eImprovement != NO_IMPROVEMENT)
 	{
@@ -6957,6 +7063,13 @@ int CvPlot::calculateYield(YieldTypes eYield, bool bDisplay) const
 				}
 			}
 		}
+
+		// Leoreth: unimproved land tiles by civic effect
+		// yield is subtracted again in calculateImprovementYieldChange()
+		if (!isWater() && !isImpassable())
+		{
+			iYield += GET_PLAYER(ePlayer).getUnimprovedTileYield(eYield);
+		}
 	}
 
 	if (bCity)
@@ -7008,13 +7121,39 @@ int CvPlot::calculateYield(YieldTypes eYield, bool bDisplay) const
 			}
 		}
 
+		// Leoreth: Temple of Kukulkan effect
+		if (getFeatureType() == FEATURE_RAINFOREST && eYield == YIELD_FOOD)
+		{
+			pWorkingCity = getWorkingCity();
+			
+			if (pWorkingCity != NULL)
+			{
+				if (pWorkingCity->isHasBuildingEffect((BuildingTypes)TEMPLE_OF_KUKULKAN))
+				{
+					if (!bDisplay || pWorkingCity->isRevealed(GC.getGameINLINE().getActiveTeam(), false))
+					{
+						iYield += 1;
+					}
+				}
+			}
+		}
+
+		// Leoreth: University of Sankore effect
+		if (GET_PLAYER(ePlayer).isHasBuildingEffect((BuildingTypes)UNIVERSITY_OF_SANKORE))
+		{
+			if (getTerrainType() == TERRAIN_DESERT && eYield == YIELD_COMMERCE)
+			{
+				iYield += 1;
+			}
+		}
+
 		//Rhye - start UP (not shown in debug mode)
 		if (ePlayer == MALI)
 		{
 			//if (getYield((YieldTypes)2) == 1)
-			if (!isWater())
+			if (!isWater() && eYield == YIELD_COMMERCE)
 			{
-				iYield += GC.getBonusInfo((BonusTypes)21).getYieldChange(eYield); //+1 commerce, same as fur
+				iYield += 1;
 			}
 		}
 		//Rhye - end UP
@@ -7022,9 +7161,9 @@ int CvPlot::calculateYield(YieldTypes eYield, bool bDisplay) const
 		// Leoreth: Tamil UP
 		if (ePlayer == TAMILS)
 		{
-			if (isWater())
+			if (isWater() && eYield == YIELD_COMMERCE)
 			{
-				iYield += GC.getBonusInfo((BonusTypes)21).getYieldChange(eYield);
+				iYield += 1;
 			}
 		}
 
@@ -7131,7 +7270,7 @@ void CvPlot::updateYield()
 						gDLL->getInterfaceIFace()->addMessage(GC.getGame().getActivePlayer(), true, GC.getEVENT_MESSAGE_TIME(), gDLL->getText("TXT_KEY_OVERFLOW", pWorkingCity->getX(), pWorkingCity->getY(), L"CvPlot::updateYield()"), "", MESSAGE_TYPE_MAJOR_EVENT, ARTFILEMGR.getInterfaceArtInfo("WORLDBUILDER_CITY_EDIT")->getPath(), (ColorTypes)GC.getInfoTypeForString("COLOR_RED"), getX_INLINE(), getY_INLINE(), true, true);
 						GC.getGame().setAIAutoPlay(0);
 						GC.getGame().setAIAutoPlayCatapult(0);
-						gDLL->getEngineIFace()->AutoSave(true);
+						gDLL->getEngineIFace()->AutoSave();
 					}
 				}
 
@@ -11269,6 +11408,14 @@ int CvPlot::getSpreadFactor(ReligionTypes eReligion) const
 	
 	if (eReligion == ORTHODOXY)
 	{
+		if (!GC.getGameINLINE().isReligionFounded(ISLAM))
+		{
+			if (getSpreadFactor(ISLAM) == REGION_SPREAD_CORE)
+			{
+				return REGION_SPREAD_CORE;
+			}
+		}
+
 		if (!GC.getGameINLINE().isReligionFounded(CATHOLICISM))
 		{
 			if (iSpreadFactor < getSpreadFactor(CATHOLICISM))
@@ -11333,7 +11480,12 @@ int CvPlot::calculateCultureCost() const
 // Leoreth
 bool CvPlot::canUseSlave(PlayerTypes ePlayer) const
 {
+	if (GET_PLAYER(ePlayer).isMinorCiv() || GET_PLAYER(ePlayer).isBarbarian()) return false;
+
 	if (GET_PLAYER(ePlayer).getNumCities() == 0) return false;
+
+	if (GET_PLAYER(ePlayer).getCapitalCity() == NULL) return false;
+
 	int rid = GET_PLAYER(ePlayer).getCapitalCity()->getRegionID();
 
 	switch (getRegionID())
@@ -11376,4 +11528,9 @@ void CvPlot::changeReligionInfluence(ReligionTypes eReligion, int iChange)
 bool CvPlot::canSpread(ReligionTypes eReligion) const
 {
 	return getReligionInfluence(eReligion) > 0;
+}
+
+bool CvPlot::isPlains() const
+{
+	return isFlatlands() && (getFeatureType() == NO_FEATURE || GC.getFeatureInfo(getFeatureType()).getDefenseModifier() <= 0) && !isCity(true);
 }

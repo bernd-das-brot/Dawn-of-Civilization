@@ -52,6 +52,15 @@
 			<Button>,Art/Interface/Buttons/Builds/BuildFarm.dds,Art/Interface/Buttons/Actions_Builds_LeaderHeads_Specialists_Atlas.dds,3,7</Button>
 		</ImprovementArtInfo>
 		<ImprovementArtInfo>
+			<Type>ART_DEF_IMPROVEMENT_PADDY_FIELD</Type>
+			<bExtraAnimations>1</bExtraAnimations>
+			<fScale>1.0</fScale>
+			<fInterfaceScale>1.0</fInterfaceScale>
+			<NIF>Art/Structures/Improvements/Farm/an_eu_farm01.nif</NIF>
+			<KFM>Art/Structures/Improvements/Farm/an_eu_farm01.kfm</KFM>
+			<Button>Art/Interface/Buttons/Builds/PaddyField.dds</Button>
+		</ImprovementArtInfo>
+		<ImprovementArtInfo>
 			<Type>ART_DEF_IMPROVEMENT_FISHING_BOATS</Type>
 			<bExtraAnimations>0</bExtraAnimations>
 			<fScale>1.0</fScale>
@@ -239,6 +248,15 @@
 			<NIF>Art/Structures/Improvements/Marine_Reserve/Nets.nif</NIF>
 			<KFM>Art/Structures/Improvements/Marine_Reserve/Nets.kfm</KFM>
 			<Button>Art/Interface/Buttons/Builds/BuildMarineReserve.dds</Button>
+		</ImprovementArtInfo>
+		<ImprovementArtInfo>
+			<Type>ART_DEF_IMPROVEMENT_SOLAR_COLLECTOR</Type>
+			<bExtraAnimations>0</bExtraAnimations>
+			<fScale>1.2</fScale>
+			<fInterfaceScale>0.7</fInterfaceScale>
+			<NIF>Art/Structures/Improvements/Solar_Collector/solarplant.nif</NIF>
+			<KFM/>
+			<Button>Art/Structures/Improvements/Solar_Collector/Button_SolarPlant.dds</Button>
 		</ImprovementArtInfo>
 	</ImprovementArtInfos>
 </Civ4ArtDefines>

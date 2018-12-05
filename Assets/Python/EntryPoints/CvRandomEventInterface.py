@@ -18,10 +18,10 @@ import Religions #Leoreth
 import PyHelpers #Leoreth
 import CityNameManager as cnm
 from StoredData import data
+from RFCUtils import utils
 
 gc = CyGlobalContext()
 localText = CyTranslator()
-utils = RFCUtils.RFCUtils()
 rel = Religions.Religions()
 localText = CyTranslator()
 
@@ -430,7 +430,7 @@ def doSpicy2(argsList):
 	plot = gc.getMap().plot(kTriggeredData.iPlotX, kTriggeredData.iPlotY)
 	
 	if not plot.isNone():
-		plot.setImprovementType(CvUtil.findInfoTypeNum(gc.getImprovementInfo,gc.getNumImprovementInfos(),'IMPROVEMENT_PLANTATION'))
+		plot.setImprovementType(CvUtil.findInfoTypeNum(gc.getImprovementInfo,gc.getNumImprovementInfos(),'IMPROVEMENT_ORCHARD'))
 	
 	return 1
 
@@ -1320,7 +1320,7 @@ def doWiningMonks2(argsList):
 	plot = gc.getMap().plot(kTriggeredData.iPlotX, kTriggeredData.iPlotY)
 	
 	if not plot.isNone():
-		plot.setImprovementType(CvUtil.findInfoTypeNum(gc.getImprovementInfo,gc.getNumImprovementInfos(),'IMPROVEMENT_WINERY'))
+		plot.setImprovementType(CvUtil.findInfoTypeNum(gc.getImprovementInfo,gc.getNumImprovementInfos(),'IMPROVEMENT_ORCHARD'))
 	
 	return 1
 
@@ -1328,7 +1328,7 @@ def getHelpWiningMonks2(argsList):
 	iEvent = argsList[0]
 	kTriggeredData = argsList[1]
 	
-	iImp = CvUtil.findInfoTypeNum(gc.getImprovementInfo,gc.getNumImprovementInfos(),'IMPROVEMENT_WINERY')
+	iImp = CvUtil.findInfoTypeNum(gc.getImprovementInfo,gc.getNumImprovementInfos(),'IMPROVEMENT_ORCHARD')
 	szHelp = localText.getText("TXT_KEY_EVENT_IMPROVEMENT_GROWTH", ( gc.getImprovementInfo(iImp).getTextKey(), ))
 
 	return szHelp
@@ -1478,7 +1478,7 @@ def getHelpInterstate(argsList):
 	iEvent = argsList[0]
 	kTriggeredData = argsList[1]
 	
-	szHelp = localText.getText("TXT_KEY_UNIT_MOVEMENT", (1, gc.getRouteInfo(CvUtil.findInfoTypeNum(gc.getRouteInfo,gc.getNumRouteInfos(),'ROUTE_ROAD')).getTextKey()))	
+	szHelp = localText.getText("TXT_KEY_EVENT_INTERSTATE_EFFECT", ())	
 
 	return szHelp
 
@@ -1489,8 +1489,13 @@ def applyInterstate(argsList):
 	team = gc.getTeam(player.getTeam())
 	
 	iRoad = CvUtil.findInfoTypeNum(gc.getRouteInfo,gc.getNumRouteInfos(),'ROUTE_ROAD')
-						
-	team.changeRouteChange(iRoad, -5)
+	iRomanRoad = CvUtil.findInfoTypeNum(gc.getRouteInfo,gc.getNumRouteInfos(),'ROUTE_ROMAN_ROAD')
+	iHighway = CvUtil.findInfoTypeNum(gc.getRouteInfo, gc.getNumRouteInfos(), 'ROUTE_HIGHWAY')
+	
+	for i in range(gc.getMap().numPlots()):
+		plot = gc.getMap().plotByIndex(i)
+		if plot.isFlatlands() and plot.getOwner() == player.getID() and plot.getRouteType() in [iRoad, iRomanRoad]:
+			plot.setRouteType(iHighway)
 	
 ######## EARTH DAY ###########
 
@@ -2393,7 +2398,7 @@ def canTriggerSecurityTax(argsList):
 	player = gc.getPlayer(kTriggeredData.ePlayer)
 	
 	iWalls = CvUtil.findInfoTypeNum(gc.getBuildingClassInfo, gc.getNumBuildingClassInfos(), 'BUILDINGCLASS_WALLS')
-	if player.getNumCities() > player.getBuildingClassCount(iWalls):
+	if player.getNumCities() > 0 and player.getNumCities() > player.getBuildingClassCount(iWalls):
 		return false
 	
 	return true
@@ -2547,12 +2552,12 @@ def canTriggerHarbormasterDone(argsList):
 	trigger = gc.getEventTriggerInfo(kTriggeredData.eTrigger)
 	player = gc.getPlayer(kTriggeredData.ePlayer)
 	
-	iHarbor = CvUtil.findInfoTypeNum(gc.getBuildingClassInfo, gc.getNumBuildingClassInfos(), 'BUILDINGCLASS_HARBOR')
+	iWharf = CvUtil.findInfoTypeNum(gc.getBuildingClassInfo, gc.getNumBuildingClassInfos(), 'BUILDINGCLASS_WHARF')
 	#Rhye - start
 	#iHarborsRequired = gc.getWorldInfo(gc.getMap().getWorldSize()).getDefaultPlayers()
 	iHarborsRequired = 7
 	#Rhye - end
-	if iHarborsRequired > player.getBuildingClassCount(iHarbor):
+	if iHarborsRequired > player.getBuildingClassCount(iWharf):
 		return false
 
 	iCaravel = CvUtil.findInfoTypeNum(gc.getUnitClassInfo, gc.getNumUnitClassInfos(), 'UNITCLASS_CARAVEL')
@@ -2916,7 +2921,7 @@ def canTriggerSportsLeagueDone(argsList):
 	trigger = gc.getEventTriggerInfo(kTriggeredData.eTrigger)
 	player = gc.getPlayer(kTriggeredData.ePlayer)
 		
-	iCastle = CvUtil.findInfoTypeNum(gc.getBuildingClassInfo, gc.getNumBuildingClassInfos(), 'BUILDINGCLASS_AMPHITHEATRE')
+	iCastle = CvUtil.findInfoTypeNum(gc.getBuildingClassInfo, gc.getNumBuildingClassInfos(), 'BUILDINGCLASS_ARENA')
 
 	#Rhye - start
 	#iBuildingsRequired = gc.getWorldInfo(gc.getMap().getWorldSize()).getDefaultPlayers()
@@ -3650,7 +3655,7 @@ def canTriggerGunsButterDone(argsList):
 	#iNumUnits = gc.getWorldInfo(gc.getMap().getWorldSize()).getDefaultPlayers() + 1
 	iNumUnits = 7 + 1
 	#Rhye - end
-	iUnitClassType = CvUtil.findInfoTypeNum(gc.getUnitClassInfo, gc.getNumUnitClassInfos(), 'UNITCLASS_MUSKETMAN')
+	iUnitClassType = CvUtil.findInfoTypeNum(gc.getUnitClassInfo, gc.getNumUnitClassInfos(), 'UNITCLASS_ARQUEBUSIER')
 
 	if player.getUnitClassCount(iUnitClassType) < iNumUnits:
 		return false
@@ -4594,3 +4599,27 @@ def doReformation3(argsList):
 	for iTargetCiv in range(iNumPlayers):
 		if data.players[iTargetCiv].iReformationDecision == 0:
 			gc.getTeam(iPlayer).declareWar(iTargetCiv, True, WarPlanTypes.WARPLAN_DOGPILE)
+			
+def getNuclearReactorLeak1HelpText(argsList):
+	return localText.getText("TXT_KEY_EVENT_NUCLEAR_REACTOR_LEAK_1_HELP", ())
+	
+def getNuclearReactorLeak2HelpText(argsList):
+	return localText.getText("TXT_KEY_EVENT_NUCLEAR_REACTOR_LEAK_2_HELP", ())
+	
+def getNuclearReactorLeak3HelpText(argsList):
+	return localText.getText("TXT_KEY_EVENT_NUCLEAR_REACTOR_LEAK_3_HELP", ())
+			
+def doNuclearReactorLeak3(argsList):
+	kTriggeredData = argsList[1]
+	pPlayer = gc.getPlayer(kTriggeredData.ePlayer)
+	pTeam = gc.getTeam(pPlayer.getTeam())
+	
+	pTeam.changeObsoleteBuildingCount(gc.getInfoTypeForString("BUILDING_NUCLEAR_PLANT"), 1)
+	
+def doNuclearMeltdown(argsList):
+	kTriggeredData = argsList[1]
+	iPlayer = kTriggeredData.ePlayer
+	iCity = kTriggeredData.iCityId
+	
+	pCity = gc.getPlayer(iPlayer).getCity(iCity)
+	pCity.triggerMeltdown(gc.getInfoTypeForString("BUILDING_NUCLEAR_PLANT"))

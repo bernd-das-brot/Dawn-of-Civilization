@@ -394,7 +394,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -933,7 +933,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -1494,7 +1494,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -2035,7 +2035,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -2591,7 +2591,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -3132,7 +3132,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -3682,7 +3682,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -4232,7 +4232,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -4786,7 +4786,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -5327,7 +5327,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -5872,7 +5872,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -6426,7 +6426,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -6983,7 +6983,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -7536,7 +7536,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -8086,7 +8086,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -8640,7 +8640,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -9079,7 +9079,7 @@
 					<iFlavor>6</iFlavor>
 				</Flavor>
 				<Flavor>
-					<FlavorType>FLAVOR_CIVICS</FlavorType>
+					<FlavorType>FLAVOR_ADMIN</FlavorType>
 					<iFlavor>4</iFlavor>
 				</Flavor>
 			</Flavors>
@@ -9192,7 +9192,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -9708,7 +9708,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -10258,7 +10258,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -10694,7 +10694,7 @@
 					<iFlavor>5</iFlavor>
 				</Flavor>
 				<Flavor>
-					<FlavorType>FLAVOR_CIVICS</FlavorType>
+					<FlavorType>FLAVOR_ADMIN</FlavorType>
 					<iFlavor>4</iFlavor>
 				</Flavor>
 			</Flavors>
@@ -10807,7 +10807,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -11365,7 +11365,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -11921,7 +11921,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -12468,7 +12468,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -13016,7 +13016,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -13577,7 +13577,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -14022,7 +14022,7 @@
 					<iFlavor>2</iFlavor>
 				</Flavor>
 				<Flavor>
-					<FlavorType>FLAVOR_CIVICS</FlavorType>
+					<FlavorType>FLAVOR_ADMIN</FlavorType>
 					<iFlavor>3</iFlavor>
 				</Flavor>
 			</Flavors>
@@ -14135,7 +14135,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -14680,7 +14680,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -15225,7 +15225,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -15666,7 +15666,7 @@
 					<iFlavor>2</iFlavor>
 				</Flavor>
 				<Flavor>
-					<FlavorType>FLAVOR_CIVICS</FlavorType>
+					<FlavorType>FLAVOR_ADMIN</FlavorType>
 					<iFlavor>3</iFlavor>
 				</Flavor>
 			</Flavors>
@@ -15779,7 +15779,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -16333,7 +16333,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -16874,7 +16874,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -17428,7 +17428,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -17978,7 +17978,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -18538,7 +18538,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -19086,7 +19086,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -19640,7 +19640,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -20085,7 +20085,7 @@
 					<iFlavor>5</iFlavor>
 				</Flavor>
 				<Flavor>
-					<FlavorType>FLAVOR_CIVICS</FlavorType>
+					<FlavorType>FLAVOR_ADMIN</FlavorType>
 					<iFlavor>4</iFlavor>
 				</Flavor>
 			</Flavors>
@@ -20198,7 +20198,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -20752,7 +20752,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -21313,7 +21313,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -21661,7 +21661,7 @@
 			<Description>TXT_KEY_LEADER_RAMESSES</Description>
 			<Civilopedia>TXT_KEY_LEADER_RAMESSES_II_PEDIA</Civilopedia>
 			<ArtDefineTag>ART_DEF_LEADER_RAMESSES</ArtDefineTag>
-			<iWonderConstructRand>50</iWonderConstructRand>
+			<iWonderConstructRand>70</iWonderConstructRand>
 			<iBaseAttitude>0</iBaseAttitude>
 			<iBasePeaceWeight>6</iBasePeaceWeight>
 			<iPeaceWeightRand>3</iPeaceWeightRand>
@@ -21854,7 +21854,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -22093,7 +22093,16 @@
 					<iWeightModifier>100</iWeightModifier>
 				</UnitAIWeightModifier>
 			</UnitAIWeightModifiers>
-			<ImprovementWeightModifiers/>
+			<ImprovementWeightModifiers>
+				<ImprovementWeightModifier>
+					<ImprovementType>IMPROVEMENT_FARM</ImprovementType>
+					<iWeightModifier>20</iWeightModifier>
+				</ImprovementWeightModifier>
+				<ImprovementWeightModifier>
+					<ImprovementType>IMPROVEMENT_COTTAGE</ImprovementType>
+					<iWeightModifier>-20</iWeightModifier>
+				</ImprovementWeightModifier>
+			</ImprovementWeightModifiers>
 			<DiplomacyIntroMusicPeace>
 				<DiploMusicPeaceEra>
 					<EraType>ERA_ANCIENT</EraType>
@@ -22402,7 +22411,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -22950,7 +22959,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -23495,7 +23504,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -24047,7 +24056,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -24592,7 +24601,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -25153,7 +25162,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -25725,7 +25734,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -26290,7 +26299,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -26853,7 +26862,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -27415,7 +27424,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -27983,7 +27992,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -28560,7 +28569,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -29130,7 +29139,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -29691,7 +29700,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -30247,7 +30256,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -30815,7 +30824,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -31360,7 +31369,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -31930,7 +31939,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -32475,7 +32484,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -32898,7 +32907,7 @@
 			<VassalRefuseAttitudeThreshold>ATTITUDE_PLEASED</VassalRefuseAttitudeThreshold>
 			<iVassalPowerModifier>50</iVassalPowerModifier>
 			<iFreedomAppreciation>10</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_VASSALAGE</FavoriteCivic>
+			<FavoriteCivic>CIVIC_MONARCHY</FavoriteCivic>
 			<FavoriteReligion>RELIGION_BUDDHISM</FavoriteReligion>
 			<Traits/>
 			<Flavors>
@@ -33020,7 +33029,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -33565,7 +33574,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -34122,7 +34131,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -34667,7 +34676,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -35212,7 +35221,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -35766,7 +35775,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -36314,7 +36323,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -36759,7 +36768,7 @@
 					<iFlavor>2</iFlavor>
 				</Flavor>
 				<Flavor>
-					<FlavorType>FLAVOR_CIVICS</FlavorType>
+					<FlavorType>FLAVOR_ADMIN</FlavorType>
 					<iFlavor>3</iFlavor>
 				</Flavor>
 			</Flavors>
@@ -36872,7 +36881,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -37428,7 +37437,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -37978,7 +37987,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -38526,7 +38535,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -39078,7 +39087,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -39626,7 +39635,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -40176,7 +40185,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -40696,7 +40705,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -40958,6 +40967,10 @@
 					<EraType>ERA_GLOBAL</EraType>
 					<DiploScriptId>AS2D_DIPLO_ABBAS</DiploScriptId>
 				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_DIGITAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_ABBAS</DiploScriptId>
+				</DiploMusicPeaceEra>
 			</DiplomacyMusicPeace>
 			<DiplomacyIntroMusicWar>
 				<DiploMusicWarEra>
@@ -40972,15 +40985,24 @@
 				<DiploMusicWarEra>
 					<EraType>ERA_RENAISSANCE</EraType>
 				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_INDUSTRIAL</EraType>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_GLOBAL</EraType>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_DIGITAL</EraType>
+				</DiploMusicWarEra>
 			</DiplomacyIntroMusicWar>
 			<DiplomacyMusicWar>
 				<DiploMusicWarEra>
 					<EraType>ERA_ANCIENT</EraType>
-					<DiploScriptId>AS2D_DIPLO_WARDRUMS_MIDDLE</DiploScriptId>
+					<DiploScriptId>AS2D_DIPLO_WARDRUMS_EARLY</DiploScriptId>
 				</DiploMusicWarEra>
 				<DiploMusicWarEra>
 					<EraType>ERA_CLASSICAL</EraType>
-					<DiploScriptId>AS2D_DIPLO_WARDRUMS_MIDDLE</DiploScriptId>
+					<DiploScriptId>AS2D_DIPLO_WARDRUMS_EARLY</DiploScriptId>
 				</DiploMusicWarEra>
 				<DiploMusicWarEra>
 					<EraType>ERA_MEDIEVAL</EraType>
@@ -40989,6 +41011,18 @@
 				<DiploMusicWarEra>
 					<EraType>ERA_RENAISSANCE</EraType>
 					<DiploScriptId>AS2D_DIPLO_WARDRUMS_MIDDLE</DiploScriptId>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_INDUSTRIAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_WARDRUMS_LATE</DiploScriptId>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_GLOBAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_WARDRUMS_LATE</DiploScriptId>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_DIGITAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_WARDRUMS_LATE</DiploScriptId>
 				</DiploMusicWarEra>
 			</DiplomacyMusicWar>
 		</LeaderHeadInfo>
@@ -41190,7 +41224,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -41735,7 +41769,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -42276,7 +42310,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -42822,7 +42856,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -43376,7 +43410,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -43904,7 +43938,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -44451,7 +44485,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -44824,82 +44858,82 @@
 			</DiplomacyMusicWar>
 		</LeaderHeadInfo>
 		<LeaderHeadInfo>
-			<Type>LEADER_ALP</Type>
+			<Type>LEADER_ALP_ARSLAN</Type>
 			<Description>TXT_KEY_LEADER_ALP_ARSLAN</Description>
 			<Civilopedia>TXT_KEY_LEADER_ALP_ARSLAN_PEDIA</Civilopedia>
-			<ArtDefineTag>ART_DEF_LEADER_BARBARIAN</ArtDefineTag>
+			<ArtDefineTag>ART_DEF_LEADER_ALP_ARSLAN</ArtDefineTag>
 			<iWonderConstructRand>20</iWonderConstructRand>
 			<iBaseAttitude>0</iBaseAttitude>
-			<iBasePeaceWeight>0</iBasePeaceWeight>
-			<iPeaceWeightRand>0</iPeaceWeightRand>
-			<iWarmongerRespect>0</iWarmongerRespect>
-			<iEspionageWeight>0</iEspionageWeight>
-			<iRefuseToTalkWarThreshold>0</iRefuseToTalkWarThreshold>
-			<iNoTechTradeThreshold>0</iNoTechTradeThreshold>
-			<iTechTradeKnownPercent>0</iTechTradeKnownPercent>
-			<iMaxGoldTradePercent>0</iMaxGoldTradePercent>
-			<iMaxGoldPerTurnTradePercent>0</iMaxGoldPerTurnTradePercent>
-			<iMaxWarRand>0</iMaxWarRand>
-			<iMaxWarNearbyPowerRatio>0</iMaxWarNearbyPowerRatio>
-			<iMaxWarDistantPowerRatio>0</iMaxWarDistantPowerRatio>
-			<iMaxWarMinAdjacentLandPercent>0</iMaxWarMinAdjacentLandPercent>
-			<iLimitedWarRand>0</iLimitedWarRand>
-			<iLimitedWarPowerRatio>0</iLimitedWarPowerRatio>
-			<iDogpileWarRand>0</iDogpileWarRand>
-			<iMakePeaceRand>0</iMakePeaceRand>
-			<iDeclareWarTradeRand>0</iDeclareWarTradeRand>
-			<iDemandRebukedSneakProb>0</iDemandRebukedSneakProb>
+			<iBasePeaceWeight>1</iBasePeaceWeight>
+			<iPeaceWeightRand>3</iPeaceWeightRand>
+			<iWarmongerRespect>2</iWarmongerRespect>
+			<iEspionageWeight>120</iEspionageWeight>
+			<iRefuseToTalkWarThreshold>8</iRefuseToTalkWarThreshold>
+			<iNoTechTradeThreshold>15</iNoTechTradeThreshold>
+			<iTechTradeKnownPercent>10</iTechTradeKnownPercent>
+			<iMaxGoldTradePercent>10</iMaxGoldTradePercent>
+			<iMaxGoldPerTurnTradePercent>10</iMaxGoldPerTurnTradePercent>
+			<iMaxWarRand>100</iMaxWarRand>
+			<iMaxWarNearbyPowerRatio>120</iMaxWarNearbyPowerRatio>
+			<iMaxWarDistantPowerRatio>60</iMaxWarDistantPowerRatio>
+			<iMaxWarMinAdjacentLandPercent>2</iMaxWarMinAdjacentLandPercent>
+			<iLimitedWarRand>60</iLimitedWarRand>
+			<iLimitedWarPowerRatio>120</iLimitedWarPowerRatio>
+			<iDogpileWarRand>50</iDogpileWarRand>
+			<iMakePeaceRand>20</iMakePeaceRand>
+			<iDeclareWarTradeRand>40</iDeclareWarTradeRand>
+			<iDemandRebukedSneakProb>20</iDemandRebukedSneakProb>
 			<iDemandRebukedWarProb>0</iDemandRebukedWarProb>
-			<iRazeCityProb>0</iRazeCityProb>
-			<iBuildUnitProb>5</iBuildUnitProb>
-			<iBaseAttackOddsChange>0</iBaseAttackOddsChange>
-			<iAttackOddsChangeRand>16</iAttackOddsChangeRand>
+			<iRazeCityProb>10</iRazeCityProb>
+			<iBuildUnitProb>40</iBuildUnitProb>
+			<iBaseAttackOddsChange>2</iBaseAttackOddsChange>
+			<iAttackOddsChangeRand>8</iAttackOddsChangeRand>
 			<iWorseRankDifferenceAttitudeChange>0</iWorseRankDifferenceAttitudeChange>
-			<iBetterRankDifferenceAttitudeChange>0</iBetterRankDifferenceAttitudeChange>
-			<iCloseBordersAttitudeChange>0</iCloseBordersAttitudeChange>
-			<iLostWarAttitudeChange>0</iLostWarAttitudeChange>
-			<iAtWarAttitudeDivisor>0</iAtWarAttitudeDivisor>
-			<iAtWarAttitudeChangeLimit>0</iAtWarAttitudeChangeLimit>
-			<iAtPeaceAttitudeDivisor>0</iAtPeaceAttitudeDivisor>
-			<iAtPeaceAttitudeChangeLimit>0</iAtPeaceAttitudeChangeLimit>
+			<iBetterRankDifferenceAttitudeChange>2</iBetterRankDifferenceAttitudeChange>
+			<iCloseBordersAttitudeChange>-2</iCloseBordersAttitudeChange>
+			<iLostWarAttitudeChange>-1</iLostWarAttitudeChange>
+			<iAtWarAttitudeDivisor>-5</iAtWarAttitudeDivisor>
+			<iAtWarAttitudeChangeLimit>5</iAtWarAttitudeChangeLimit>
+			<iAtPeaceAttitudeDivisor>50</iAtPeaceAttitudeDivisor>
+			<iAtPeaceAttitudeChangeLimit>2</iAtPeaceAttitudeChangeLimit>
 			<iSameReligionAttitudeChange>0</iSameReligionAttitudeChange>
-			<iSameReligionAttitudeDivisor>0</iSameReligionAttitudeDivisor>
-			<iSameReligionAttitudeChangeLimit>0</iSameReligionAttitudeChangeLimit>
+			<iSameReligionAttitudeDivisor>10</iSameReligionAttitudeDivisor>
+			<iSameReligionAttitudeChangeLimit>3</iSameReligionAttitudeChangeLimit>
 			<iDifferentReligionAttitudeChange>0</iDifferentReligionAttitudeChange>
-			<iDifferentReligionAttitudeDivisor>0</iDifferentReligionAttitudeDivisor>
+			<iDifferentReligionAttitudeDivisor>-10</iDifferentReligionAttitudeDivisor>
 			<iDifferentReligionAttitudeChangeLimit>0</iDifferentReligionAttitudeChangeLimit>
-			<iBonusTradeAttitudeDivisor>0</iBonusTradeAttitudeDivisor>
-			<iBonusTradeAttitudeChangeLimit>0</iBonusTradeAttitudeChangeLimit>
-			<iOpenBordersAttitudeDivisor>0</iOpenBordersAttitudeDivisor>
-			<iOpenBordersAttitudeChangeLimit>0</iOpenBordersAttitudeChangeLimit>
-			<iDefensivePactAttitudeDivisor>0</iDefensivePactAttitudeDivisor>
-			<iDefensivePactAttitudeChangeLimit>0</iDefensivePactAttitudeChangeLimit>
-			<iShareWarAttitudeChange>0</iShareWarAttitudeChange>
-			<iShareWarAttitudeDivisor>0</iShareWarAttitudeDivisor>
-			<iShareWarAttitudeChangeLimit>0</iShareWarAttitudeChangeLimit>
-			<iFavoriteCivicAttitudeChange>0</iFavoriteCivicAttitudeChange>
-			<iFavoriteCivicAttitudeDivisor>0</iFavoriteCivicAttitudeDivisor>
-			<iFavoriteCivicAttitudeChangeLimit>0</iFavoriteCivicAttitudeChangeLimit>
-			<DemandTributeAttitudeThreshold>NONE</DemandTributeAttitudeThreshold>
-			<NoGiveHelpAttitudeThreshold>NONE</NoGiveHelpAttitudeThreshold>
-			<TechRefuseAttitudeThreshold>NONE</TechRefuseAttitudeThreshold>
-			<StrategicBonusRefuseAttitudeThreshold>NONE</StrategicBonusRefuseAttitudeThreshold>
-			<HappinessBonusRefuseAttitudeThreshold>NONE</HappinessBonusRefuseAttitudeThreshold>
-			<HealthBonusRefuseAttitudeThreshold>NONE</HealthBonusRefuseAttitudeThreshold>
-			<MapRefuseAttitudeThreshold>NONE</MapRefuseAttitudeThreshold>
-			<DeclareWarRefuseAttitudeThreshold>NONE</DeclareWarRefuseAttitudeThreshold>
-			<DeclareWarThemRefuseAttitudeThreshold>NONE</DeclareWarThemRefuseAttitudeThreshold>
-			<StopTradingRefuseAttitudeThreshold>NONE</StopTradingRefuseAttitudeThreshold>
-			<StopTradingThemRefuseAttitudeThreshold>NONE</StopTradingThemRefuseAttitudeThreshold>
-			<AdoptCivicRefuseAttitudeThreshold>NONE</AdoptCivicRefuseAttitudeThreshold>
-			<ConvertReligionRefuseAttitudeThreshold>NONE</ConvertReligionRefuseAttitudeThreshold>
-			<OpenBordersRefuseAttitudeThreshold>NONE</OpenBordersRefuseAttitudeThreshold>
-			<DefensivePactRefuseAttitudeThreshold>NONE</DefensivePactRefuseAttitudeThreshold>
-			<PermanentAllianceRefuseAttitudeThreshold>NONE</PermanentAllianceRefuseAttitudeThreshold>
-			<VassalRefuseAttitudeThreshold>NONE</VassalRefuseAttitudeThreshold>
-			<iVassalPowerModifier>0</iVassalPowerModifier>
-			<iFreedomAppreciation>0</iFreedomAppreciation>
-			<FavoriteCivic>CIVIC_TRIBUTARIES</FavoriteCivic>
+			<iBonusTradeAttitudeDivisor>50</iBonusTradeAttitudeDivisor>
+			<iBonusTradeAttitudeChangeLimit>2</iBonusTradeAttitudeChangeLimit>
+			<iOpenBordersAttitudeDivisor>25</iOpenBordersAttitudeDivisor>
+			<iOpenBordersAttitudeChangeLimit>2</iOpenBordersAttitudeChangeLimit>
+			<iDefensivePactAttitudeDivisor>12</iDefensivePactAttitudeDivisor>
+			<iDefensivePactAttitudeChangeLimit>2</iDefensivePactAttitudeChangeLimit>
+			<iShareWarAttitudeChange>1</iShareWarAttitudeChange>
+			<iShareWarAttitudeDivisor>8</iShareWarAttitudeDivisor>
+			<iShareWarAttitudeChangeLimit>3</iShareWarAttitudeChangeLimit>
+			<iFavoriteCivicAttitudeChange>1</iFavoriteCivicAttitudeChange>
+			<iFavoriteCivicAttitudeDivisor>10</iFavoriteCivicAttitudeDivisor>
+			<iFavoriteCivicAttitudeChangeLimit>4</iFavoriteCivicAttitudeChangeLimit>
+			<DemandTributeAttitudeThreshold>ATTITUDE_CAUTIOUS</DemandTributeAttitudeThreshold>
+			<NoGiveHelpAttitudeThreshold>ATTITUDE_CAUTIOUS</NoGiveHelpAttitudeThreshold>
+			<TechRefuseAttitudeThreshold>ATTITUDE_ANNOYED</TechRefuseAttitudeThreshold>
+			<StrategicBonusRefuseAttitudeThreshold>ATTITUDE_ANNOYED</StrategicBonusRefuseAttitudeThreshold>
+			<HappinessBonusRefuseAttitudeThreshold>ATTITUDE_FURIOUS</HappinessBonusRefuseAttitudeThreshold>
+			<HealthBonusRefuseAttitudeThreshold>ATTITUDE_ANNOYED</HealthBonusRefuseAttitudeThreshold>
+			<MapRefuseAttitudeThreshold>ATTITUDE_PLEASED</MapRefuseAttitudeThreshold>
+			<DeclareWarRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</DeclareWarRefuseAttitudeThreshold>
+			<DeclareWarThemRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</DeclareWarThemRefuseAttitudeThreshold>
+			<StopTradingRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</StopTradingRefuseAttitudeThreshold>
+			<StopTradingThemRefuseAttitudeThreshold>ATTITUDE_ANNOYED</StopTradingThemRefuseAttitudeThreshold>
+			<AdoptCivicRefuseAttitudeThreshold>ATTITUDE_PLEASED</AdoptCivicRefuseAttitudeThreshold>
+			<ConvertReligionRefuseAttitudeThreshold>ATTITUDE_PLEASED</ConvertReligionRefuseAttitudeThreshold>
+			<OpenBordersRefuseAttitudeThreshold>ATTITUDE_ANNOYED</OpenBordersRefuseAttitudeThreshold>
+			<DefensivePactRefuseAttitudeThreshold>ATTITUDE_PLEASED</DefensivePactRefuseAttitudeThreshold>
+			<PermanentAllianceRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</PermanentAllianceRefuseAttitudeThreshold>
+			<VassalRefuseAttitudeThreshold>ATTITUDE_PLEASED</VassalRefuseAttitudeThreshold>
+			<iVassalPowerModifier>30</iVassalPowerModifier>
+			<iFreedomAppreciation>10</iFreedomAppreciation>
+			<FavoriteCivic>CIVIC_CONQUEST</FavoriteCivic>
 			<FavoriteReligion>RELIGION_ISLAM</FavoriteReligion>
 			<Traits/>
 			<Flavors>
@@ -44908,26 +44942,351 @@
 					<iFlavor>5</iFlavor>
 				</Flavor>
 				<Flavor>
-					<FlavorType>FLAVOR_SCIENCE</FlavorType>
-					<iFlavor>5</iFlavor>
+					<FlavorType>FLAVOR_ADMIN</FlavorType>
+					<iFlavor>2</iFlavor>
 				</Flavor>
 			</Flavors>
-			<ContactRands/>
-			<ContactDelays/>
-			<MemoryDecays/>
-			<MemoryAttitudePercents/>
-			<NoWarAttitudeProbs/>
-			<UnitAIWeightModifiers/>
-			<ImprovementWeightModifiers>
-				<ImprovementWeightModifier>
-					<ImprovementType>IMPROVEMENT_FARM</ImprovementType>
-					<iWeightModifier>20</iWeightModifier>
-				</ImprovementWeightModifier>
-				<ImprovementWeightModifier>
-					<ImprovementType>IMPROVEMENT_WINDMILL</ImprovementType>
-					<iWeightModifier>20</iWeightModifier>
-				</ImprovementWeightModifier>
-			</ImprovementWeightModifiers>
+			<ContactRands>
+				<ContactRand>
+					<ContactType>CONTACT_RELIGION_PRESSURE</ContactType>
+					<iContactRand>500</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_CIVIC_PRESSURE</ContactType>
+					<iContactRand>100</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_JOIN_WAR</ContactType>
+					<iContactRand>20</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_STOP_TRADING</ContactType>
+					<iContactRand>50</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_GIVE_HELP</ContactType>
+					<iContactRand>100</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_ASK_FOR_HELP</ContactType>
+					<iContactRand>500</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_DEMAND_TRIBUTE</ContactType>
+					<iContactRand>25</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_OPEN_BORDERS</ContactType>
+					<iContactRand>25</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_DEFENSIVE_PACT</ContactType>
+					<iContactRand>80</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_PERMANENT_ALLIANCE</ContactType>
+					<iContactRand>80</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_PEACE_TREATY</ContactType>
+					<iContactRand>20</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_TRADE_TECH</ContactType>
+					<iContactRand>5</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_TRADE_BONUS</ContactType>
+					<iContactRand>5</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_TRADE_MAP</ContactType>
+					<iContactRand>20</iContactRand>
+				</ContactRand>
+			</ContactRands>
+			<ContactDelays>
+				<ContactDelay>
+					<ContactType>CONTACT_RELIGION_PRESSURE</ContactType>
+					<iContactDelay>50</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_CIVIC_PRESSURE</ContactType>
+					<iContactDelay>50</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_JOIN_WAR</ContactType>
+					<iContactDelay>20</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_STOP_TRADING</ContactType>
+					<iContactDelay>20</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_GIVE_HELP</ContactType>
+					<iContactDelay>50</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_ASK_FOR_HELP</ContactType>
+					<iContactDelay>50</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_DEMAND_TRIBUTE</ContactType>
+					<iContactDelay>50</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_OPEN_BORDERS</ContactType>
+					<iContactDelay>20</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_DEFENSIVE_PACT</ContactType>
+					<iContactDelay>20</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_PERMANENT_ALLIANCE</ContactType>
+					<iContactDelay>20</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_PEACE_TREATY</ContactType>
+					<iContactDelay>10</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_TRADE_TECH</ContactType>
+					<iContactDelay>30</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_TRADE_BONUS</ContactType>
+					<iContactDelay>20</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_TRADE_MAP</ContactType>
+					<iContactDelay>50</iContactDelay>
+				</ContactDelay>
+			</ContactDelays>
+			<MemoryDecays>
+				<MemoryDecay>
+					<MemoryType>MEMORY_GIVE_HELP</MemoryType>
+					<iMemoryRand>200</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_REFUSED_HELP</MemoryType>
+					<iMemoryRand>100</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_ACCEPT_DEMAND</MemoryType>
+					<iMemoryRand>50</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_REJECTED_DEMAND</MemoryType>
+					<iMemoryRand>150</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_ACCEPTED_RELIGION</MemoryType>
+					<iMemoryRand>100</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_DENIED_RELIGION</MemoryType>
+					<iMemoryRand>50</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_ACCEPTED_CIVIC</MemoryType>
+					<iMemoryRand>100</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_DENIED_CIVIC</MemoryType>
+					<iMemoryRand>50</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_ACCEPTED_JOIN_WAR</MemoryType>
+					<iMemoryRand>150</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_DENIED_JOIN_WAR</MemoryType>
+					<iMemoryRand>100</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_ACCEPTED_STOP_TRADING</MemoryType>
+					<iMemoryRand>100</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_DENIED_STOP_TRADING</MemoryType>
+					<iMemoryRand>50</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_STOPPED_TRADING_RECENT</MemoryType>
+					<iMemoryRand>30</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_MADE_DEMAND_RECENT</MemoryType>
+					<iMemoryRand>20</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_CANCELLED_OPEN_BORDERS</MemoryType>
+					<iMemoryRand>10</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_TRADED_TECH_TO_US</MemoryType>
+					<iMemoryRand>100</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_RECEIVED_TECH_FROM_ANY</MemoryType>
+					<iMemoryRand>20</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_VOTED_AGAINST_US</MemoryType>
+					<iMemoryRand>10</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_VOTED_FOR_US</MemoryType>
+					<iMemoryRand>10</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_EVENT_GOOD_TO_US</MemoryType>
+					<iMemoryRand>50</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_EVENT_BAD_TO_US</MemoryType>
+					<iMemoryRand>50</iMemoryRand>
+				</MemoryDecay>
+			</MemoryDecays>
+			<MemoryAttitudePercents>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_DECLARED_WAR</MemoryType>
+					<iMemoryAttitudePercent>-300</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_DECLARED_WAR_ON_FRIEND</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_HIRED_WAR_ALLY</MemoryType>
+					<iMemoryAttitudePercent>-200</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_NUKED_US</MemoryType>
+					<iMemoryAttitudePercent>-200</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_NUKED_FRIEND</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_RAZED_CITY</MemoryType>
+					<iMemoryAttitudePercent>-250</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_RAZED_HOLY_CITY</MemoryType>
+					<iMemoryAttitudePercent>-200</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_SPY_CAUGHT</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_GIVE_HELP</MemoryType>
+					<iMemoryAttitudePercent>100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_REFUSED_HELP</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_ACCEPT_DEMAND</MemoryType>
+					<iMemoryAttitudePercent>100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_REJECTED_DEMAND</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_ACCEPTED_RELIGION</MemoryType>
+					<iMemoryAttitudePercent>100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_DENIED_RELIGION</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_ACCEPTED_CIVIC</MemoryType>
+					<iMemoryAttitudePercent>100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_DENIED_CIVIC</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_DENIED_JOIN_WAR</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_ACCEPTED_STOP_TRADING</MemoryType>
+					<iMemoryAttitudePercent>50</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_DENIED_STOP_TRADING</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_STOPPED_TRADING</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_HIRED_TRADE_EMBARGO</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_MADE_DEMAND</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_TRADED_TECH_TO_US</MemoryType>
+					<iMemoryAttitudePercent>10</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_VOTED_AGAINST_US</MemoryType>
+					<iMemoryAttitudePercent>-200</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_VOTED_FOR_US</MemoryType>
+					<iMemoryAttitudePercent>200</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_EVENT_GOOD_TO_US</MemoryType>
+					<iMemoryAttitudePercent>100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_EVENT_BAD_TO_US</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_LIBERATED_CITIES</MemoryType>
+					<iMemoryAttitudePercent>150</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+			</MemoryAttitudePercents>
+			<NoWarAttitudeProbs>
+				<NoWarAttitudeProb>
+					<AttitudeType>ATTITUDE_ANNOYED</AttitudeType>
+					<iNoWarProb>10</iNoWarProb>
+				</NoWarAttitudeProb>
+				<NoWarAttitudeProb>
+					<AttitudeType>ATTITUDE_CAUTIOUS</AttitudeType>
+					<iNoWarProb>50</iNoWarProb>
+				</NoWarAttitudeProb>
+				<NoWarAttitudeProb>
+					<AttitudeType>ATTITUDE_PLEASED</AttitudeType>
+					<iNoWarProb>90</iNoWarProb>
+				</NoWarAttitudeProb>
+				<NoWarAttitudeProb>
+					<AttitudeType>ATTITUDE_FRIENDLY</AttitudeType>
+					<iNoWarProb>100</iNoWarProb>
+				</NoWarAttitudeProb>
+			</NoWarAttitudeProbs>
+			<UnitAIWeightModifiers>
+				<UnitAIWeightModifier>
+					<UnitAIType>UNITAI_ATTACK</UnitAIType>
+					<iWeightModifier>100</iWeightModifier>
+				</UnitAIWeightModifier>
+			</UnitAIWeightModifiers>
+			<ImprovementWeightModifiers/>
 			<DiplomacyIntroMusicPeace>
 				<DiploMusicPeaceEra>
 					<EraType>ERA_ANCIENT</EraType>
@@ -44937,9 +45296,11 @@
 				</DiploMusicPeaceEra>
 				<DiploMusicPeaceEra>
 					<EraType>ERA_MEDIEVAL</EraType>
+					<DiploScriptId/>
 				</DiploMusicPeaceEra>
 				<DiploMusicPeaceEra>
 					<EraType>ERA_RENAISSANCE</EraType>
+					<DiploScriptId/>
 				</DiploMusicPeaceEra>
 				<DiploMusicPeaceEra>
 					<EraType>ERA_INDUSTRIAL</EraType>
@@ -44954,31 +45315,31 @@
 			<DiplomacyMusicPeace>
 				<DiploMusicPeaceEra>
 					<EraType>ERA_ANCIENT</EraType>
-					<DiploScriptId>AS2D_DIPLO_RAGNAR_EARLY</DiploScriptId>
+					<DiploScriptId>AS2D_DIPLO_MEHMED_EARLY</DiploScriptId>
 				</DiploMusicPeaceEra>
 				<DiploMusicPeaceEra>
 					<EraType>ERA_CLASSICAL</EraType>
-					<DiploScriptId>AS2D_DIPLO_RAGNAR_EARLY</DiploScriptId>
+					<DiploScriptId>AS2D_DIPLO_MEHMED_EARLY</DiploScriptId>
 				</DiploMusicPeaceEra>
 				<DiploMusicPeaceEra>
 					<EraType>ERA_MEDIEVAL</EraType>
-					<DiploScriptId>AS2D_DIPLO_RAGNAR_MIDDLE</DiploScriptId>
+					<DiploScriptId>AS2D_DIPLO_MEHMED_MIDDLE</DiploScriptId>
 				</DiploMusicPeaceEra>
 				<DiploMusicPeaceEra>
 					<EraType>ERA_RENAISSANCE</EraType>
-					<DiploScriptId>AS2D_DIPLO_RAGNAR_MIDDLE</DiploScriptId>
+					<DiploScriptId>AS2D_DIPLO_MEHMED_MIDDLE</DiploScriptId>
 				</DiploMusicPeaceEra>
 				<DiploMusicPeaceEra>
 					<EraType>ERA_INDUSTRIAL</EraType>
-					<DiploScriptId>AS2D_DIPLO_RAGNAR_LATE</DiploScriptId>
+					<DiploScriptId>AS2D_DIPLO_MEHMED_LATE</DiploScriptId>
 				</DiploMusicPeaceEra>
 				<DiploMusicPeaceEra>
 					<EraType>ERA_GLOBAL</EraType>
-					<DiploScriptId>AS2D_DIPLO_RAGNAR_LATE</DiploScriptId>
+					<DiploScriptId>AS2D_DIPLO_MEHMED_LATE</DiploScriptId>
 				</DiploMusicPeaceEra>
 				<DiploMusicPeaceEra>
 					<EraType>ERA_DIGITAL</EraType>
-					<DiploScriptId>AS2D_DIPLO_RAGNAR_LATE</DiploScriptId>
+					<DiploScriptId>AS2D_DIPLO_MEHMED_LATE</DiploScriptId>
 				</DiploMusicPeaceEra>
 			</DiplomacyMusicPeace>
 			<DiplomacyIntroMusicWar>
@@ -45233,7 +45594,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -45781,7 +46142,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -46337,7 +46698,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -46883,7 +47244,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -47154,31 +47515,31 @@
 			<DiplomacyMusicPeace>
 				<DiploMusicPeaceEra>
 					<EraType>ERA_ANCIENT</EraType>
-					<DiploScriptId>AS2D_DIPLO_RAGNAR_EARLY</DiploScriptId>
+					<DiploScriptId>AS2D_DIPLO_CANADA</DiploScriptId>
 				</DiploMusicPeaceEra>
 				<DiploMusicPeaceEra>
 					<EraType>ERA_CLASSICAL</EraType>
-					<DiploScriptId>AS2D_DIPLO_RAGNAR_EARLY</DiploScriptId>
+					<DiploScriptId>AS2D_DIPLO_CANADA</DiploScriptId>
 				</DiploMusicPeaceEra>
 				<DiploMusicPeaceEra>
 					<EraType>ERA_MEDIEVAL</EraType>
-					<DiploScriptId>AS2D_DIPLO_RAGNAR_MIDDLE</DiploScriptId>
+					<DiploScriptId>AS2D_DIPLO_CANADA</DiploScriptId>
 				</DiploMusicPeaceEra>
 				<DiploMusicPeaceEra>
 					<EraType>ERA_RENAISSANCE</EraType>
-					<DiploScriptId>AS2D_DIPLO_RAGNAR_MIDDLE</DiploScriptId>
+					<DiploScriptId>AS2D_DIPLO_CANADA</DiploScriptId>
 				</DiploMusicPeaceEra>
 				<DiploMusicPeaceEra>
 					<EraType>ERA_INDUSTRIAL</EraType>
-					<DiploScriptId>AS2D_DIPLO_RAGNAR_LATE</DiploScriptId>
+					<DiploScriptId>AS2D_DIPLO_CANADA</DiploScriptId>
 				</DiploMusicPeaceEra>
 				<DiploMusicPeaceEra>
 					<EraType>ERA_GLOBAL</EraType>
-					<DiploScriptId>AS2D_DIPLO_RAGNAR_LATE</DiploScriptId>
+					<DiploScriptId>AS2D_DIPLO_CANADA</DiploScriptId>
 				</DiploMusicPeaceEra>
 				<DiploMusicPeaceEra>
 					<EraType>ERA_DIGITAL</EraType>
-					<DiploScriptId>AS2D_DIPLO_RAGNAR_LATE</DiploScriptId>
+					<DiploScriptId>AS2D_DIPLO_CANADA</DiploScriptId>
 				</DiploMusicPeaceEra>
 			</DiplomacyMusicPeace>
 			<DiplomacyIntroMusicWar>
@@ -47433,7 +47794,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -47980,7 +48341,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -48525,7 +48886,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -49070,7 +49431,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -49615,7 +49976,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -50161,7 +50522,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -50683,7 +51044,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -51237,7 +51598,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -51785,7 +52146,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -52330,7 +52691,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -52882,7 +53243,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -53391,7 +53752,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -53943,7 +54304,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -54495,7 +54856,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -55040,7 +55401,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -55594,7 +55955,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -56164,7 +56525,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -56730,7 +57091,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -57275,7 +57636,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -57823,7 +58184,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -58380,7 +58741,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -58930,7 +59291,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -59468,7 +59829,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -60016,7 +60377,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -60557,7 +60918,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -61109,7 +61470,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -61642,7 +62003,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -62083,7 +62444,7 @@
 					<iFlavor>6</iFlavor>
 				</Flavor>
 				<Flavor>
-					<FlavorType>FLAVOR_CIVICS</FlavorType>
+					<FlavorType>FLAVOR_ADMIN</FlavorType>
 					<iFlavor>4</iFlavor>
 				</Flavor>
 			</Flavors>
@@ -62196,7 +62557,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -62714,7 +63075,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -63268,7 +63629,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -63709,7 +64070,7 @@
 					<iFlavor>2</iFlavor>
 				</Flavor>
 				<Flavor>
-					<FlavorType>FLAVOR_CIVICS</FlavorType>
+					<FlavorType>FLAVOR_ADMIN</FlavorType>
 					<iFlavor>3</iFlavor>
 				</Flavor>
 			</Flavors>
@@ -63822,7 +64183,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -64097,31 +64458,31 @@
 			<DiplomacyMusicPeace>
 				<DiploMusicPeaceEra>
 					<EraType>ERA_ANCIENT</EraType>
-					<DiploScriptId>AS2D_DIPLO_RAGNAR_EARLY</DiploScriptId>
+					<DiploScriptId>AS2D_DIPLO_CANADA</DiploScriptId>
 				</DiploMusicPeaceEra>
 				<DiploMusicPeaceEra>
 					<EraType>ERA_CLASSICAL</EraType>
-					<DiploScriptId>AS2D_DIPLO_RAGNAR_EARLY</DiploScriptId>
+					<DiploScriptId>AS2D_DIPLO_CANADA</DiploScriptId>
 				</DiploMusicPeaceEra>
 				<DiploMusicPeaceEra>
 					<EraType>ERA_MEDIEVAL</EraType>
-					<DiploScriptId>AS2D_DIPLO_RAGNAR_MIDDLE</DiploScriptId>
+					<DiploScriptId>AS2D_DIPLO_CANADA</DiploScriptId>
 				</DiploMusicPeaceEra>
 				<DiploMusicPeaceEra>
 					<EraType>ERA_RENAISSANCE</EraType>
-					<DiploScriptId>AS2D_DIPLO_RAGNAR_MIDDLE</DiploScriptId>
+					<DiploScriptId>AS2D_DIPLO_CANADA</DiploScriptId>
 				</DiploMusicPeaceEra>
 				<DiploMusicPeaceEra>
 					<EraType>ERA_INDUSTRIAL</EraType>
-					<DiploScriptId>AS2D_DIPLO_RAGNAR_LATE</DiploScriptId>
+					<DiploScriptId>AS2D_DIPLO_CANADA</DiploScriptId>
 				</DiploMusicPeaceEra>
 				<DiploMusicPeaceEra>
 					<EraType>ERA_GLOBAL</EraType>
-					<DiploScriptId>AS2D_DIPLO_RAGNAR_LATE</DiploScriptId>
+					<DiploScriptId>AS2D_DIPLO_CANADA</DiploScriptId>
 				</DiploMusicPeaceEra>
 				<DiploMusicPeaceEra>
 					<EraType>ERA_DIGITAL</EraType>
-					<DiploScriptId>AS2D_DIPLO_RAGNAR_LATE</DiploScriptId>
+					<DiploScriptId>AS2D_DIPLO_CANADA</DiploScriptId>
 				</DiploMusicPeaceEra>
 			</DiplomacyMusicPeace>
 			<DiplomacyIntroMusicWar>
@@ -64376,7 +64737,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -64930,7 +65291,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -65366,7 +65727,7 @@
 					<iFlavor>5</iFlavor>
 				</Flavor>
 				<Flavor>
-					<FlavorType>FLAVOR_CIVICS</FlavorType>
+					<FlavorType>FLAVOR_ADMIN</FlavorType>
 					<iFlavor>4</iFlavor>
 				</Flavor>
 			</Flavors>
@@ -65479,7 +65840,7 @@
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_TECH</ContactType>
-					<iContactDelay>30</iContactDelay>
+					<iContactDelay>15</iContactDelay>
 				</ContactDelay>
 				<ContactDelay>
 					<ContactType>CONTACT_TRADE_BONUS</ContactType>
@@ -65832,6 +66193,1650 @@
 				<DiploMusicWarEra>
 					<EraType>ERA_DIGITAL</EraType>
 					<DiploScriptId>AS2D_DIPLO_WARDRUMS_LATE</DiploScriptId>
+				</DiploMusicWarEra>
+			</DiplomacyMusicWar>
+		</LeaderHeadInfo>
+		<LeaderHeadInfo>
+			<Type>LEADER_KHOSROW</Type> <!-- Personality: Frederick -->
+			<Description>TXT_KEY_LEADER_KHOSROW</Description>
+			<Civilopedia>TXT_KEY_LEADER_KHOSROW_PEDIA</Civilopedia>
+			<ArtDefineTag>ART_DEF_LEADER_KHOSROW</ArtDefineTag>
+			<iWonderConstructRand>20</iWonderConstructRand>
+			<iBaseAttitude>0</iBaseAttitude>
+			<iBasePeaceWeight>6</iBasePeaceWeight>
+			<iPeaceWeightRand>3</iPeaceWeightRand>
+			<iWarmongerRespect>0</iWarmongerRespect>
+			<iEspionageWeight>90</iEspionageWeight>
+			<iRefuseToTalkWarThreshold>6</iRefuseToTalkWarThreshold>
+			<iNoTechTradeThreshold>10</iNoTechTradeThreshold>
+			<iTechTradeKnownPercent>30</iTechTradeKnownPercent>
+			<iMaxGoldTradePercent>10</iMaxGoldTradePercent>
+			<iMaxGoldPerTurnTradePercent>10</iMaxGoldPerTurnTradePercent>
+			<iMaxWarRand>125</iMaxWarRand>
+			<iMaxWarNearbyPowerRatio>100</iMaxWarNearbyPowerRatio>
+			<iMaxWarDistantPowerRatio>50</iMaxWarDistantPowerRatio>
+			<iMaxWarMinAdjacentLandPercent>2</iMaxWarMinAdjacentLandPercent>
+			<iLimitedWarRand>160</iLimitedWarRand>
+			<iLimitedWarPowerRatio>100</iLimitedWarPowerRatio>
+			<iDogpileWarRand>100</iDogpileWarRand>
+			<iMakePeaceRand>20</iMakePeaceRand>
+			<iDeclareWarTradeRand>40</iDeclareWarTradeRand>
+			<iDemandRebukedSneakProb>0</iDemandRebukedSneakProb>
+			<iDemandRebukedWarProb>0</iDemandRebukedWarProb>
+			<iRazeCityProb>0</iRazeCityProb>
+			<iBuildUnitProb>35</iBuildUnitProb>
+			<iBaseAttackOddsChange>0</iBaseAttackOddsChange>
+			<iAttackOddsChangeRand>8</iAttackOddsChangeRand>
+			<iWorseRankDifferenceAttitudeChange>0</iWorseRankDifferenceAttitudeChange>
+			<iBetterRankDifferenceAttitudeChange>2</iBetterRankDifferenceAttitudeChange>
+			<iCloseBordersAttitudeChange>-2</iCloseBordersAttitudeChange>
+			<iLostWarAttitudeChange>-1</iLostWarAttitudeChange>
+			<iAtWarAttitudeDivisor>-5</iAtWarAttitudeDivisor>
+			<iAtWarAttitudeChangeLimit>5</iAtWarAttitudeChangeLimit>
+			<iAtPeaceAttitudeDivisor>60</iAtPeaceAttitudeDivisor>
+			<iAtPeaceAttitudeChangeLimit>1</iAtPeaceAttitudeChangeLimit>
+			<iSameReligionAttitudeChange>1</iSameReligionAttitudeChange>
+			<iSameReligionAttitudeDivisor>10</iSameReligionAttitudeDivisor>
+			<iSameReligionAttitudeChangeLimit>4</iSameReligionAttitudeChangeLimit>
+			<iDifferentReligionAttitudeChange>-1</iDifferentReligionAttitudeChange>
+			<iDifferentReligionAttitudeDivisor>-5</iDifferentReligionAttitudeDivisor>
+			<iDifferentReligionAttitudeChangeLimit>-1</iDifferentReligionAttitudeChangeLimit>
+			<iBonusTradeAttitudeDivisor>50</iBonusTradeAttitudeDivisor>
+			<iBonusTradeAttitudeChangeLimit>2</iBonusTradeAttitudeChangeLimit>
+			<iOpenBordersAttitudeDivisor>25</iOpenBordersAttitudeDivisor>
+			<iOpenBordersAttitudeChangeLimit>2</iOpenBordersAttitudeChangeLimit>
+			<iDefensivePactAttitudeDivisor>12</iDefensivePactAttitudeDivisor>
+			<iDefensivePactAttitudeChangeLimit>2</iDefensivePactAttitudeChangeLimit>
+			<iShareWarAttitudeChange>1</iShareWarAttitudeChange>
+			<iShareWarAttitudeDivisor>8</iShareWarAttitudeDivisor>
+			<iShareWarAttitudeChangeLimit>3</iShareWarAttitudeChangeLimit>
+			<iFavoriteCivicAttitudeChange>1</iFavoriteCivicAttitudeChange>
+			<iFavoriteCivicAttitudeDivisor>10</iFavoriteCivicAttitudeDivisor>
+			<iFavoriteCivicAttitudeChangeLimit>3</iFavoriteCivicAttitudeChangeLimit>
+			<DemandTributeAttitudeThreshold>ATTITUDE_CAUTIOUS</DemandTributeAttitudeThreshold>
+			<NoGiveHelpAttitudeThreshold>ATTITUDE_CAUTIOUS</NoGiveHelpAttitudeThreshold>
+			<TechRefuseAttitudeThreshold>ATTITUDE_FURIOUS</TechRefuseAttitudeThreshold>
+			<StrategicBonusRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</StrategicBonusRefuseAttitudeThreshold>
+			<HappinessBonusRefuseAttitudeThreshold>ATTITUDE_FURIOUS</HappinessBonusRefuseAttitudeThreshold>
+			<HealthBonusRefuseAttitudeThreshold>ATTITUDE_ANNOYED</HealthBonusRefuseAttitudeThreshold>
+			<MapRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</MapRefuseAttitudeThreshold>
+			<DeclareWarRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</DeclareWarRefuseAttitudeThreshold>
+			<DeclareWarThemRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</DeclareWarThemRefuseAttitudeThreshold>
+			<StopTradingRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</StopTradingRefuseAttitudeThreshold>
+			<StopTradingThemRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</StopTradingThemRefuseAttitudeThreshold>
+			<AdoptCivicRefuseAttitudeThreshold>ATTITUDE_PLEASED</AdoptCivicRefuseAttitudeThreshold>
+			<ConvertReligionRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</ConvertReligionRefuseAttitudeThreshold>
+			<OpenBordersRefuseAttitudeThreshold>ATTITUDE_ANNOYED</OpenBordersRefuseAttitudeThreshold>
+			<DefensivePactRefuseAttitudeThreshold>ATTITUDE_ANNOYED</DefensivePactRefuseAttitudeThreshold>
+			<PermanentAllianceRefuseAttitudeThreshold>ATTITUDE_PLEASED</PermanentAllianceRefuseAttitudeThreshold>
+			<VassalRefuseAttitudeThreshold>ATTITUDE_PLEASED</VassalRefuseAttitudeThreshold>
+			<iVassalPowerModifier>10</iVassalPowerModifier>
+			<iFreedomAppreciation>10</iFreedomAppreciation>
+			<FavoriteCivic>CIVIC_CLERGY</FavoriteCivic>
+			<FavoriteReligion>RELIGION_ZOROASTRIANISM</FavoriteReligion>
+			<Traits/>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
+					<iFlavor>5</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_ADMIN</FlavorType>
+					<iFlavor>2</iFlavor>
+				</Flavor>
+			</Flavors>
+			<ContactRands>
+				<ContactRand>
+					<ContactType>CONTACT_RELIGION_PRESSURE</ContactType>
+					<iContactRand>250</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_CIVIC_PRESSURE</ContactType>
+					<iContactRand>250</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_JOIN_WAR</ContactType>
+					<iContactRand>20</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_STOP_TRADING</ContactType>
+					<iContactRand>50</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_GIVE_HELP</ContactType>
+					<iContactRand>250</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_ASK_FOR_HELP</ContactType>
+					<iContactRand>250</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_DEMAND_TRIBUTE</ContactType>
+					<iContactRand>500</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_OPEN_BORDERS</ContactType>
+					<iContactRand>20</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_DEFENSIVE_PACT</ContactType>
+					<iContactRand>80</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_PERMANENT_ALLIANCE</ContactType>
+					<iContactRand>80</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_PEACE_TREATY</ContactType>
+					<iContactRand>20</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_TRADE_TECH</ContactType>
+					<iContactRand>5</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_TRADE_BONUS</ContactType>
+					<iContactRand>5</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_TRADE_MAP</ContactType>
+					<iContactRand>20</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_TRADE_SLAVE</ContactType>
+					<iContactRand>10</iContactRand>
+				</ContactRand>
+			</ContactRands>
+			<ContactDelays>
+				<ContactDelay>
+					<ContactType>CONTACT_RELIGION_PRESSURE</ContactType>
+					<iContactDelay>50</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_CIVIC_PRESSURE</ContactType>
+					<iContactDelay>50</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_JOIN_WAR</ContactType>
+					<iContactDelay>20</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_STOP_TRADING</ContactType>
+					<iContactDelay>20</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_GIVE_HELP</ContactType>
+					<iContactDelay>50</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_ASK_FOR_HELP</ContactType>
+					<iContactDelay>50</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_DEMAND_TRIBUTE</ContactType>
+					<iContactDelay>50</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_OPEN_BORDERS</ContactType>
+					<iContactDelay>20</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_DEFENSIVE_PACT</ContactType>
+					<iContactDelay>20</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_PERMANENT_ALLIANCE</ContactType>
+					<iContactDelay>20</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_PEACE_TREATY</ContactType>
+					<iContactDelay>10</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_TRADE_TECH</ContactType>
+					<iContactDelay>15</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_TRADE_BONUS</ContactType>
+					<iContactDelay>20</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_TRADE_MAP</ContactType>
+					<iContactDelay>50</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_TRADE_SLAVE</ContactType>
+					<iContactDelay>20</iContactDelay>
+				</ContactDelay>
+			</ContactDelays>
+			<MemoryDecays>
+				<MemoryDecay>
+					<MemoryType>MEMORY_GIVE_HELP</MemoryType>
+					<iMemoryRand>200</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_REFUSED_HELP</MemoryType>
+					<iMemoryRand>100</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_ACCEPT_DEMAND</MemoryType>
+					<iMemoryRand>50</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_REJECTED_DEMAND</MemoryType>
+					<iMemoryRand>150</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_ACCEPTED_RELIGION</MemoryType>
+					<iMemoryRand>100</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_DENIED_RELIGION</MemoryType>
+					<iMemoryRand>50</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_ACCEPTED_CIVIC</MemoryType>
+					<iMemoryRand>100</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_DENIED_CIVIC</MemoryType>
+					<iMemoryRand>50</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_ACCEPTED_JOIN_WAR</MemoryType>
+					<iMemoryRand>150</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_DENIED_JOIN_WAR</MemoryType>
+					<iMemoryRand>100</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_ACCEPTED_STOP_TRADING</MemoryType>
+					<iMemoryRand>100</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_DENIED_STOP_TRADING</MemoryType>
+					<iMemoryRand>50</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_STOPPED_TRADING_RECENT</MemoryType>
+					<iMemoryRand>30</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_MADE_DEMAND_RECENT</MemoryType>
+					<iMemoryRand>20</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_CANCELLED_OPEN_BORDERS</MemoryType>
+					<iMemoryRand>10</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_TRADED_TECH_TO_US</MemoryType>
+					<iMemoryRand>100</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_RECEIVED_TECH_FROM_ANY</MemoryType>
+					<iMemoryRand>20</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_VOTED_AGAINST_US</MemoryType>
+					<iMemoryRand>10</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_VOTED_FOR_US</MemoryType>
+					<iMemoryRand>10</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_EVENT_GOOD_TO_US</MemoryType>
+					<iMemoryRand>50</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_EVENT_BAD_TO_US</MemoryType>
+					<iMemoryRand>50</iMemoryRand>
+				</MemoryDecay>
+			</MemoryDecays>
+			<MemoryAttitudePercents>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_DECLARED_WAR</MemoryType>
+					<iMemoryAttitudePercent>-300</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_DECLARED_WAR_ON_FRIEND</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_HIRED_WAR_ALLY</MemoryType>
+					<iMemoryAttitudePercent>-200</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_NUKED_US</MemoryType>
+					<iMemoryAttitudePercent>-200</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_NUKED_FRIEND</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_RAZED_CITY</MemoryType>
+					<iMemoryAttitudePercent>-250</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_RAZED_HOLY_CITY</MemoryType>
+					<iMemoryAttitudePercent>-200</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_SPY_CAUGHT</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_GIVE_HELP</MemoryType>
+					<iMemoryAttitudePercent>100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_REFUSED_HELP</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_ACCEPT_DEMAND</MemoryType>
+					<iMemoryAttitudePercent>100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_REJECTED_DEMAND</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_ACCEPTED_RELIGION</MemoryType>
+					<iMemoryAttitudePercent>100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_DENIED_RELIGION</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_ACCEPTED_CIVIC</MemoryType>
+					<iMemoryAttitudePercent>100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_DENIED_CIVIC</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_DENIED_JOIN_WAR</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_ACCEPTED_STOP_TRADING</MemoryType>
+					<iMemoryAttitudePercent>50</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_DENIED_STOP_TRADING</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_STOPPED_TRADING</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_HIRED_TRADE_EMBARGO</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_MADE_DEMAND</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_TRADED_TECH_TO_US</MemoryType>
+					<iMemoryAttitudePercent>15</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_VOTED_AGAINST_US</MemoryType>
+					<iMemoryAttitudePercent>-200</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_VOTED_FOR_US</MemoryType>
+					<iMemoryAttitudePercent>200</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_EVENT_GOOD_TO_US</MemoryType>
+					<iMemoryAttitudePercent>100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_EVENT_BAD_TO_US</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_LIBERATED_CITIES</MemoryType>
+					<iMemoryAttitudePercent>150</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+			</MemoryAttitudePercents>
+			<NoWarAttitudeProbs>
+				<NoWarAttitudeProb>
+					<AttitudeType>ATTITUDE_ANNOYED</AttitudeType>
+					<iNoWarProb>20</iNoWarProb>
+				</NoWarAttitudeProb>
+				<NoWarAttitudeProb>
+					<AttitudeType>ATTITUDE_CAUTIOUS</AttitudeType>
+					<iNoWarProb>50</iNoWarProb>
+				</NoWarAttitudeProb>
+				<NoWarAttitudeProb>
+					<AttitudeType>ATTITUDE_PLEASED</AttitudeType>
+					<iNoWarProb>85</iNoWarProb>
+				</NoWarAttitudeProb>
+				<NoWarAttitudeProb>
+					<AttitudeType>ATTITUDE_FRIENDLY</AttitudeType>
+					<iNoWarProb>100</iNoWarProb>
+				</NoWarAttitudeProb>
+			</NoWarAttitudeProbs>
+			<UnitAIWeightModifiers>
+				<UnitAIWeightModifier>
+					<UnitAIType>UNITAI_COLLATERAL</UnitAIType>
+					<iWeightModifier>100</iWeightModifier>
+				</UnitAIWeightModifier>
+			</UnitAIWeightModifiers>
+			<ImprovementWeightModifiers>
+				<ImprovementWeightModifier>
+					<ImprovementType>IMPROVEMENT_TOWN</ImprovementType>
+					<iWeightModifier>20</iWeightModifier>
+				</ImprovementWeightModifier>
+			</ImprovementWeightModifiers>
+			<DiplomacyIntroMusicPeace>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_ANCIENT</EraType>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_CLASSICAL</EraType>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_MEDIEVAL</EraType>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_RENAISSANCE</EraType>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_INDUSTRIAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_CYRUS_LATE_INTRO</DiploScriptId>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_GLOBAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_CYRUS_LATE_INTRO</DiploScriptId>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_DIGITAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_CYRUS_LATE_INTRO</DiploScriptId>
+				</DiploMusicPeaceEra>
+			</DiplomacyIntroMusicPeace>
+			<DiplomacyMusicPeace>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_ANCIENT</EraType>
+					<DiploScriptId>AS2D_DIPLO_CYRUS_EARLY</DiploScriptId>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_CLASSICAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_CYRUS_EARLY</DiploScriptId>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_MEDIEVAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_CYRUS_MIDDLE</DiploScriptId>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_RENAISSANCE</EraType>
+					<DiploScriptId>AS2D_DIPLO_CYRUS_MIDDLE</DiploScriptId>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_INDUSTRIAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_CYRUS_LATE_LP</DiploScriptId>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_GLOBAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_CYRUS_LATE_LP</DiploScriptId>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_DIGITAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_CYRUS_LATE_LP</DiploScriptId>
+				</DiploMusicPeaceEra>
+			</DiplomacyMusicPeace>
+			<DiplomacyIntroMusicWar>
+				<DiploMusicWarEra>
+					<EraType>ERA_ANCIENT</EraType>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_CLASSICAL</EraType>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_MEDIEVAL</EraType>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_RENAISSANCE</EraType>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_INDUSTRIAL</EraType>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_GLOBAL</EraType>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_DIGITAL</EraType>
+				</DiploMusicWarEra>
+			</DiplomacyIntroMusicWar>
+			<DiplomacyMusicWar>
+				<DiploMusicWarEra>
+					<EraType>ERA_ANCIENT</EraType>
+					<DiploScriptId>AS2D_DIPLO_WARDRUMS_EARLY</DiploScriptId>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_CLASSICAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_WARDRUMS_EARLY</DiploScriptId>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_MEDIEVAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_WARDRUMS_MIDDLE</DiploScriptId>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_RENAISSANCE</EraType>
+					<DiploScriptId>AS2D_DIPLO_WARDRUMS_MIDDLE</DiploScriptId>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_INDUSTRIAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_WARDRUMS_LATE</DiploScriptId>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_GLOBAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_WARDRUMS_LATE</DiploScriptId>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_DIGITAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_WARDRUMS_LATE</DiploScriptId>
+				</DiploMusicWarEra>
+			</DiplomacyMusicWar>
+		</LeaderHeadInfo>
+		<LeaderHeadInfo>
+			<Type>LEADER_BUMIN</Type>
+			<Description>TXT_KEY_LEADER_BUMIN</Description>
+			<Civilopedia>TXT_KEY_LEADER_BUMIN_PEDIA</Civilopedia>
+			<ArtDefineTag>ART_DEF_LEADER_BUMIN</ArtDefineTag>
+			<iWonderConstructRand>20</iWonderConstructRand>
+			<iBaseAttitude>1</iBaseAttitude>
+			<iBasePeaceWeight>8</iBasePeaceWeight>
+			<iPeaceWeightRand>3</iPeaceWeightRand>
+			<iWarmongerRespect>0</iWarmongerRespect>
+			<iEspionageWeight>100</iEspionageWeight>
+			<iRefuseToTalkWarThreshold>10</iRefuseToTalkWarThreshold>
+			<iNoTechTradeThreshold>5</iNoTechTradeThreshold>
+			<iTechTradeKnownPercent>30</iTechTradeKnownPercent>
+			<iMaxGoldTradePercent>10</iMaxGoldTradePercent>
+			<iMaxGoldPerTurnTradePercent>10</iMaxGoldPerTurnTradePercent>
+			<iMaxWarRand>200</iMaxWarRand>
+			<iMaxWarNearbyPowerRatio>100</iMaxWarNearbyPowerRatio>
+			<iMaxWarDistantPowerRatio>50</iMaxWarDistantPowerRatio>
+			<iMaxWarMinAdjacentLandPercent>2</iMaxWarMinAdjacentLandPercent>
+			<iLimitedWarRand>160</iLimitedWarRand>
+			<iLimitedWarPowerRatio>90</iLimitedWarPowerRatio>
+			<iDogpileWarRand>100</iDogpileWarRand>
+			<iMakePeaceRand>20</iMakePeaceRand>
+			<iDeclareWarTradeRand>40</iDeclareWarTradeRand>
+			<iDemandRebukedSneakProb>0</iDemandRebukedSneakProb>
+			<iDemandRebukedWarProb>0</iDemandRebukedWarProb>
+			<iRazeCityProb>50</iRazeCityProb>
+			<iBuildUnitProb>20</iBuildUnitProb>
+			<iBaseAttackOddsChange>0</iBaseAttackOddsChange>
+			<iAttackOddsChangeRand>10</iAttackOddsChangeRand>
+			<iWorseRankDifferenceAttitudeChange>0</iWorseRankDifferenceAttitudeChange>
+			<iBetterRankDifferenceAttitudeChange>2</iBetterRankDifferenceAttitudeChange>
+			<iCloseBordersAttitudeChange>-2</iCloseBordersAttitudeChange>
+			<iLostWarAttitudeChange>-1</iLostWarAttitudeChange>
+			<iAtWarAttitudeDivisor>-5</iAtWarAttitudeDivisor>
+			<iAtWarAttitudeChangeLimit>5</iAtWarAttitudeChangeLimit>
+			<iAtPeaceAttitudeDivisor>60</iAtPeaceAttitudeDivisor>
+			<iAtPeaceAttitudeChangeLimit>1</iAtPeaceAttitudeChangeLimit>
+			<iSameReligionAttitudeChange>1</iSameReligionAttitudeChange>
+			<iSameReligionAttitudeDivisor>10</iSameReligionAttitudeDivisor>
+			<iSameReligionAttitudeChangeLimit>4</iSameReligionAttitudeChangeLimit>
+			<iDifferentReligionAttitudeChange>-1</iDifferentReligionAttitudeChange>
+			<iDifferentReligionAttitudeDivisor>-5</iDifferentReligionAttitudeDivisor>
+			<iDifferentReligionAttitudeChangeLimit>-1</iDifferentReligionAttitudeChangeLimit>
+			<iBonusTradeAttitudeDivisor>50</iBonusTradeAttitudeDivisor>
+			<iBonusTradeAttitudeChangeLimit>2</iBonusTradeAttitudeChangeLimit>
+			<iOpenBordersAttitudeDivisor>25</iOpenBordersAttitudeDivisor>
+			<iOpenBordersAttitudeChangeLimit>2</iOpenBordersAttitudeChangeLimit>
+			<iDefensivePactAttitudeDivisor>12</iDefensivePactAttitudeDivisor>
+			<iDefensivePactAttitudeChangeLimit>2</iDefensivePactAttitudeChangeLimit>
+			<iShareWarAttitudeChange>1</iShareWarAttitudeChange>
+			<iShareWarAttitudeDivisor>8</iShareWarAttitudeDivisor>
+			<iShareWarAttitudeChangeLimit>3</iShareWarAttitudeChangeLimit>
+			<iFavoriteCivicAttitudeChange>1</iFavoriteCivicAttitudeChange>
+			<iFavoriteCivicAttitudeDivisor>10</iFavoriteCivicAttitudeDivisor>
+			<iFavoriteCivicAttitudeChangeLimit>3</iFavoriteCivicAttitudeChangeLimit>
+			<DemandTributeAttitudeThreshold>ATTITUDE_CAUTIOUS</DemandTributeAttitudeThreshold>
+			<NoGiveHelpAttitudeThreshold>ATTITUDE_CAUTIOUS</NoGiveHelpAttitudeThreshold>
+			<TechRefuseAttitudeThreshold>ATTITUDE_FURIOUS</TechRefuseAttitudeThreshold>
+			<StrategicBonusRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</StrategicBonusRefuseAttitudeThreshold>
+			<HappinessBonusRefuseAttitudeThreshold>ATTITUDE_FURIOUS</HappinessBonusRefuseAttitudeThreshold>
+			<HealthBonusRefuseAttitudeThreshold>ATTITUDE_ANNOYED</HealthBonusRefuseAttitudeThreshold>
+			<MapRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</MapRefuseAttitudeThreshold>
+			<DeclareWarRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</DeclareWarRefuseAttitudeThreshold>
+			<DeclareWarThemRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</DeclareWarThemRefuseAttitudeThreshold>
+			<StopTradingRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</StopTradingRefuseAttitudeThreshold>
+			<StopTradingThemRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</StopTradingThemRefuseAttitudeThreshold>
+			<AdoptCivicRefuseAttitudeThreshold>ATTITUDE_PLEASED</AdoptCivicRefuseAttitudeThreshold>
+			<ConvertReligionRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</ConvertReligionRefuseAttitudeThreshold>
+			<OpenBordersRefuseAttitudeThreshold>ATTITUDE_FURIOUS</OpenBordersRefuseAttitudeThreshold>
+			<DefensivePactRefuseAttitudeThreshold>ATTITUDE_PLEASED</DefensivePactRefuseAttitudeThreshold>
+			<PermanentAllianceRefuseAttitudeThreshold>ATTITUDE_PLEASED</PermanentAllianceRefuseAttitudeThreshold>
+			<VassalRefuseAttitudeThreshold>ATTITUDE_PLEASED</VassalRefuseAttitudeThreshold>
+			<iVassalPowerModifier>0</iVassalPowerModifier>
+			<iFreedomAppreciation>10</iFreedomAppreciation>
+			<FavoriteCivic>CIVIC_MERCHANT_TRADE</FavoriteCivic>
+			<FavoriteReligion>NONE</FavoriteReligion>
+			<Traits/>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>5</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_PRODUCTION</FlavorType>
+					<iFlavor>2</iFlavor>
+				</Flavor>
+			</Flavors>
+			<ContactRands>
+				<ContactRand>
+					<ContactType>CONTACT_RELIGION_PRESSURE</ContactType>
+					<iContactRand>250</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_CIVIC_PRESSURE</ContactType>
+					<iContactRand>250</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_JOIN_WAR</ContactType>
+					<iContactRand>20</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_STOP_TRADING</ContactType>
+					<iContactRand>50</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_GIVE_HELP</ContactType>
+					<iContactRand>250</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_ASK_FOR_HELP</ContactType>
+					<iContactRand>250</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_DEMAND_TRIBUTE</ContactType>
+					<iContactRand>500</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_OPEN_BORDERS</ContactType>
+					<iContactRand>20</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_DEFENSIVE_PACT</ContactType>
+					<iContactRand>80</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_PERMANENT_ALLIANCE</ContactType>
+					<iContactRand>80</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_PEACE_TREATY</ContactType>
+					<iContactRand>20</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_TRADE_TECH</ContactType>
+					<iContactRand>5</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_TRADE_BONUS</ContactType>
+					<iContactRand>5</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_TRADE_MAP</ContactType>
+					<iContactRand>20</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_TRADE_SLAVE</ContactType>
+					<iContactRand>10</iContactRand>
+				</ContactRand>
+			</ContactRands>
+			<ContactDelays>
+				<ContactDelay>
+					<ContactType>CONTACT_RELIGION_PRESSURE</ContactType>
+					<iContactDelay>50</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_CIVIC_PRESSURE</ContactType>
+					<iContactDelay>50</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_JOIN_WAR</ContactType>
+					<iContactDelay>20</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_STOP_TRADING</ContactType>
+					<iContactDelay>20</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_GIVE_HELP</ContactType>
+					<iContactDelay>50</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_ASK_FOR_HELP</ContactType>
+					<iContactDelay>50</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_DEMAND_TRIBUTE</ContactType>
+					<iContactDelay>50</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_OPEN_BORDERS</ContactType>
+					<iContactDelay>20</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_DEFENSIVE_PACT</ContactType>
+					<iContactDelay>20</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_PERMANENT_ALLIANCE</ContactType>
+					<iContactDelay>20</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_PEACE_TREATY</ContactType>
+					<iContactDelay>10</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_TRADE_TECH</ContactType>
+					<iContactDelay>30</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_TRADE_BONUS</ContactType>
+					<iContactDelay>20</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_TRADE_MAP</ContactType>
+					<iContactDelay>50</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_TRADE_SLAVE</ContactType>
+					<iContactDelay>20</iContactDelay>
+				</ContactDelay>
+			</ContactDelays>
+			<MemoryDecays>
+				<MemoryDecay>
+					<MemoryType>MEMORY_GIVE_HELP</MemoryType>
+					<iMemoryRand>200</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_REFUSED_HELP</MemoryType>
+					<iMemoryRand>100</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_ACCEPT_DEMAND</MemoryType>
+					<iMemoryRand>50</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_REJECTED_DEMAND</MemoryType>
+					<iMemoryRand>150</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_ACCEPTED_RELIGION</MemoryType>
+					<iMemoryRand>100</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_DENIED_RELIGION</MemoryType>
+					<iMemoryRand>50</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_ACCEPTED_CIVIC</MemoryType>
+					<iMemoryRand>100</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_DENIED_CIVIC</MemoryType>
+					<iMemoryRand>50</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_ACCEPTED_JOIN_WAR</MemoryType>
+					<iMemoryRand>150</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_DENIED_JOIN_WAR</MemoryType>
+					<iMemoryRand>100</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_ACCEPTED_STOP_TRADING</MemoryType>
+					<iMemoryRand>100</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_DENIED_STOP_TRADING</MemoryType>
+					<iMemoryRand>50</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_STOPPED_TRADING_RECENT</MemoryType>
+					<iMemoryRand>30</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_MADE_DEMAND_RECENT</MemoryType>
+					<iMemoryRand>20</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_CANCELLED_OPEN_BORDERS</MemoryType>
+					<iMemoryRand>10</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_TRADED_TECH_TO_US</MemoryType>
+					<iMemoryRand>100</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_RECEIVED_TECH_FROM_ANY</MemoryType>
+					<iMemoryRand>20</iMemoryRand>
+				</MemoryDecay>
+			</MemoryDecays>
+			<MemoryAttitudePercents>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_DECLARED_WAR</MemoryType>
+					<iMemoryAttitudePercent>-300</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_DECLARED_WAR_ON_FRIEND</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_HIRED_WAR_ALLY</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_NUKED_US</MemoryType>
+					<iMemoryAttitudePercent>-200</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_NUKED_FRIEND</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_RAZED_CITY</MemoryType>
+					<iMemoryAttitudePercent>-250</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_RAZED_HOLY_CITY</MemoryType>
+					<iMemoryAttitudePercent>-200</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_SPY_CAUGHT</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_GIVE_HELP</MemoryType>
+					<iMemoryAttitudePercent>100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_REFUSED_HELP</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_ACCEPT_DEMAND</MemoryType>
+					<iMemoryAttitudePercent>100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_REJECTED_DEMAND</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_ACCEPTED_RELIGION</MemoryType>
+					<iMemoryAttitudePercent>100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_DENIED_RELIGION</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_ACCEPTED_CIVIC</MemoryType>
+					<iMemoryAttitudePercent>100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_DENIED_CIVIC</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_DENIED_JOIN_WAR</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_ACCEPTED_STOP_TRADING</MemoryType>
+					<iMemoryAttitudePercent>50</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_DENIED_STOP_TRADING</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_STOPPED_TRADING</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_HIRED_TRADE_EMBARGO</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_MADE_DEMAND</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_TRADED_TECH_TO_US</MemoryType>
+					<iMemoryAttitudePercent>15</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+			</MemoryAttitudePercents>
+			<NoWarAttitudeProbs>
+				<NoWarAttitudeProb>
+					<AttitudeType>ATTITUDE_ANNOYED</AttitudeType>
+					<iNoWarProb>20</iNoWarProb>
+				</NoWarAttitudeProb>
+				<NoWarAttitudeProb>
+					<AttitudeType>ATTITUDE_CAUTIOUS</AttitudeType>
+					<iNoWarProb>70</iNoWarProb>
+				</NoWarAttitudeProb>
+				<NoWarAttitudeProb>
+					<AttitudeType>ATTITUDE_PLEASED</AttitudeType>
+					<iNoWarProb>100</iNoWarProb>
+				</NoWarAttitudeProb>
+				<NoWarAttitudeProb>
+					<AttitudeType>ATTITUDE_FRIENDLY</AttitudeType>
+					<iNoWarProb>100</iNoWarProb>
+				</NoWarAttitudeProb>
+			</NoWarAttitudeProbs>
+			<UnitAIWeightModifiers/>
+			<ImprovementWeightModifiers/>
+			<DiplomacyIntroMusicPeace>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_ANCIENT</EraType>
+					<DiploScriptId>AS2D_DIPLO_HUNS_EARLY</DiploScriptId>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_CLASSICAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_HUNS_EARLY</DiploScriptId>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_MEDIEVAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_HUNS_MIDDLE</DiploScriptId>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_RENAISSANCE</EraType>
+					<DiploScriptId>AS2D_DIPLO_HUNS_MIDDLE</DiploScriptId>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_INDUSTRIAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_HUNS_LATE</DiploScriptId>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_GLOBAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_HUNS_LATE</DiploScriptId>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_DIGITAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_HUNS_LATE</DiploScriptId>
+				</DiploMusicPeaceEra>
+			</DiplomacyIntroMusicPeace>
+			<DiplomacyMusicPeace>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_ANCIENT</EraType>
+					<DiploScriptId>AS2D_DIPLO_HUNS_EARLY</DiploScriptId>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_CLASSICAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_HUNS_EARLY</DiploScriptId>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_MEDIEVAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_HUNS_MIDDLE</DiploScriptId>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_RENAISSANCE</EraType>
+					<DiploScriptId>AS2D_DIPLO_HUNS_MIDDLE</DiploScriptId>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_INDUSTRIAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_HUNS_LATE</DiploScriptId>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_GLOBAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_HUNS_LATE</DiploScriptId>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_DIGITAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_HUNS_LATE</DiploScriptId>
+				</DiploMusicPeaceEra>
+			</DiplomacyMusicPeace>
+			<DiplomacyIntroMusicWar>
+				<DiploMusicWarEra>
+					<EraType>ERA_ANCIENT</EraType>
+					<DiploScriptId>AS2D_DIPLO_HUNS_EARLY</DiploScriptId>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_CLASSICAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_HUNS_EARLY</DiploScriptId>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_MEDIEVAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_HUNS_MIDDLE</DiploScriptId>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_RENAISSANCE</EraType>
+					<DiploScriptId>AS2D_DIPLO_HUNS_MIDDLE</DiploScriptId>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_INDUSTRIAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_HUNS_LATE</DiploScriptId>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_GLOBAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_HUNS_LATE</DiploScriptId>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_DIGITAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_HUNS_LATE</DiploScriptId>
+				</DiploMusicWarEra>
+			</DiplomacyIntroMusicWar>
+			<DiplomacyMusicWar>
+				<DiploMusicWarEra>
+					<EraType>ERA_ANCIENT</EraType>
+					<DiploScriptId>AS2D_DIPLO_WARDRUMS_EARLY</DiploScriptId>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_CLASSICAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_WARDRUMS_EARLY</DiploScriptId>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_MEDIEVAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_WARDRUMS_MIDDLE</DiploScriptId>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_RENAISSANCE</EraType>
+					<DiploScriptId>AS2D_DIPLO_WARDRUMS_MIDDLE</DiploScriptId>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_INDUSTRIAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_WARDRUMS_LATE</DiploScriptId>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_GLOBAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_WARDRUMS_LATE</DiploScriptId>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_DIGITAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_WARDRUMS_LATE</DiploScriptId>
+				</DiploMusicWarEra>
+			</DiplomacyMusicWar>
+		</LeaderHeadInfo>
+		<LeaderHeadInfo>
+			<Type>LEADER_TAMERLANE</Type>
+			<Description>TXT_KEY_LEADER_TAMERLANE</Description>
+			<Civilopedia>TXT_KEY_LEADER_TAMERLANE_PEDIA</Civilopedia>
+			<ArtDefineTag>ART_DEF_LEADER_TAMERLANE</ArtDefineTag>
+			<iWonderConstructRand>25</iWonderConstructRand>
+			<iBaseAttitude>-2</iBaseAttitude>
+			<iBasePeaceWeight>0</iBasePeaceWeight>
+			<iPeaceWeightRand>3</iPeaceWeightRand>
+			<iWarmongerRespect>2</iWarmongerRespect>
+			<iEspionageWeight>110</iEspionageWeight>
+			<iRefuseToTalkWarThreshold>12</iRefuseToTalkWarThreshold>
+			<iNoTechTradeThreshold>5</iNoTechTradeThreshold>
+			<iTechTradeKnownPercent>40</iTechTradeKnownPercent>
+			<iMaxGoldTradePercent>5</iMaxGoldTradePercent>
+			<iMaxGoldPerTurnTradePercent>10</iMaxGoldPerTurnTradePercent>
+			<iMaxWarRand>50</iMaxWarRand>
+			<iMaxWarNearbyPowerRatio>120</iMaxWarNearbyPowerRatio>
+			<iMaxWarDistantPowerRatio>90</iMaxWarDistantPowerRatio>
+			<iMaxWarMinAdjacentLandPercent>0</iMaxWarMinAdjacentLandPercent>
+			<iLimitedWarRand>100</iLimitedWarRand>
+			<iLimitedWarPowerRatio>130</iLimitedWarPowerRatio>
+			<iDogpileWarRand>50</iDogpileWarRand>
+			<iMakePeaceRand>100</iMakePeaceRand>
+			<iDeclareWarTradeRand>50</iDeclareWarTradeRand>
+			<iDemandRebukedSneakProb>10</iDemandRebukedSneakProb>
+			<iDemandRebukedWarProb>50</iDemandRebukedWarProb>
+			<iRazeCityProb>20</iRazeCityProb>
+			<iBuildUnitProb>40</iBuildUnitProb>
+			<iBaseAttackOddsChange>8</iBaseAttackOddsChange>
+			<iAttackOddsChangeRand>8</iAttackOddsChangeRand>
+			<iWorseRankDifferenceAttitudeChange>-2</iWorseRankDifferenceAttitudeChange>
+			<iBetterRankDifferenceAttitudeChange>1</iBetterRankDifferenceAttitudeChange>
+			<iCloseBordersAttitudeChange>-4</iCloseBordersAttitudeChange>
+			<iLostWarAttitudeChange>-1</iLostWarAttitudeChange>
+			<iAtWarAttitudeDivisor>-5</iAtWarAttitudeDivisor>
+			<iAtWarAttitudeChangeLimit>5</iAtWarAttitudeChangeLimit>
+			<iAtPeaceAttitudeDivisor>60</iAtPeaceAttitudeDivisor>
+			<iAtPeaceAttitudeChangeLimit>1</iAtPeaceAttitudeChangeLimit>
+			<iSameReligionAttitudeChange>1</iSameReligionAttitudeChange>
+			<iSameReligionAttitudeDivisor>10</iSameReligionAttitudeDivisor>
+			<iSameReligionAttitudeChangeLimit>2</iSameReligionAttitudeChangeLimit>
+			<iDifferentReligionAttitudeChange>-4</iDifferentReligionAttitudeChange>
+			<iDifferentReligionAttitudeDivisor>-5</iDifferentReligionAttitudeDivisor>
+			<iDifferentReligionAttitudeChangeLimit>-1</iDifferentReligionAttitudeChangeLimit>
+			<iBonusTradeAttitudeDivisor>50</iBonusTradeAttitudeDivisor>
+			<iBonusTradeAttitudeChangeLimit>2</iBonusTradeAttitudeChangeLimit>
+			<iOpenBordersAttitudeDivisor>25</iOpenBordersAttitudeDivisor>
+			<iOpenBordersAttitudeChangeLimit>2</iOpenBordersAttitudeChangeLimit>
+			<iDefensivePactAttitudeDivisor>12</iDefensivePactAttitudeDivisor>
+			<iDefensivePactAttitudeChangeLimit>2</iDefensivePactAttitudeChangeLimit>
+			<iShareWarAttitudeChange>1</iShareWarAttitudeChange>
+			<iShareWarAttitudeDivisor>8</iShareWarAttitudeDivisor>
+			<iShareWarAttitudeChangeLimit>2</iShareWarAttitudeChangeLimit>
+			<iFavoriteCivicAttitudeChange>1</iFavoriteCivicAttitudeChange>
+			<iFavoriteCivicAttitudeDivisor>10</iFavoriteCivicAttitudeDivisor>
+			<iFavoriteCivicAttitudeChangeLimit>0</iFavoriteCivicAttitudeChangeLimit>
+			<DemandTributeAttitudeThreshold>ATTITUDE_CAUTIOUS</DemandTributeAttitudeThreshold>
+			<NoGiveHelpAttitudeThreshold>ATTITUDE_CAUTIOUS</NoGiveHelpAttitudeThreshold>
+			<TechRefuseAttitudeThreshold>ATTITUDE_ANNOYED</TechRefuseAttitudeThreshold>
+			<StrategicBonusRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</StrategicBonusRefuseAttitudeThreshold>
+			<HappinessBonusRefuseAttitudeThreshold>ATTITUDE_ANNOYED</HappinessBonusRefuseAttitudeThreshold>
+			<HealthBonusRefuseAttitudeThreshold>ATTITUDE_ANNOYED</HealthBonusRefuseAttitudeThreshold>
+			<MapRefuseAttitudeThreshold>ATTITUDE_PLEASED</MapRefuseAttitudeThreshold>
+			<DeclareWarRefuseAttitudeThreshold>ATTITUDE_ANNOYED</DeclareWarRefuseAttitudeThreshold>
+			<DeclareWarThemRefuseAttitudeThreshold>ATTITUDE_PLEASED</DeclareWarThemRefuseAttitudeThreshold>
+			<StopTradingRefuseAttitudeThreshold>ATTITUDE_ANNOYED</StopTradingRefuseAttitudeThreshold>
+			<StopTradingThemRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</StopTradingThemRefuseAttitudeThreshold>
+			<AdoptCivicRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</AdoptCivicRefuseAttitudeThreshold>
+			<ConvertReligionRefuseAttitudeThreshold>ATTITUDE_ANNOYED</ConvertReligionRefuseAttitudeThreshold>
+			<OpenBordersRefuseAttitudeThreshold>ATTITUDE_CAUTIOUS</OpenBordersRefuseAttitudeThreshold>
+			<DefensivePactRefuseAttitudeThreshold>ATTITUDE_PLEASED</DefensivePactRefuseAttitudeThreshold>
+			<PermanentAllianceRefuseAttitudeThreshold>ATTITUDE_PLEASED</PermanentAllianceRefuseAttitudeThreshold>
+			<VassalRefuseAttitudeThreshold>ATTITUDE_PLEASED</VassalRefuseAttitudeThreshold>
+			<iVassalPowerModifier>50</iVassalPowerModifier>
+			<iFreedomAppreciation>10</iFreedomAppreciation>
+			<FavoriteCivic>CIVIC_MERITOCRACY</FavoriteCivic>
+			<FavoriteReligion>RELIGION_ISLAM</FavoriteReligion>
+			<Traits/>
+			<Flavors>
+				<Flavor>
+					<FlavorType>FLAVOR_MILITARY</FlavorType>
+					<iFlavor>5</iFlavor>
+				</Flavor>
+				<Flavor>
+					<FlavorType>FLAVOR_CULTURE</FlavorType>
+					<iFlavor>2</iFlavor>
+				</Flavor>
+			</Flavors>
+			<ContactRands>
+				<ContactRand>
+					<ContactType>CONTACT_RELIGION_PRESSURE</ContactType>
+					<iContactRand>2000</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_CIVIC_PRESSURE</ContactType>
+					<iContactRand>10000</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_JOIN_WAR</ContactType>
+					<iContactRand>20</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_STOP_TRADING</ContactType>
+					<iContactRand>100</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_GIVE_HELP</ContactType>
+					<iContactRand>250</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_ASK_FOR_HELP</ContactType>
+					<iContactRand>1000</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_DEMAND_TRIBUTE</ContactType>
+					<iContactRand>25</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_OPEN_BORDERS</ContactType>
+					<iContactRand>25</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_DEFENSIVE_PACT</ContactType>
+					<iContactRand>250</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_PERMANENT_ALLIANCE</ContactType>
+					<iContactRand>80</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_PEACE_TREATY</ContactType>
+					<iContactRand>20</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_TRADE_TECH</ContactType>
+					<iContactRand>10</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_TRADE_BONUS</ContactType>
+					<iContactRand>10</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_TRADE_MAP</ContactType>
+					<iContactRand>20</iContactRand>
+				</ContactRand>
+				<ContactRand>
+					<ContactType>CONTACT_TRADE_SLAVE</ContactType>
+					<iContactRand>10</iContactRand>
+				</ContactRand>
+			</ContactRands>
+			<ContactDelays>
+				<ContactDelay>
+					<ContactType>CONTACT_RELIGION_PRESSURE</ContactType>
+					<iContactDelay>50</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_CIVIC_PRESSURE</ContactType>
+					<iContactDelay>50</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_JOIN_WAR</ContactType>
+					<iContactDelay>20</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_STOP_TRADING</ContactType>
+					<iContactDelay>20</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_GIVE_HELP</ContactType>
+					<iContactDelay>50</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_ASK_FOR_HELP</ContactType>
+					<iContactDelay>50</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_DEMAND_TRIBUTE</ContactType>
+					<iContactDelay>50</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_OPEN_BORDERS</ContactType>
+					<iContactDelay>20</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_DEFENSIVE_PACT</ContactType>
+					<iContactDelay>20</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_PERMANENT_ALLIANCE</ContactType>
+					<iContactDelay>20</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_PEACE_TREATY</ContactType>
+					<iContactDelay>10</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_TRADE_TECH</ContactType>
+					<iContactDelay>30</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_TRADE_BONUS</ContactType>
+					<iContactDelay>20</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_TRADE_MAP</ContactType>
+					<iContactDelay>50</iContactDelay>
+				</ContactDelay>
+				<ContactDelay>
+					<ContactType>CONTACT_TRADE_SLAVE</ContactType>
+					<iContactDelay>20</iContactDelay>
+				</ContactDelay>
+			</ContactDelays>
+			<MemoryDecays>
+				<MemoryDecay>
+					<MemoryType>MEMORY_GIVE_HELP</MemoryType>
+					<iMemoryRand>200</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_REFUSED_HELP</MemoryType>
+					<iMemoryRand>100</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_ACCEPT_DEMAND</MemoryType>
+					<iMemoryRand>50</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_REJECTED_DEMAND</MemoryType>
+					<iMemoryRand>150</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_ACCEPTED_RELIGION</MemoryType>
+					<iMemoryRand>100</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_DENIED_RELIGION</MemoryType>
+					<iMemoryRand>50</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_ACCEPTED_CIVIC</MemoryType>
+					<iMemoryRand>100</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_DENIED_CIVIC</MemoryType>
+					<iMemoryRand>50</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_ACCEPTED_JOIN_WAR</MemoryType>
+					<iMemoryRand>150</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_DENIED_JOIN_WAR</MemoryType>
+					<iMemoryRand>100</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_ACCEPTED_STOP_TRADING</MemoryType>
+					<iMemoryRand>100</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_DENIED_STOP_TRADING</MemoryType>
+					<iMemoryRand>50</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_STOPPED_TRADING_RECENT</MemoryType>
+					<iMemoryRand>30</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_MADE_DEMAND_RECENT</MemoryType>
+					<iMemoryRand>20</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_CANCELLED_OPEN_BORDERS</MemoryType>
+					<iMemoryRand>10</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_TRADED_TECH_TO_US</MemoryType>
+					<iMemoryRand>100</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_RECEIVED_TECH_FROM_ANY</MemoryType>
+					<iMemoryRand>20</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_VOTED_AGAINST_US</MemoryType>
+					<iMemoryRand>10</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_VOTED_FOR_US</MemoryType>
+					<iMemoryRand>10</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_EVENT_GOOD_TO_US</MemoryType>
+					<iMemoryRand>50</iMemoryRand>
+				</MemoryDecay>
+				<MemoryDecay>
+					<MemoryType>MEMORY_EVENT_BAD_TO_US</MemoryType>
+					<iMemoryRand>40</iMemoryRand>
+				</MemoryDecay>
+			</MemoryDecays>
+			<MemoryAttitudePercents>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_DECLARED_WAR</MemoryType>
+					<iMemoryAttitudePercent>-300</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_DECLARED_WAR_ON_FRIEND</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_HIRED_WAR_ALLY</MemoryType>
+					<iMemoryAttitudePercent>-200</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_NUKED_US</MemoryType>
+					<iMemoryAttitudePercent>-200</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_NUKED_FRIEND</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_RAZED_CITY</MemoryType>
+					<iMemoryAttitudePercent>-250</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_RAZED_HOLY_CITY</MemoryType>
+					<iMemoryAttitudePercent>-200</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_SPY_CAUGHT</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_GIVE_HELP</MemoryType>
+					<iMemoryAttitudePercent>100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_REFUSED_HELP</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_ACCEPT_DEMAND</MemoryType>
+					<iMemoryAttitudePercent>100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_REJECTED_DEMAND</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_ACCEPTED_RELIGION</MemoryType>
+					<iMemoryAttitudePercent>100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_DENIED_RELIGION</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_ACCEPTED_CIVIC</MemoryType>
+					<iMemoryAttitudePercent>100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_DENIED_CIVIC</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_DENIED_JOIN_WAR</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_ACCEPTED_STOP_TRADING</MemoryType>
+					<iMemoryAttitudePercent>50</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_DENIED_STOP_TRADING</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_STOPPED_TRADING</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_HIRED_TRADE_EMBARGO</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_MADE_DEMAND</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_TRADED_TECH_TO_US</MemoryType>
+					<iMemoryAttitudePercent>10</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_VOTED_AGAINST_US</MemoryType>
+					<iMemoryAttitudePercent>-200</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_VOTED_FOR_US</MemoryType>
+					<iMemoryAttitudePercent>200</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_EVENT_GOOD_TO_US</MemoryType>
+					<iMemoryAttitudePercent>100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_EVENT_BAD_TO_US</MemoryType>
+					<iMemoryAttitudePercent>-100</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+				<MemoryAttitudePercent>
+					<MemoryType>MEMORY_LIBERATED_CITIES</MemoryType>
+					<iMemoryAttitudePercent>150</iMemoryAttitudePercent>
+				</MemoryAttitudePercent>
+			</MemoryAttitudePercents>
+			<NoWarAttitudeProbs>
+				<NoWarAttitudeProb>
+					<AttitudeType>ATTITUDE_ANNOYED</AttitudeType>
+					<iNoWarProb>10</iNoWarProb>
+				</NoWarAttitudeProb>
+				<NoWarAttitudeProb>
+					<AttitudeType>ATTITUDE_CAUTIOUS</AttitudeType>
+					<iNoWarProb>50</iNoWarProb>
+				</NoWarAttitudeProb>
+				<NoWarAttitudeProb>
+					<AttitudeType>ATTITUDE_PLEASED</AttitudeType>
+					<iNoWarProb>90</iNoWarProb>
+				</NoWarAttitudeProb>
+				<NoWarAttitudeProb>
+					<AttitudeType>ATTITUDE_FRIENDLY</AttitudeType>
+					<iNoWarProb>100</iNoWarProb>
+				</NoWarAttitudeProb>
+			</NoWarAttitudeProbs>
+			<UnitAIWeightModifiers>
+				<UnitAIWeightModifier>
+					<UnitAIType>UNITAI_ATTACK</UnitAIType>
+					<iWeightModifier>33</iWeightModifier>
+				</UnitAIWeightModifier>
+				<UnitAIWeightModifier>
+					<UnitAIType>UNITAI_ATTACK_CITY</UnitAIType>
+					<iWeightModifier>66</iWeightModifier>
+				</UnitAIWeightModifier>
+				<UnitAIWeightModifier>
+					<UnitAIType>UNITAI_ATTACK_SEA</UnitAIType>
+					<iWeightModifier>-75</iWeightModifier>
+				</UnitAIWeightModifier>
+				<UnitAIWeightModifier>
+					<UnitAIType>UNITAI_ASSAULT_SEA</UnitAIType>
+					<iWeightModifier>-75</iWeightModifier>
+				</UnitAIWeightModifier>
+				<UnitAIWeightModifier>
+					<UnitAIType>UNITAI_ESCORT_SEA</UnitAIType>
+					<iWeightModifier>-75</iWeightModifier>
+				</UnitAIWeightModifier>
+				<UnitAIWeightModifier>
+					<UnitAIType>UNITAI_RESERVE_SEA</UnitAIType>
+					<iWeightModifier>-75</iWeightModifier>
+				</UnitAIWeightModifier>
+				<UnitAIWeightModifier>
+					<UnitAIType>UNITAI_SETTLER_SEA</UnitAIType>
+					<iWeightModifier>-100</iWeightModifier>
+				</UnitAIWeightModifier>
+				<UnitAIWeightModifier>
+					<UnitAIType>UNITAI_EXPLORE_SEA</UnitAIType>
+					<iWeightModifier>-100</iWeightModifier>
+				</UnitAIWeightModifier>
+			</UnitAIWeightModifiers>
+			<ImprovementWeightModifiers/>
+			<DiplomacyIntroMusicPeace>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_ANCIENT</EraType>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_CLASSICAL</EraType>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_MEDIEVAL</EraType>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_RENAISSANCE</EraType>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_INDUSTRIAL</EraType>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_GLOBAL</EraType>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_DIGITAL</EraType>
+				</DiploMusicPeaceEra>
+			</DiplomacyIntroMusicPeace>
+			<DiplomacyMusicPeace>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_ANCIENT</EraType>
+					<DiploScriptId>AS2D_DIPLO_TIMUR_MIDDLE</DiploScriptId>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_CLASSICAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_TIMUR_MIDDLE</DiploScriptId>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_MEDIEVAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_TIMUR_MIDDLE</DiploScriptId>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_RENAISSANCE</EraType>
+					<DiploScriptId>AS2D_DIPLO_TIMUR_MIDDLE</DiploScriptId>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_INDUSTRIAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_TIMUR_MIDDLE</DiploScriptId>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_GLOBAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_TIMUR_MIDDLE</DiploScriptId>
+				</DiploMusicPeaceEra>
+				<DiploMusicPeaceEra>
+					<EraType>ERA_DIGITAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_TIMUR_MIDDLE</DiploScriptId>
+				</DiploMusicPeaceEra>
+			</DiplomacyMusicPeace>
+			<DiplomacyIntroMusicWar>
+				<DiploMusicWarEra>
+					<EraType>ERA_ANCIENT</EraType>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_CLASSICAL</EraType>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_MEDIEVAL</EraType>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_RENAISSANCE</EraType>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_INDUSTRIAL</EraType>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_GLOBAL</EraType>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_DIGITAL</EraType>
+				</DiploMusicWarEra>
+			</DiplomacyIntroMusicWar>
+			<DiplomacyMusicWar>
+				<DiploMusicWarEra>
+					<EraType>ERA_ANCIENT</EraType>
+					<DiploScriptId>AS2D_DIPLO_WARDRUMS_MIDDLE</DiploScriptId>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_CLASSICAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_WARDRUMS_MIDDLE</DiploScriptId>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_MEDIEVAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_WARDRUMS_MIDDLE</DiploScriptId>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_RENAISSANCE</EraType>
+					<DiploScriptId>AS2D_DIPLO_WARDRUMS_MIDDLE</DiploScriptId>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_INDUSTRIAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_WARDRUMS_MIDDLE</DiploScriptId>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_GLOBAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_WARDRUMS_MIDDLE</DiploScriptId>
+				</DiploMusicWarEra>
+				<DiploMusicWarEra>
+					<EraType>ERA_DIGITAL</EraType>
+					<DiploScriptId>AS2D_DIPLO_WARDRUMS_MIDDLE</DiploScriptId>
 				</DiploMusicWarEra>
 			</DiplomacyMusicWar>
 		</LeaderHeadInfo>

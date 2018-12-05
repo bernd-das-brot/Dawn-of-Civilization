@@ -313,6 +313,10 @@ public:
 	void addGreatPersonBornName(std::wstring sName);
 	bool isGreatPersonBorn(std::wstring sName);
 
+	void autosave();
+
+	void incrementBuildingClassCreatedCount(int iBuildingClass);
+
 protected:
 	CvGame* m_pGame;
 };

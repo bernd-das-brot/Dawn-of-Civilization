@@ -292,12 +292,6 @@ class CvTechChooser:
 			if iTech > -1:
 				self.TechEffects[iTech].append(("Civic", iCivic))
 
-		# Religions
-		for iReligion in xrange(gc.getNumReligionInfos()):
-			iTech = gc.getReligionInfo(iReligion).getTechPrereq()
-			if iTech > -1:
-				self.TechEffects[iTech].append(("Religion", iReligion))
-
 		# Corporations
 		for iCorporation in xrange(gc.getNumCorporationInfos()):
 			iTech = gc.getCorporationInfo(iCorporation).getTechPrereq()
@@ -315,7 +309,7 @@ class CvTechChooser:
 				for iFeature in xrange(gc.getNumFeatureInfos()):
 					iTech = gc.getBuildInfo(iBuild).getFeatureTech(iFeature)
 					if iTech > -1:
-						self.TechEffects[iTech].append(("Improvement", iBuild))
+						self.TechEffects[iTech].append(("Remove", iBuild))
 
 		# Resources
 		for iResource in xrange(gc.getNumBonusInfos()):
@@ -325,6 +319,10 @@ class CvTechChooser:
 			iTech = gc.getBonusInfo(iResource).getTechObsolete()
 			if iTech > -1:
 				self.TechEffects[iTech].append(("ObsoleteResource", iResource))
+			iTech = gc.getBonusInfo(iResource).getTechPlayerTrade()
+			if iTech > -1:
+				if ("ResourceTrade", -1) not in self.TechEffects[iTech]:
+					self.TechEffects[iTech].append(("ResourceTrade", -1))
 
 		# Other Effects
 		for iTech in xrange(gc.getNumTechInfos()):
@@ -333,7 +331,8 @@ class CvTechChooser:
 			for iImprovement in xrange(gc.getNumImprovementInfos()):
 				for iYieldType in xrange(YieldTypes.NUM_YIELD_TYPES):
 					if gc.getImprovementInfo(iImprovement).getTechYieldChanges(iTech, iYieldType):
-						self.TechEffects[iTech].append(("ImprovementYield", iImprovement))
+						if ("ImprovementYield", iImprovement) not in self.TechEffects[iTech]:
+							self.TechEffects[iTech].append(("ImprovementYield", iImprovement))
 
 			if TechInfo.isIrrigation():
 				self.TechEffects[iTech].append(("EnableIrrigation", -1))
@@ -410,6 +409,14 @@ class CvTechChooser:
 			if iTech > -1:
 				self.TechEffects[iTech].append(("Process", iProcess))
 
+		# Religions
+		for iReligion in xrange(gc.getNumReligionInfos()):
+			iTech = gc.getReligionInfo(iReligion).getTechPrereq()
+			if iTech > -1:
+				self.TechEffects[iTech].append(("Religion", iReligion))
+				
+		self.TechEffects[iAcademia].append(("Religion", iProtestantism))
+
 
 
 	def placeTechs(self):
@@ -464,12 +471,13 @@ class CvTechChooser:
 
 		### Effects
 			fX = self.X_ITEMS
+			lRemoves = []
 			for index in xrange(len(self.TechEffects[tech])):
 				type = self.TechEffects[tech][index][0]
 				item = self.TechEffects[tech][index][1]
 				szItem = "Item" + str(tech * 1000 + index)
 				szObsolete = "Obsolete" + str(tech * 1000 + index)
-
+				
 				if type == "Civic":
 					screen.addDDSGFCAt(szItem, szTechBox, gc.getCivicInfo(item).getButton(), iX + fX, iY + self.Y_ITEMS, self.ICON_SIZE, self.ICON_SIZE, WidgetTypes.WIDGET_PEDIA_JUMP_TO_CIVIC, item, 1, False)
 
@@ -533,9 +541,13 @@ class CvTechChooser:
 				elif type == "Improvement":
 					screen.addDDSGFCAt(szItem, szTechBox, gc.getBuildInfo(item).getButton(), iX + fX, iY + self.Y_ITEMS, self.ICON_SIZE, self.ICON_SIZE, WidgetTypes.WIDGET_HELP_IMPROVEMENT, tech, item, False)
 
+				elif type == "Remove":
+					lRemoves.append(item)
+					continue
+					
 				elif type == "ImprovementYield":
 					screen.addDDSGFCAt(szItem, szTechBox, gc.getImprovementInfo(item).getButton(), iX + fX, iY + self.Y_ITEMS, self.ICON_SIZE, self.ICON_SIZE, WidgetTypes.WIDGET_HELP_YIELD_CHANGE, tech, item, False)
-
+					
 				elif type == "RevealResource":
 					screen.addDDSGFCAt(szItem, szTechBox, gc.getBonusInfo(item).getButton(), iX + fX, iY + self.Y_ITEMS, self.ICON_SIZE, self.ICON_SIZE, WidgetTypes.WIDGET_HELP_BONUS_REVEAL, tech, item, False)
 
@@ -543,6 +555,9 @@ class CvTechChooser:
 					screen.addDDSGFCAt(szItem, szTechBox, gc.getBonusInfo(item).getButton(), iX + fX, iY + self.Y_ITEMS, self.ICON_SIZE, self.ICON_SIZE, WidgetTypes.WIDGET_HELP_OBSOLETE_BONUS, item, -1, False)
 					screen.addDDSGFCAt(szObsolete, szTechBox, CyArtFileMgr().getInterfaceArtInfo("INTERFACE_BUTTONS_RED_X").getPath(), iX + fX, iY + self.Y_ITEMS, self.ICON_SIZE, self.ICON_SIZE, WidgetTypes.WIDGET_HELP_OBSOLETE_BONUS, item, -1, False)
 
+				elif type == "ResourceTrade":
+					screen.addDDSGFCAt(szItem, szTechBox, CyArtFileMgr().getInterfaceArtInfo("INTERFACE_TECH_GOLDTRADING").getPath(), iX + fX, iY + self.Y_ITEMS, self.ICON_SIZE, self.ICON_SIZE, WidgetTypes.WIDGET_HELP_BONUS_PLAYER_TRADE, tech, -1, False)
+					
 				elif type == "EnableIrrigation":
 					screen.addDDSGFCAt(szItem, szTechBox, CyArtFileMgr().getInterfaceArtInfo("INTERFACE_TECH_IRRIGATION").getPath(), iX + fX, iY + self.Y_ITEMS, self.ICON_SIZE, self.ICON_SIZE, WidgetTypes.WIDGET_HELP_IRRIGATION, tech, -1, False)
 
@@ -634,6 +649,11 @@ class CvTechChooser:
 					szFileName = CyArtFileMgr().getInterfaceArtInfo("INTERFACE_GENERAL_QUESTIONMARK").getPath()
 					screen.addDDSGFCAt(szItem, szTechBox, szFileName, iX + fX, iY + self.Y_ITEMS, self.ICON_SIZE, self.ICON_SIZE, WidgetTypes.WIDGET_PYTHON, 7800, tech, False)
 
+				fX += self.X_INCREMENT
+				
+			if len(lRemoves) > 0:
+				szItem = "Item" + str(tech * 1000 + index + 1)
+				screen.addDDSGFCAt(szItem, szTechBox, gc.getBuildInfo(lRemoves[0]).getButton(), iX + fX, iY + self.Y_ITEMS, self.ICON_SIZE, self.ICON_SIZE, WidgetTypes.WIDGET_HELP_REMOVE, tech, tech, False)
 				fX += self.X_INCREMENT
 
 			fX = self.BOX_WIDTH - (self.PIXEL_INCREMENT * 2)
@@ -785,15 +805,15 @@ class CvTechChooser:
 				screen.setPanelColor(szTechBox, 200, 175, 0)
 			elif player.canEverResearch(tech):
 				if TechInfo.getEra() == 0:
-					screen.setPanelColor(szTechBox, 40, 80, 30)
+					screen.setPanelColor(szTechBox, 40, 100, 35)
 				if TechInfo.getEra() == 1:
 					screen.setPanelColor(szTechBox, 150, 100, 35)
 				if TechInfo.getEra() == 2:
 					screen.setPanelColor(szTechBox, 80, 70, 60)
 				if TechInfo.getEra() == 3:
-					screen.setPanelColor(szTechBox, 40, 80, 115)
+					screen.setPanelColor(szTechBox, 40, 40, 115)
 				if TechInfo.getEra() == 4:
-					screen.setPanelColor(szTechBox, 120, 120, 120)
+					screen.setPanelColor(szTechBox, 100, 100, 100)
 				if TechInfo.getEra() == 5:
 					screen.setPanelColor(szTechBox, 80, 40, 100)
 				if TechInfo.getEra() == 6:
@@ -847,30 +867,33 @@ class CvTechChooser:
 		screen = self.getScreen()
 		iGPX = 25
 
-		for j in xrange(len(self.GreatPeopleList)):
-			iUnit = self.GreatPeopleList[j]
+		for iUnit in self.GreatPeopleList:
 			for iFlavor in xrange(gc.getNumFlavorTypes()):
 				if gc.getUnitInfo(iUnit).getFlavorValue(iFlavor) > 0:
 					break
+					
+			flavor = lambda x: gc.getTechInfo(x).getFlavorValue(iFlavor)
 
-			iMaxFlavor = 0
-			iTech = -1
-			for iLoopTech in xrange(gc.getNumTechInfos()):
-				if gc.getPlayer(self.iPlayer).canResearch(iLoopTech, False):
-					if gc.getTechInfo(iLoopTech).getFlavorValue(iFlavor) > iMaxFlavor:
-						iMaxFlavor = gc.getTechInfo(iLoopTech).getFlavorValue(iFlavor)
-						iTech = iLoopTech
+			lTechs = [i for i in xrange(gc.getNumTechInfos()) if gc.getPlayer(self.iPlayer).canResearch(i, False)]
+			iFirstDiscovery = utils.getHighestEntry(lTechs, flavor)
+			
+			iSecondDiscovery = None
+			if iFirstDiscovery:
+				lTechsGiven = [i for i in xrange(gc.getNumTechInfos()) if gc.getPlayer(self.iPlayer).canResearchGiven(i, False, iFirstDiscovery) and i != iFirstDiscovery]
+				iSecondDiscovery = utils.getHighestEntry(lTechsGiven, flavor)
 
 			screen.addDDSGFCAt("GreatPeopleUnit" + str(iUnit),"TechBottomPanel", gc.getUnitInfo(iUnit).getButton(), iGPX, 16, self.GP_ICON_SIZE, self.GP_ICON_SIZE, WidgetTypes.WIDGET_PEDIA_JUMP_TO_UNIT, iUnit, -1, False)
 			iGPX += self.GP_ICON_SIZE
-
-			if iTech > -1:
-				screen.addDDSGFCAt("GreatPeopliPrereq" + str(iUnit),"TechBottomPanel", gc.getTechInfo(iTech).getButton(), iGPX, 16, self.GP_ICON_SIZE, self.GP_ICON_SIZE, WidgetTypes.WIDGET_TECH_TREE, iTech, -1, False)
-				iGPX += self.GP_ICON_SIZE * 2
-			else:
-				screen.addDDSGFCAt("GreatPeopliPrereq" + str(iUnit),"TechBottomPanel", CyArtFileMgr().getInterfaceArtInfo("INTERFACE_BUTTONS_CANCEL").getPath(), iGPX, 16, self.GP_ICON_SIZE, self.GP_ICON_SIZE, WidgetTypes.WIDGET_GENERAL, -1, -1, False)
-				iGPX += self.GP_ICON_SIZE * 2
-
+			
+			for i, iTech in enumerate([iFirstDiscovery, iSecondDiscovery]):
+				if iTech:
+					screen.addDDSGFCAt("GreatPeoplePrereq" + str(iUnit) + str(i),"TechBottomPanel", gc.getTechInfo(iTech).getButton(), iGPX, 16, self.GP_ICON_SIZE, self.GP_ICON_SIZE, WidgetTypes.WIDGET_TECH_TREE, iTech, -1, False)
+				else:
+					screen.addDDSGFCAt("GreatPeoplePrereq" + str(iUnit) + str(i),"TechBottomPanel", CyArtFileMgr().getInterfaceArtInfo("INTERFACE_BUTTONS_CANCEL").getPath(), iGPX, 16, self.GP_ICON_SIZE, self.GP_ICON_SIZE, WidgetTypes.WIDGET_GENERAL, -1, -1, False)
+				iGPX += self.GP_ICON_SIZE
+			
+			screen.addDDSGFCAt("GreatPeopleTechList" + str(iUnit),"TechBottomPanel", "Art/Interface/Buttons/TechList.dds", iGPX, 16, self.GP_ICON_SIZE, self.GP_ICON_SIZE, WidgetTypes.WIDGET_GENERAL, 12001, iFlavor, False)
+			iGPX += self.GP_ICON_SIZE * 2
 
 
 	def getWidth(self, xDiff):

@@ -17,6 +17,9 @@ class PlayerData:
 		self.iPlayer = iPlayer
 		
 		self.setup()
+		
+	def update(self, data):
+		self.__dict__.update(data)
 
 	def setup(self):
 	
@@ -49,6 +52,7 @@ class PlayerData:
 		# Victory
 		
 		self.lGoals = [-1, -1, -1]
+		self.lGoalTurns = [-1, -1, -1]
 		self.bHistoricalGoldenAge = False
 		
 		# Stability
@@ -58,7 +62,7 @@ class PlayerData:
 		# Tech Log
 		
 		self.iTechColumn = 0
-		
+	
 	def resetStability(self):
 		self.iStabilityLevel = iStabilityShaky
 		
@@ -77,12 +81,23 @@ class PlayerData:
 		
 		self.lWarTrend = [[] for _ in range(iNumTotalPlayersB)]		
 		self.lWarStartTurn = [0] * iNumTotalPlayersB
+		self.lLastWarSuccess = [0] * iNumTotalPlayersB
 		
 		self.lStabilityCategoryValues = [0, 0, 0, 0, 0]
 		
-	def resetWarTrend(self, iEnemy):
-		self.lWarTrend[iPlayer] = []
+	def resetEconomyTrend(self):
+		self.lEconomyTrend = []
 		
+	def resetHappinessTrend(self):
+		self.lHappinessTrend = []
+		
+	def resetWarTrend(self, iEnemy):
+		self.lWarTrend[iEnemy] = []
+	
+	def resetWarTrends(self):
+		for iEnemy in range(iNumPlayers):
+			self.resetWarTrend(iEnemy)
+	
 	def pushEconomyTrend(self, iValue):
 		self.lEconomyTrend.append(iValue)
 		if len(self.lEconomyTrend) > 10:
@@ -121,6 +136,11 @@ class GameData:
 		
 	def update(self, data):
 		self.__dict__.update(data)
+		
+		for player in self.players:
+			data = player.__dict__.copy()
+			player.setup()
+			player.update(data)
 
 	def setup(self):
 		self.players = [PlayerData(i) for i in range(iNumTotalPlayersB)]
@@ -151,7 +171,7 @@ class GameData:
 		self.iBetrayalTurns = 0
 		self.iRebelCiv = 0
 		
-		self.tTempFlippingCity = (0, 0)
+		self.lFlippingUnits = []
 		
 		self.bAlreadySwitched = False
 		self.bUnlimitedSwitching = False
@@ -169,9 +189,6 @@ class GameData:
 		self.lByzantineBribes = []
 		
 		self.lLatestRazeData = [-1] * 5
-		
-		self.iFreeBabylonianTechs = 0
-		self.iLastTurnFreeBabylonianTech = 0
 		
 		# AI Wars
 		
@@ -213,14 +230,19 @@ class GameData:
 		self.iTamilTradeGold = 0
 		self.iColombianTradeGold = 0
 		self.iVikingGold = 0
+		self.iTurkicPillages = 0
 		self.iMoorishGold = 0
 		self.iEnglishSinks = 0
 		self.iMongolRazes = 0
 		self.iAztecSlaves = 0
 		self.iCongoSlaveCounter = 0
 		self.iDutchColonies = 0
+		self.iMexicanGreatGenerals = 0
 		self.iArgentineGoldenAgeTurns = 0
 		self.iCanadianPeaceDeals = 0
+		
+		self.tFirstTurkicCapital = None
+		self.tSecondTurkicCapital = None
 		
 		self.iPopeTurns = 0
 		self.iHinduGoldenAgeTurns = 0
@@ -237,8 +259,6 @@ class GameData:
 		self.iHumanRazePenalty = 0
 		
 		self.bCrisisImminent = False
-		self.bNoHumanStability = False
-		self.bNoAIStability = False
 		
 		self.dSecedingCities = {}
 		

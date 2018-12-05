@@ -152,9 +152,13 @@
 	<ElementType name="iEnemyWarWearinessModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="iHealRateChange" content="textOnly" dt:type="int"/>
 	<ElementType name="iHealth" content="textOnly" dt:type="int"/>
+	<ElementType name="iHealthPercent" content="textOnly" dt:type="int"/>
 	<ElementType name="iAreaHealth" content="textOnly" dt:type="int"/>
 	<ElementType name="iGlobalHealth" content="textOnly" dt:type="int"/>
+	<ElementType name="iBuildingUnhealthModifier" content="textOnly" dt:type="int"/> <!-- Leoreth -->
+	<ElementType name="iCorporationUnhealthModifier" content="textOnly" dt:type="int"/> <!-- Leoreth -->
 	<ElementType name="iHappiness" content="textOnly" dt:type="int"/>
+	<ElementType name="iHappinessPercent" content="textOnly" dt:type="int"/>
 	<ElementType name="iCultureHappiness" content="textOnly" dt:type="int"/>
 	<ElementType name="iAreaHappiness" content="textOnly" dt:type="int"/>
 	<ElementType name="iGlobalHappiness" content="textOnly" dt:type="int"/>
@@ -395,11 +399,11 @@
 	</ElementType>
 	<ElementType name="ImprovementHappiness" content="eltOnly">
 		<element type="ImprovementType"/>
-		<element type="iHappiness"/>
+		<element type="iHappinessPercent"/>
 	</ElementType>
 	<ElementType name="ImprovementHealth" content="eltOnly">
 		<element type="ImprovementType"/>
-		<element type="iHealth"/>
+		<element type="iHealthPercent"/>
 	</ElementType>
 	<ElementType name="ImprovementFreeSpecialists" content="eltOnly">
 		<element type="ImprovementFreeSpecialist" minOccurs="0" maxOccurs="*"/>
@@ -540,6 +544,8 @@
 		<element type="iHealth" minOccurs="0"/>
 		<element type="iAreaHealth" minOccurs="0"/>
 		<element type="iGlobalHealth" minOccurs="0"/>
+		<element type="iBuildingUnhealthModifier" minOccurs="0"/> <!-- Leoreth -->
+		<element type="iCorporationUnhealthModifier" minOccurs="0"/> <!-- Leoreth -->
 		<element type="iHappiness" minOccurs="0"/>
 		<element type="iCultureHappiness" minOccurs="0"/>
 		<element type="iAreaHappiness" minOccurs="0"/>

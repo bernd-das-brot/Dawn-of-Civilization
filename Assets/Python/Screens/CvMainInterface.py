@@ -7,7 +7,7 @@ import CvScreenEnums
 import CvEventInterface
 import time
 
-import RFCUtils
+from RFCUtils import utils
 from StoredData import data
 from Consts import *
 
@@ -65,7 +65,6 @@ import WidgetUtil
 import FontUtil
 
 # globals
-utils = RFCUtils.RFCUtils() #Rhye
 gc = CyGlobalContext()
 ArtFileMgr = CyArtFileMgr()
 localText = CyTranslator()
@@ -73,6 +72,10 @@ localText = CyTranslator()
 # BUG - 3.17 No Espionage - start
 import GameUtil
 # BUG - 3.17 No Espionage - end
+
+# BUG - Reminders - start
+import ReminderEventManager
+# BUG - Reminders - end
 
 # BUG - Great General Bar - start
 import GGUtil
@@ -226,7 +229,7 @@ tStabilitySymbols = (
 FontSymbols.UNSTABLE_CHAR,
 FontSymbols.UNSTABLE_CHAR,
 FontSymbols.STABLE_CHAR,
-FontSymbols.STABLE_CHAR,
+FontSymbols.SOLID_CHAR,
 FontSymbols.SOLID_CHAR,)
 
 class CvMainInterface:
@@ -317,6 +320,10 @@ class CvMainInterface:
 		WidgetUtil.createWidget("WIDGET_ESPIONAGE_SELECT_CITY")
 		WidgetUtil.createWidget("WIDGET_ESPIONAGE_SELECT_MISSION")
 		WidgetUtil.createWidget("WIDGET_GO_TO_CITY")
+		
+		WidgetUtil.createWidget("WIDGET_ESPIONAGE_SELECT_PLAYER")
+		WidgetUtil.createWidget("WIDGET_ESPIONAGE_SELECT_CITY")
+		WidgetUtil.createWidget("WIDGET_ESPIONAGE_SELECT_MISSION")
 
 		
 		
@@ -1155,7 +1162,12 @@ class CvMainInterface:
 					screen.setEndTurnState( "EndTurnText", acOutput )
 					bShow = True
 				elif ( CyInterface().shouldDisplayEndTurn() ):
-					acOutput = localText.getText("SYSTEM_END_TURN", ())
+# BUG - Reminders - start
+					if ( ReminderEventManager.g_turnReminderTexts ):
+						acOutput = u"%s" % ReminderEventManager.g_turnReminderTexts
+					else:
+						acOutput = localText.getText("SYSTEM_END_TURN", ())
+# BUG - Reminders - end
 					#screen.modifyLabel( "EndTurnText", acOutput, CvUtil.FONT_CENTER_JUSTIFY )
 					screen.setEndTurnState( "EndTurnText", acOutput )
 					bShow = True
@@ -2226,12 +2238,7 @@ class CvMainInterface:
 				iBtnH = 30
 
 				# Conscript button
-				if pHeadSelectedCity.canEnslave(True):
-					print pHeadSelectedCity.getName() + ' can enslave'
-					szText = "<font=1>" + localText.getText("TXT_KEY_ENSLAVE", ()) + "</font>" #Leoreth
-				else:
-					print pHeadSelectedCity.getName() + ' can not enslave'
-					szText = "<font=1>" + localText.getText("TXT_KEY_DRAFT", ()) + "</font>"
+				szText = "<font=1>" + localText.getText("TXT_KEY_DRAFT", ()) + "</font>"
 				screen.setButtonGFC( "Conscript", szText, "", iBtnX, iBtnY, iBtnW, iBtnH, WidgetTypes.WIDGET_CONSCRIPT, -1, -1, ButtonStyles.BUTTON_STYLE_STANDARD )
 				screen.setStyle( "Conscript", "Button_CityT1_Style" )
 				screen.hide( "Conscript" )
@@ -2356,7 +2363,7 @@ class CvMainInterface:
 
 				# Conscript Button Show
 				screen.show( "Conscript" )
-				if (pHeadSelectedCity.canConscript() or pHeadSelectedCity.canEnslave(False)): #Leoreth
+				if pHeadSelectedCity.canConscript(): 
 					screen.enable( "Conscript", True )
 				else:
 					screen.enable( "Conscript", False )
@@ -4014,64 +4021,84 @@ class CvMainInterface:
 				iLeftCount = 0
 				iCenterCount = 0
 				iRightCount = 0
+				
+				iCityCultureRank = pHeadSelectedCity.getCultureRank()
 
 				for i in range( gc.getNumBonusInfos() ):
 					bHandled = False
 					if ( pHeadSelectedCity.hasBonus(i) ):
+						bonusInfo = gc.getBonusInfo(i)
 
-						iHealth = pHeadSelectedCity.getBonusHealth(i)
-						iHappiness = pHeadSelectedCity.getBonusHappiness(i)
+						iHealth = bonusInfo.getHealth()
+						iHappiness = bonusInfo.getHappiness()
+						
+						iCityHealth = pHeadSelectedCity.getBonusHealth(i)
+						iCityHappiness = pHeadSelectedCity.getBonusHappiness(i)
+						
+						iPlotIndex = gc.getMap().plotIndex(pHeadSelectedCity.getX(), pHeadSelectedCity.getY())
 						
 						szBuffer = u""
 						szLeadBuffer = u""
 
-						szTempBuffer = u"<font=1>%c" %( gc.getBonusInfo(i).getChar() )
+						szTempBuffer = u"<font=1>%c" %( bonusInfo.getChar() )
 						szLeadBuffer = szLeadBuffer + szTempBuffer
 						
-						if (pHeadSelectedCity.getNumBonuses(i) > 1):
-							szTempBuffer = u"(%d)" %( pHeadSelectedCity.getNumBonuses(i) )
-							szLeadBuffer = szLeadBuffer + szTempBuffer
-
-						szLeadBuffer = szLeadBuffer + "</font>"
+						iNumResources = pHeadSelectedCity.getNumBonuses(i)
+						iAffectedCities = bonusInfo.getAffectedCities()
 						
-						if (iHappiness != 0):
-							if ( iHappiness > 0 ):
-								szTempBuffer = u"<font=1>+%d%c</font>" %(iHappiness, CyGame().getSymbolID(FontSymbols.HAPPY_CHAR) )
-							else:
-								szTempBuffer = u"<font=1>+%d%c</font>" %( -iHappiness, CyGame().getSymbolID(FontSymbols.UNHAPPY_CHAR) )
+						iResourceDiff = iNumResources * iAffectedCities - iCityCultureRank
+						
+						if iResourceDiff > 0 or (iHappiness == 0 and iHealth == 0):
+							szTempBuffer = u"(%d)" % iNumResources
+						else:
+							szTempBuffer = u"<color=255,0,0>(%d)</color>" % iNumResources
+						
+						szLeadBuffer = szLeadBuffer + szTempBuffer + "</font>"
+						
+						if (iHappiness != 0 or iCityHappiness != 0):
+							szTempBuffer = u""
+						
+							if iCityHappiness > 0:
+								szTempBuffer = u"<font=1>+%d%c</font>" %(iCityHappiness, CyGame().getSymbolID(FontSymbols.HAPPY_CHAR) )
+							elif iCityHappiness < 0:
+								szTempBuffer = u"<font=1>+%d%c</font>" %( -iCityHappiness, CyGame().getSymbolID(FontSymbols.UNHAPPY_CHAR) )
 
-							if ( iHealth > 0 ):
-								szTempBuffer += u"<font=1>, +%d%c</font>" %( iHealth, CyGame().getSymbolID( FontSymbols.HEALTHY_CHAR ) )
+							if iCityHealth > 0:
+								szTempBuffer += u"<font=1>, +%d%c</font>" %( iCityHealth, CyGame().getSymbolID( FontSymbols.HEALTHY_CHAR ) )
+							elif iCityHealth < 0:
+								szTempBuffer += u"<font=1>, +%d%c</font>" %( iCityHealth, CyGame().getSymbolID( FontSymbols.UNHEALTHY_CHAR ) )
 
 							szName = "RightBonusItemLeft" + str(iRightCount)
-							screen.setLabelAt( szName, "BonusBack2", szLeadBuffer, CvUtil.FONT_LEFT_JUSTIFY, 0, (iRightCount * 20) + 4, -0.1, FontTypes.SMALL_FONT, WidgetTypes.WIDGET_PEDIA_JUMP_TO_BONUS, i, -1 )
+							screen.setLabelAt( szName, "BonusBack2", szLeadBuffer, CvUtil.FONT_LEFT_JUSTIFY, 0, (iRightCount * 20) + 4, -0.1, FontTypes.SMALL_FONT, WidgetTypes.WIDGET_HELP_BONUS_CITY, i, iPlotIndex )
 							szName = "RightBonusItemRight" + str(iRightCount)
-							screen.setLabelAt( szName, "BonusBack2", szTempBuffer, CvUtil.FONT_RIGHT_JUSTIFY, 102, (iRightCount * 20) + 4, -0.1, FontTypes.SMALL_FONT, WidgetTypes.WIDGET_PEDIA_JUMP_TO_BONUS, i, -1 )
+							screen.setLabelAt( szName, "BonusBack2", szTempBuffer, CvUtil.FONT_RIGHT_JUSTIFY, 102, (iRightCount * 20) + 4, -0.1, FontTypes.SMALL_FONT, WidgetTypes.WIDGET_HELP_BONUS_CITY, i, iPlotIndex )
 							
 							iRightCount = iRightCount + 1
 
 							bHandled = True
 
-						if (iHealth != 0 and bHandled == False):
-							if ( iHealth > 0 ):
-								szTempBuffer = u"<font=1>+%d%c</font>" %( iHealth, CyGame().getSymbolID( FontSymbols.HEALTHY_CHAR ) )
-							else:
-								szTempBuffer = u"<font=1>+%d%c</font>" %( -iHealth, CyGame().getSymbolID(FontSymbols.UNHEALTHY_CHAR) )
+						if (iHealth != 0 or iCityHealth != 0) and not bHandled:
+							szTempBuffer = u""
+							
+							if iCityHealth > 0:
+								szTempBuffer = u"<font=1>+%d%c</font>" %( iCityHealth, CyGame().getSymbolID( FontSymbols.HEALTHY_CHAR ) )
+							elif iCityHealth < 0:
+								szTempBuffer = u"<font=1>+%d%c</font>" %( -iCityHealth, CyGame().getSymbolID(FontSymbols.UNHEALTHY_CHAR) )
 								
 							szName = "CenterBonusItemLeft" + str(iCenterCount)
-							screen.setLabelAt( szName, "BonusBack1", szLeadBuffer, CvUtil.FONT_LEFT_JUSTIFY, 0, (iCenterCount * 20) + 4, -0.1, FontTypes.SMALL_FONT, WidgetTypes.WIDGET_PEDIA_JUMP_TO_BONUS, i, -1 )
+							screen.setLabelAt( szName, "BonusBack1", szLeadBuffer, CvUtil.FONT_LEFT_JUSTIFY, 0, (iCenterCount * 20) + 4, -0.1, FontTypes.SMALL_FONT, WidgetTypes.WIDGET_HELP_BONUS_CITY, i, iPlotIndex )
 							szName = "CenterBonusItemRight" + str(iCenterCount)
-							screen.setLabelAt( szName, "BonusBack1", szTempBuffer, CvUtil.FONT_RIGHT_JUSTIFY, 62, (iCenterCount * 20) + 4, -0.1, FontTypes.SMALL_FONT, WidgetTypes.WIDGET_PEDIA_JUMP_TO_BONUS, i, -1 )
+							screen.setLabelAt( szName, "BonusBack1", szTempBuffer, CvUtil.FONT_RIGHT_JUSTIFY, 62, (iCenterCount * 20) + 4, -0.1, FontTypes.SMALL_FONT, WidgetTypes.WIDGET_HELP_BONUS_CITY, i, iPlotIndex )
 							
 							iCenterCount = iCenterCount + 1
 
 							bHandled = True
 
 						szBuffer = u""
-						if ( not bHandled ):
+						if not bHandled:
 						
 							szName = "LeftBonusItem" + str(iLeftCount)
-							screen.setLabelAt( szName, "BonusBack0", szLeadBuffer, CvUtil.FONT_LEFT_JUSTIFY, 0, (iLeftCount * 20) + 4, -0.1, FontTypes.SMALL_FONT, WidgetTypes.WIDGET_PEDIA_JUMP_TO_BONUS, i, -1 )
+							screen.setLabelAt( szName, "BonusBack0", szLeadBuffer, CvUtil.FONT_LEFT_JUSTIFY, 0, (iLeftCount * 20) + 4, -0.1, FontTypes.SMALL_FONT, WidgetTypes.WIDGET_HELP_BONUS_CITY, i, iPlotIndex )
 							
 							iLeftCount = iLeftCount + 1
 
@@ -5210,7 +5237,7 @@ class CvMainInterface:
 
 												if ePlayer < iNumPlayers:
 													iStabilityLevel = data.getStabilityLevel(ePlayer)
-													if iStabilityLevel > iStabilityStable: cStab = unichr(CyGame().getSymbolID(FontSymbols.SOLID_CHAR))
+													if iStabilityLevel > iStabilityShaky: cStab = unichr(CyGame().getSymbolID(FontSymbols.SOLID_CHAR))
 													elif iStabilityLevel > iStabilityUnstable: cStab = unichr(CyGame().getSymbolID(FontSymbols.STABLE_CHAR))
 													else: cStab = unichr(CyGame().getSymbolID(FontSymbols.UNSTABLE_CHAR))
 													szBuffer += cStab
@@ -5643,13 +5670,6 @@ class CvMainInterface:
 				self.setFieldofView_Text(screen)
 				MainOpt.setFieldOfView(self.iField_View)
 # BUG - field of view slider - end
-		
-		# Leoreth: enslave option
-		if inputClass.getFunctionName() == "Conscript":
-			pCity = CyInterface().getHeadSelectedCity()
-			if pCity.canEnslave(True):
-				pCity.conscript()
-			#utils.debugTextPopup("Enslave")
 			
 		# Leoreth: sacrifice Aztec slaves
 		if (inputClass.getNotifyCode() == 11 and inputClass.getData1() == 10000 and inputClass.getData2() == 10000):
@@ -5666,9 +5686,6 @@ class CvMainInterface:
 		if inputClass.getNotifyCode() == 11 and inputClass.getData1() == 10001:
 			utils.doByzantineBribery(g_pSelectedUnit)
 		# Leoreth: end
-
-		if inputClass.getNotifyCode() == NotifyCode.NOTIFY_CLICKED and inputClass.getFunctionName() == "StabilityOverlay":
-			utils.toggleStabilityOverlay()
 
 		return 0
 	

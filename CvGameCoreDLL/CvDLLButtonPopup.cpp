@@ -1560,7 +1560,7 @@ bool CvDLLButtonPopup::launchChooseTechPopup(CvPopup* pPopup, CvPopupInfo &info)
 			{
 				if (player.canResearch((TechTypes)iI))
 				{
-					if (iDiscover == 0 || GC.getTechInfo((TechTypes)iI).getEra() <= player.getCurrentEra()) //Leoreth: free techs only for your current era or earlier
+					if (iDiscover == 0 || GC.getTechInfo((TechTypes)iI).getEra() <= player.getCurrentEra()) // Leoreth: free techs only for your current era or earlier
 					{
 						CvWString szBuffer;
 						szBuffer.Format(L"%s (%d)", GC.getTechInfo((TechTypes)iI).getDescription(), ((iDiscover > 0) ? 0 : player.getResearchTurnsLeft(((TechTypes)iI), true)));
@@ -1615,6 +1615,12 @@ bool CvDLLButtonPopup::launchChangeCivicsPopup(CvPopup* pPopup, CvPopupInfo &inf
 	CivicOptionTypes eCivicOptionType = (CivicOptionTypes)info.getData1();
 	CivicTypes eCivicType = (CivicTypes)info.getData2();
 	bool bValid = false;
+
+	// Leoreth: suppress for Egypt due to their UP
+	if (eCivicType == NO_CIVIC && GC.getGameINLINE().getActivePlayer() == EGYPT)
+	{
+		return false;
+	}
 
 	if (eCivicType != NO_CIVIC)
 	{
@@ -1971,7 +1977,7 @@ bool CvDLLButtonPopup::launchDoEspionageTargetPopup(CvPopup* pPopup, CvPopupInfo
 		// SuperSpies: glider1 start
 		if (NULL != pCity)
 		{
-			for (int iSpecialist = 7; iSpecialist < GC.getNumSpecialistInfos(); iSpecialist++)
+			for (int iSpecialist = SPECIALIST_GREAT_PRIEST; iSpecialist <= SPECIALIST_GREAT_SPY; iSpecialist++)
 			{
 				if (kPlayer.canDoEspionageMission(eMission, eTargetPlayer, pPlot, iSpecialist, pUnit))
 				{

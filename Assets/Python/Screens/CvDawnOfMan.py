@@ -5,8 +5,7 @@ import math #Rhye
 from Consts import *
 import CvUtil
 from CvPythonExtensions import *
-import RFCUtils # edead
-utils = RFCUtils.RFCUtils() # edead
+from RFCUtils import utils
 
 ArtFileMgr = CyArtFileMgr()
 localText = CyTranslator()
@@ -153,12 +152,7 @@ class CvDawnOfMan:
 		#Leoreth: imported individual texts from Sword of Islam (edead)
 		pActivePlayer = gc.getPlayer(CyGame().getActivePlayer())
 		
-		textKey = dawnOfMan3000BC[iActivePlayer]
-		dawnOfMan = lDawnOfMan[utils.getScenario()]
-		if iActivePlayer in dawnOfMan:
-			textKey = dawnOfMan[iActivePlayer]
-
-		bodyString = localText.getText(textKey, (self.player.getCivilizationAdjectiveKey(), self.player.getNameKey())) # edead
+		bodyString = utils.getDawnOfManText(iActivePlayer)
 
 		screen.addStackedBarGFC("ProgressBar", 300, 400, 435, 40, InfoBarTypes.NUM_INFOBAR_TYPES, WidgetTypes.WIDGET_GENERAL, -1, -1)
 		screen.setStackedBarColors("ProgressBar", InfoBarTypes.INFOBAR_STORED, gc.getInfoTypeForString("COLOR_PLAYER_GREEN"))

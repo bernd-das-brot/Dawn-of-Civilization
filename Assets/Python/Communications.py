@@ -31,7 +31,7 @@ tPool2 = (iEgypt, -1,
 
 
 tPool3 = (iEgypt,  
-	iTurkey,
+	iOttomans,
 	iEngland,
 	iInca,
 	iCarthage,
@@ -39,6 +39,7 @@ tPool3 = (iEgypt,
 	iChina,
 	iRome,	
 	iVikings,
+	iTurks,
 	iBabylonia,
 	iAztecs,
 	iEthiopia,
@@ -103,7 +104,6 @@ class Communications:
 
 	def decay(self, iCiv):
 		teamCiv = gc.getTeam(gc.getPlayer(iCiv).getTeam())
-		iCounter = 0
 		
 		# Initialize list
 		lContacts = [i for i in range(iNumPlayers) if gc.getPlayer(i).isAlive() and teamCiv.canContact(i) and teamCiv.canCutContact(i)]

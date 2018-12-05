@@ -2000,18 +2000,6 @@
 			<Attribute Class="Scalar">fTwist:-0.7853981633</Attribute>
 			<Scale>0.6</Scale>
 		</ArtRef>
-		<ArtRef Name="art:Spice_crop">
-			<!-- when in the rough -->
-			<Attribute Class="Scalar">NIF:Art/Terrain/Resources/Spices/Spices_LSystem.nif::2x2_01_Spice_Normal</Attribute>
-			<Attribute Class="Improvement">NO_IMPROVEMENT,IMPROVEMENT_ALL,!IMPROVEMENT_ORCHARD</Attribute>
-			<Attribute Class="Bonus">BONUS_SPICES</Attribute>
-			<Attribute Class="Scalar">bCutTrees:1</Attribute>
-			<Attribute Class="Scalar">bBonusImprovedOnly:0</Attribute>
-			<Attribute Class="Scalar">bIsPartOfBonus:1</Attribute>
-			<Attribute Class="Scalar">szBatchGroup:spice_crop</Attribute>
-			<Scale>0.8</Scale>
-			<Rotate>+45</Rotate>
-		</ArtRef>
 		<!-- OLIVES crops -->
 		<ArtRef Name="art:olives_crop">
 			<!-- when worked by plantation -->
@@ -2320,6 +2308,150 @@
 			<Attribute Class="Scalar">bBonusImprovedOnly:0</Attribute>
 			<Attribute Class="Scalar">bIsPartOfBonus:1</Attribute>
 		</ArtRef>
+		<!-- COFFEE crops -->
+		<ArtRef Name="art:coffee_crop">
+			<!-- when worked by plantation -->
+			<Attribute Class="Scalar">NIF:Art/Terrain/Resources/Coffee/Cofwes_LSystem.nif::2x2_01_Cofwe_Worked</Attribute>
+			<Attribute Class="Improvement">IMPROVEMENT_PLANTATION</Attribute>
+			<Attribute Class="Bonus">BONUS_COFFEE</Attribute>
+			<Attribute Class="Scalar">bCutTrees:1</Attribute>
+			<Attribute Class="Scalar">bBonusWorkedOnly:1</Attribute>
+			<Attribute Class="Scalar">bIsPartOfBonus:1</Attribute>
+			<Attribute Class="Scalar">szBatchGroup:coffee_crop</Attribute>
+			<Scale>0.6</Scale>
+			<Rotate>+45</Rotate>
+		</ArtRef>
+		<ArtRef Name="art:coffee_crop">
+			<!-- when improved but not worked by plantation -->
+			<Attribute Class="Scalar">NIF:Art/Terrain/Resources/Coffee/Cofwes_LSystem.nif::2x2_01_Cofwe_NotWorked</Attribute>
+			<Attribute Class="Improvement">IMPROVEMENT_PLANTATION</Attribute>
+			<Attribute Class="Bonus">BONUS_COFFEE</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:0</Attribute>
+			<Attribute Class="Scalar">bCutTrees:1</Attribute>
+			<Attribute Class="Scalar">bBonusWorkedOnly:0</Attribute>
+			<Attribute Class="Scalar">bIsPartOfBonus:1</Attribute>
+			<Attribute Class="Scalar">szBatchGroup:coffee_crop</Attribute>
+			<Scale>0.6</Scale>
+			<Rotate>+45</Rotate>
+		</ArtRef>
+		<ArtRef Name="art:Coffee_crop">
+			<!-- when in the rough ... there's anotehr in 3x2 for farms -->
+			<Attribute Class="Scalar">NIF:Art/Terrain/Resources/Coffee/Cofwes_LSystem.nif::2x2_01_Cofwe_Normal</Attribute>
+			<Attribute Class="Improvement">NO_IMPROVEMENT,IMPROVEMENT_ALL,!IMPROVEMENT_PLANTATION</Attribute>
+			<Attribute Class="Bonus">BONUS_COFFEE</Attribute>
+			<Attribute Class="Scalar">bCutTrees:1</Attribute>
+			<Attribute Class="Scalar">bBonusImprovedOnly:0</Attribute>
+			<Attribute Class="Scalar">bIsPartOfBonus:1</Attribute>
+			<Attribute Class="Scalar">szBatchGroup:coffee_crop</Attribute>
+			<Scale>0.6</Scale>
+			<Rotate>+45</Rotate>
+		</ArtRef>
+		<!-- Coffee improvement crap -->
+		<ArtRef Name="art:COFFEE_PLANTATION_RACK">
+			<Attribute Class="Scalar">NIF:Art/Terrain/Resources/Coffee/Cofwes_LSystem.nif::1x3_01_Rack_NotWorked</Attribute>
+			<Attribute Class="Improvement">IMPROVEMENT_PLANTATION</Attribute>
+			<Attribute Class="Scalar">bExtraGoalOnly:1</Attribute>
+			<Attribute Class="Bonus">BONUS_COFFEE</Attribute>
+			<Attribute Class="Scalar">bImprovementWorkedOnly:0</Attribute>
+			<Scale>0.8</Scale>
+		</ArtRef>
+		<ArtRef Name="art:COFFEE_PLANTATION_RACK">
+			<Attribute Class="Scalar">NIF:Art/Terrain/Resources/Coffee/Cofwes_LSystem.nif::1x3_01_Rack_Worked</Attribute>
+			<Attribute Class="Improvement">IMPROVEMENT_PLANTATION</Attribute>
+			<Attribute Class="Scalar">bExtraGoalOnly:1</Attribute>
+			<Attribute Class="Bonus">BONUS_COFFEE</Attribute>
+			<Attribute Class="Scalar">bImprovementWorkedOnly:1</Attribute>
+			<Scale>0.8</Scale>
+		</ArtRef>
+		<ArtRef Name="art:COFFEE_PLANTATION_GRINDER">
+			<!-- worked pool -->
+			<Attribute Class="Scalar">NIF:Art/Terrain/Resources/Coffee/Cofwes_Grinder_Worked.nif</Attribute>
+			<Attribute Class="Scalar">KFM:Art/Terrain/Resources/Coffee/Cofwes_Grinder_Worked.kfm</Attribute>
+			<Attribute Class="Scalar">iPlayAnimationID:0</Attribute>
+			<Attribute Class="Scalar">bExtraGoalOnly:1</Attribute>
+			<Attribute Class="Scalar">bImprovementWorkedOnly:1</Attribute>
+			<Attribute Class="Scalar">bCutTrees:1</Attribute>
+			<Attribute Class="Scalar">szForceContourGeometry:Shadow</Attribute>
+		</ArtRef>
+		<ArtRef Name="art:COFFEE_PLANTATION_GRINDER">
+			<!-- unworked pool -->
+			<Attribute Class="Scalar">NIF:Art/Terrain/Resources/Coffee/Cofwes_LSystem.nif::1x2_01_Grinder_NotWorked</Attribute>
+			<Attribute Class="Scalar">bExtraGoalOnly:1</Attribute>
+			<Attribute Class="Scalar">bImprovementWorkedOnly:0</Attribute>
+			<Attribute Class="Scalar">bCutTrees:1</Attribute>
+		</ArtRef>
+		<!-- TEA crops -->
+		<ArtRef Name="art:tea_crop">
+			<!-- when worked by plantation -->
+			<Attribute Class="Scalar">NIF:Art/Terrain/Resources/Tea/Spices_LSystem.nif::2x2_01_Spice_Worked</Attribute>
+			<Attribute Class="Improvement">IMPROVEMENT_PLANTATION</Attribute>
+			<Attribute Class="Bonus">BONUS_TEA</Attribute>
+			<Attribute Class="Scalar">bCutTrees:1</Attribute>
+			<Attribute Class="Scalar">bBonusWorkedOnly:1</Attribute>
+			<Attribute Class="Scalar">bIsPartOfBonus:1</Attribute>
+			<Attribute Class="Scalar">szBatchGroup:tea_crop</Attribute>
+			<Scale>0.6</Scale>
+			<Rotate>+45</Rotate>
+		</ArtRef>
+		<ArtRef Name="art:tea_crop">
+			<!-- when improved but not worked by plantation -->
+			<Attribute Class="Scalar">NIF:Art/Terrain/Resources/Tea/Spices_LSystem.nif::2x2_01_Spice_NotWorked</Attribute>
+			<Attribute Class="Improvement">IMPROVEMENT_PLANTATION</Attribute>
+			<Attribute Class="Bonus">BONUS_TEA</Attribute>
+			<Attribute Class="Scalar">bApplyRotation:0</Attribute>
+			<Attribute Class="Scalar">bCutTrees:1</Attribute>
+			<Attribute Class="Scalar">bBonusWorkedOnly:0</Attribute>
+			<Attribute Class="Scalar">bIsPartOfBonus:1</Attribute>
+			<Attribute Class="Scalar">szBatchGroup:tea_crop</Attribute>
+			<Scale>0.6</Scale>
+			<Rotate>+45</Rotate>
+		</ArtRef>
+		<ArtRef Name="art:Tea_crop">
+			<!-- when in the rough ... there's anotehr in 3x2 for farms -->
+			<Attribute Class="Scalar">NIF:Art/Terrain/Resources/Tea/Spices_LSystem.nif::2x2_01_Spice_Normal</Attribute>
+			<Attribute Class="Improvement">NO_IMPROVEMENT,IMPROVEMENT_ALL,!IMPROVEMENT_PLANTATION</Attribute>
+			<Attribute Class="Bonus">BONUS_TEA</Attribute>
+			<Attribute Class="Scalar">bCutTrees:1</Attribute>
+			<Attribute Class="Scalar">bBonusImprovedOnly:0</Attribute>
+			<Attribute Class="Scalar">bIsPartOfBonus:1</Attribute>
+			<Attribute Class="Scalar">szBatchGroup:tea_crop</Attribute>
+			<Scale>0.6</Scale>
+			<Rotate>+45</Rotate>
+		</ArtRef>
+		<!-- Tea improvement crap -->
+		<ArtRef Name="art:TEA_PLANTATION_RACK">
+			<Attribute Class="Scalar">NIF:Art/Terrain/Resources/Tea/Spices_LSystem.nif::1x3_01_Rack_NotWorked</Attribute>
+			<Attribute Class="Improvement">IMPROVEMENT_PLANTATION</Attribute>
+			<Attribute Class="Scalar">bExtraGoalOnly:1</Attribute>
+			<Attribute Class="Bonus">BONUS_TEA</Attribute>
+			<Attribute Class="Scalar">bImprovementWorkedOnly:0</Attribute>
+			<Scale>0.8</Scale>
+		</ArtRef>
+		<ArtRef Name="art:TEA_PLANTATION_RACK">
+			<Attribute Class="Scalar">NIF:Art/Terrain/Resources/Tea/Spices_LSystem.nif::1x3_01_Rack_Worked</Attribute>
+			<Attribute Class="Improvement">IMPROVEMENT_PLANTATION</Attribute>
+			<Attribute Class="Scalar">bExtraGoalOnly:1</Attribute>
+			<Attribute Class="Bonus">BONUS_TEA</Attribute>
+			<Attribute Class="Scalar">bImprovementWorkedOnly:1</Attribute>
+			<Scale>0.8</Scale>
+		</ArtRef>
+		<ArtRef Name="art:TEA_PLANTATION_GRINDER">
+			<!-- worked pool -->
+			<Attribute Class="Scalar">NIF:Art/Terrain/Resources/Tea/Spices_Grinder_Worked.nif</Attribute>
+			<Attribute Class="Scalar">KFM:Art/Terrain/Resources/Tea/Spices_Grinder_Worked.kfm</Attribute>
+			<Attribute Class="Scalar">iPlayAnimationID:0</Attribute>
+			<Attribute Class="Scalar">bExtraGoalOnly:1</Attribute>
+			<Attribute Class="Scalar">bImprovementWorkedOnly:1</Attribute>
+			<Attribute Class="Scalar">bCutTrees:1</Attribute>
+			<Attribute Class="Scalar">szForceContourGeometry:Shadow</Attribute>
+		</ArtRef>
+		<ArtRef Name="art:TEA_PLANTATION_GRINDER">
+			<!-- unworked pool -->
+			<Attribute Class="Scalar">NIF:Art/Terrain/Resources/Tea/Spices_LSystem.nif::1x2_01_Grinder_NotWorked</Attribute>
+			<Attribute Class="Scalar">bExtraGoalOnly:1</Attribute>
+			<Attribute Class="Scalar">bImprovementWorkedOnly:0</Attribute>
+			<Attribute Class="Scalar">bCutTrees:1</Attribute>
+		</ArtRef>
 	</LNode>
 	<!-- ******************************************************************************************** -->
 	<!-- BLeaf 3x2                                                  Tests against roads,rivers,cities -->
@@ -2351,7 +2483,7 @@
 		<!-- General plantation -->
 		<ArtRef Name="goal:IMPROVEMENT_PLANTATION">
 			<Attribute Class="Improvement">IMPROVEMENT_PLANTATION,IMPROVEMENT_SLAVE_PLANTATION</Attribute>
-			<Attribute Class="Bonus">NO_BONUS,BONUS_ALL,!BONUS_SILK,!BONUS_DYE,!BONUS_SUGAR,!BONUS_COTTON</Attribute>
+			<Attribute Class="Bonus">NO_BONUS,BONUS_ALL,!BONUS_SILK,!BONUS_DYE,!BONUS_SUGAR,!BONUS_COTTON,!BONUS_SPICES</Attribute>
 			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
 			<Attribute Class="Rotation">0,180</Attribute>
 			<Attribute Class="Era">ERA_ANCIENT,ERA_CLASSICAL,ERA_MEDIEVAL,ERA_RENAISSANCE</Attribute>
@@ -2361,7 +2493,7 @@
 		</ArtRef>
 		<ArtRef Name="goal:IMPROVEMENT_PLANTATION">
 			<Attribute Class="Improvement">IMPROVEMENT_PLANTATION,IMPROVEMENT_SLAVE_PLANTATION</Attribute>
-			<Attribute Class="Bonus">NO_BONUS,BONUS_ALL,!BONUS_SILK,!BONUS_DYE,!BONUS_SUGAR,!BONUS_COTTON</Attribute>
+			<Attribute Class="Bonus">NO_BONUS,BONUS_ALL,!BONUS_SILK,!BONUS_DYE,!BONUS_SUGAR,!BONUS_COTTON,!BONUS_SPICES</Attribute>
 			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
 			<Attribute Class="Rotation">0,180</Attribute>
 			<Attribute Class="Era">ERA_INDUSTRIAL,ERA_GLOBAL,ERA_DIGITAL</Attribute>
@@ -2536,95 +2668,34 @@
 			<Rotate>+45</Rotate>
 		</ArtRef>
 		<!-- Spices -->
-		<!--ArtRef Name="goal:IMPROVEMENT_PLANTATION">
-			< worked ancient spices plantation >
-			<Attribute Class="Improvement">IMPROVEMENT_PLANTATION,IMPROVEMENT_SLAVE_PLANTATION</Attribute>
+		<ArtRef Name="goal:IMPROVEMENT_ORCHARD">
+			<Attribute Class="Improvement">IMPROVEMENT_ORCHARD</Attribute>
 			<Attribute Class="Bonus">BONUS_SPICES</Attribute>
 			<Attribute Class="Scalar">iCropArea:16</Attribute>
-			<Attribute Class="Scalar">szExtra:art:SPICE_PLANTATION_GRINDER</Attribute>
-			<Attribute Class="Scalar">szExtra:art:SPICE_PLANTATION_RACK</Attribute>
-			<Attribute Class="Era">ERA_ANCIENT,ERA_CLASSICAL,ERA_MEDIEVAL,ERA_RENAISSANCE</Attribute>
-			<Attribute Class="Scalar">NIF:Art/Structures/Improvements/Plantation_Plain/Plantation.nif</Attribute>
-			<Attribute Class="Scalar">KFM:Art/Structures/Improvements/Plantation_Plain/Plantation.kfm</Attribute>
+			<Attribute Class="Scalar">szExtra:art:SPICE_ORCHARD_GRINDER</Attribute>
+			<Attribute Class="Scalar">szExtra:art:SPICE_ORCHARD_RACK</Attribute>
 			<Attribute Class="Scalar">fTwist:-0.7853981633</Attribute>
-			<Attribute Class="Scalar">bImprovementWorkedOnly:1</Attribute>
-			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
-			<Attribute Class="Scalar">bIsPartOfBonus:1</Attribute>
-			<Attribute Class="Rotation">0,180</Attribute>
-			<Scale>0.9</Scale>
-		</ArtRef>
-		<ArtRef Name="goal:IMPROVEMENT_PLANTATION">
-			< worked ancient spices plantation >
-			<Attribute Class="Improvement">IMPROVEMENT_PLANTATION,IMPROVEMENT_SLAVE_PLANTATION</Attribute>
-			<Attribute Class="Bonus">BONUS_SPICES</Attribute>
-			<Attribute Class="Scalar">iCropArea:16</Attribute>
-			<Attribute Class="Scalar">szExtra:art:SPICE_PLANTATION_GRINDER</Attribute>
-			<Attribute Class="Scalar">szExtra:art:SPICE_PLANTATION_RACK</Attribute>
-			<Attribute Class="Era">ERA_INDUSTRIAL,ERA_GLOBAL,ERA_DIGITAL</Attribute>
-			<Attribute Class="Scalar">NIF:Art/Structures/Improvements/Plantation_Plain/Plantation_Modern.nif</Attribute>
-			<Attribute Class="Scalar">fTwist:-0.7853981633</Attribute>
-			<Attribute Class="Scalar">bImprovementWorkedOnly:1</Attribute>
-			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
-			<Attribute Class="Scalar">bIsPartOfBonus:1</Attribute>
-			<Attribute Class="Rotation">0,180</Attribute>
-			<Scale>0.9</Scale>
-		</ArtRef>
-		<ArtRef Name="goal:IMPROVEMENT_PLANTATION">
-			< unworked ancient spices plantation >
-			<Attribute Class="Improvement">IMPROVEMENT_PLANTATION,IMPROVEMENT_SLAVE_PLANTATION</Attribute>
-			<Attribute Class="Bonus">BONUS_SPICES</Attribute>
-			<Attribute Class="Scalar">iCropArea:8</Attribute>
-			<Attribute Class="Scalar">szExtra:art:SPICE_PLANTATION_GRINDER</Attribute>
-			<Attribute Class="Scalar">szExtra:art:SPICE_PLANTATION_RACK</Attribute>
-			<Attribute Class="Era">ERA_ANCIENT,ERA_CLASSICAL,ERA_MEDIEVAL,ERA_RENAISSANCE</Attribute>
-			<Attribute Class="Scalar">NIF:Art/Structures/Improvements/Plantation_Plain/Plantation.nif</Attribute>
-			<Attribute Class="Scalar">KFM:Art/Structures/Improvements/Plantation_Plain/Plantation.kfm</Attribute>
-			<Scale>0.9</Scale>
-			<Attribute Class="Scalar">fTwist:-0.7853981633</Attribute>
-			<Attribute Class="Scalar">bImprovementWorkedOnly:0</Attribute>
-			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
-			<Attribute Class="Scalar">bIsPartOfBonus:1</Attribute>
-			<Attribute Class="Rotation">0,180</Attribute>
-		</ArtRef>
-		<ArtRef Name="goal:IMPROVEMENT_PLANTATION">
-			< unworked modern spices plantation >
-			<Attribute Class="Improvement">IMPROVEMENT_PLANTATION,IMPROVEMENT_SLAVE_PLANTATION</Attribute>
-			<Attribute Class="Bonus">BONUS_SPICES</Attribute>
-			<Attribute Class="Scalar">iCropArea:8</Attribute>
-			<Attribute Class="Scalar">szExtra:art:SPICE_PLANTATION_GRINDER</Attribute>
-			<Attribute Class="Scalar">szExtra:art:SPICE_PLANTATION_RACK</Attribute>
-			<Attribute Class="Era">ERA_INDUSTRIAL,ERA_GLOBAL,ERA_DIGITAL</Attribute>
-			<Attribute Class="Scalar">NIF:Art/Structures/Improvements/Plantation_Plain/Plantation_Modern.nif</Attribute>
-			<Attribute Class="Scalar">fTwist:-0.7853981633</Attribute>
-			<Attribute Class="Scalar">bImprovementWorkedOnly:0</Attribute>
-			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
-			<Attribute Class="Scalar">bIsPartOfBonus:1</Attribute>
-			<Attribute Class="Rotation">0,180</Attribute>
-			<Scale>0.9</Scale>
-		</ArtRef-->
-		<!--ArtRef Name="goal:BONUS_SPICES">
-			< unworked spice >
-			<Attribute Class="Bonus">BONUS_SPICES</Attribute>
-			<Attribute Class="Improvement">NO_IMPROVEMENT,IMPROVEMENT_ALL,!IMPROVEMENT_FARM</Attribute>
-			<Attribute Class="Scalar">bGoalOnly:1</Attribute>
-			<Attribute Class="Scalar">bPlace:0</Attribute>
-			<Attribute Class="Scalar">iCropArea:12</Attribute>
-			<Attribute Class="Scalar">bIsPartOfBonus:1</Attribute>
-			<Attribute Class="Scalar">fTwist:-0.7853981633</Attribute>
-			<Scale>0.6</Scale>
-		</ArtRef>
-		<ArtRef Name="art:Spice_crop">
-			< when in the rough >
-			<Attribute Class="Scalar">NIF:Art/Terrain/Resources/Spices/Spices_LSystem.nif::2x2_01_Spice_Normal</Attribute>
-			<Attribute Class="Improvement">NO_IMPROVEMENT,IMPROVEMENT_ALL,!IMPROVEMENT_ORCHARD</Attribute>
-			<Attribute Class="Bonus">BONUS_SPICES</Attribute>
 			<Attribute Class="Scalar">bCutTrees:1</Attribute>
-			<Attribute Class="Scalar">bBonusImprovedOnly:0</Attribute>
+			<Attribute Class="Scalar">bImprovementWorkedOnly:1</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
 			<Attribute Class="Scalar">bIsPartOfBonus:1</Attribute>
-			<Attribute Class="Scalar">szBatchGroup:spice_crop</Attribute>
-			<Scale>0.8</Scale>
-			<Rotate>+45</Rotate>
-		</ArtRef-->
+			<Attribute Class="Rotation">0,180</Attribute>
+			<Scale>0.9</Scale>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_ORCHARD">
+			<Attribute Class="Improvement">IMPROVEMENT_ORCHARD</Attribute>
+			<Attribute Class="Bonus">BONUS_SPICES</Attribute>
+			<Attribute Class="Scalar">iCropArea:8</Attribute>
+			<Attribute Class="Scalar">szExtra:art:SPICE_ORCHARD_GRINDER</Attribute>
+			<Attribute Class="Scalar">szExtra:art:SPICE_ORCHARD_RACK</Attribute>
+			<Attribute Class="Scalar">fTwist:-0.7853981633</Attribute>
+			<Attribute Class="Scalar">bCutTrees:1</Attribute>
+			<Attribute Class="Scalar">bImprovementWorkedOnly:0</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bIsPartOfBonus:1</Attribute>
+			<Attribute Class="Rotation">0,180</Attribute>
+			<Scale>0.9</Scale>
+		</ArtRef>
 		<!-- Olives -->
 		<ArtRef Name="goal:IMPROVEMENT_PLANTATION">
 			<!-- worked ancient olives plantation -->
@@ -2864,6 +2935,7 @@
 			<!-- unworked tobacco -->
 			<Attribute Class="Bonus">BONUS_TOBACCO</Attribute>
 			<Attribute Class="Improvement">NO_IMPROVEMENT,IMPROVEMENT_ALL,!IMPROVEMENT_FARM</Attribute>
+			<Attribute Class="Scalar">bCutTrees:1</Attribute>
 			<Attribute Class="Scalar">bGoalOnly:1</Attribute>
 			<Attribute Class="Scalar">bPlace:0</Attribute>
 			<Attribute Class="Scalar">iCropArea:12</Attribute>
@@ -3068,6 +3140,186 @@
 			<Attribute Class="Scalar">bBonusImprovedOnly:1</Attribute>
 			<Attribute Class="Rotation">90,270</Attribute>
 			<Attribute Class="Scalar">szBatchGroup:wine_crop</Attribute>
+		</ArtRef>
+		<!-- Coffee -->
+		<ArtRef Name="goal:IMPROVEMENT_PLANTATION">
+			<!-- worked ancient coffee plantation -->
+			<Attribute Class="Improvement">IMPROVEMENT_PLANTATION</Attribute>
+			<Attribute Class="Bonus">BONUS_COFFEE</Attribute>
+			<Attribute Class="Scalar">iCropArea:16</Attribute>
+			<Attribute Class="Scalar">szExtra:art:COFFEE_PLANTATION_GRINDER</Attribute>
+			<Attribute Class="Scalar">szExtra:art:COFFEE_PLANTATION_RACK</Attribute>
+			<Attribute Class="Era">ERA_ANCIENT,ERA_CLASSICAL,ERA_MEDIEVAL,ERA_RENAISSANCE</Attribute>
+			<Attribute Class="Scalar">NIF:Art/Structures/Improvements/Plantation_Plain/Plantation.nif</Attribute>
+			<Attribute Class="Scalar">KFM:Art/Structures/Improvements/Plantation_Plain/Plantation.kfm</Attribute>
+			<Attribute Class="Scalar">fTwist:-0.7853981633</Attribute>
+			<Attribute Class="Scalar">bImprovementWorkedOnly:1</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bIsPartOfBonus:1</Attribute>
+			<Attribute Class="Rotation">0,180</Attribute>
+			<Scale>0.9</Scale>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_PLANTATION">
+			<!-- worked ancient coffee plantation -->
+			<Attribute Class="Improvement">IMPROVEMENT_PLANTATION</Attribute>
+			<Attribute Class="Bonus">BONUS_COFFEE</Attribute>
+			<Attribute Class="Scalar">iCropArea:16</Attribute>
+			<Attribute Class="Scalar">szExtra:art:COFFEE_PLANTATION_GRINDER</Attribute>
+			<Attribute Class="Scalar">szExtra:art:COFFEE_PLANTATION_RACK</Attribute>
+			<Attribute Class="Era">ERA_INDUSTRIAL,ERA_MODERN,ERA_FUTURE</Attribute>
+			<Attribute Class="Scalar">NIF:Art/Structures/Improvements/Plantation_Plain/Plantation_Modern.nif</Attribute>
+			<Attribute Class="Scalar">fTwist:-0.7853981633</Attribute>
+			<Attribute Class="Scalar">bImprovementWorkedOnly:1</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bIsPartOfBonus:1</Attribute>
+			<Attribute Class="Rotation">0,180</Attribute>
+			<Scale>0.9</Scale>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_PLANTATION">
+			<!-- unworked ancient coffee plantation -->
+			<Attribute Class="Improvement">IMPROVEMENT_PLANTATION</Attribute>
+			<Attribute Class="Bonus">BONUS_COFFEE</Attribute>
+			<Attribute Class="Scalar">iCropArea:8</Attribute>
+			<Attribute Class="Scalar">szExtra:art:COFFEE_PLANTATION_GRINDER</Attribute>
+			<Attribute Class="Scalar">szExtra:art:COFFEE_PLANTATION_RACK</Attribute>
+			<Attribute Class="Era">ERA_ANCIENT,ERA_CLASSICAL,ERA_MEDIEVAL,ERA_RENAISSANCE</Attribute>
+			<Attribute Class="Scalar">NIF:Art/Structures/Improvements/Plantation_Plain/Plantation.nif</Attribute>
+			<Attribute Class="Scalar">KFM:Art/Structures/Improvements/Plantation_Plain/Plantation.kfm</Attribute>
+			<Scale>0.9</Scale>
+			<Attribute Class="Scalar">fTwist:-0.7853981633</Attribute>
+			<Attribute Class="Scalar">bImprovementWorkedOnly:0</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bIsPartOfBonus:1</Attribute>
+			<Attribute Class="Rotation">0,180</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_PLANTATION">
+			<!-- unworked modern coffee plantation -->
+			<Attribute Class="Improvement">IMPROVEMENT_PLANTATION</Attribute>
+			<Attribute Class="Bonus">BONUS_COFFEE</Attribute>
+			<Attribute Class="Scalar">iCropArea:8</Attribute>
+			<Attribute Class="Scalar">szExtra:art:COFFEE_PLANTATION_GRINDER</Attribute>
+			<Attribute Class="Scalar">szExtra:art:COFFEE_PLANTATION_RACK</Attribute>
+			<Attribute Class="Era">ERA_INDUSTRIAL,ERA_MODERN,ERA_FUTURE</Attribute>
+			<Attribute Class="Scalar">NIF:Art/Structures/Improvements/Plantation_Plain/Plantation_Modern.nif</Attribute>
+			<Attribute Class="Scalar">fTwist:-0.7853981633</Attribute>
+			<Attribute Class="Scalar">bImprovementWorkedOnly:0</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bIsPartOfBonus:1</Attribute>
+			<Attribute Class="Rotation">0,180</Attribute>
+			<Scale>0.9</Scale>
+		</ArtRef>
+		<ArtRef Name="goal:BONUS_COFFEE">
+			<!-- unworked spice -->
+			<Attribute Class="Bonus">BONUS_COFFEE</Attribute>
+			<Attribute Class="Improvement">NO_IMPROVEMENT,IMPROVEMENT_ALL,!IMPROVEMENT_FARM</Attribute>
+			<Attribute Class="Scalar">bGoalOnly:1</Attribute>
+			<Attribute Class="Scalar">bPlace:0</Attribute>
+			<Attribute Class="Scalar">iCropArea:12</Attribute>
+			<Attribute Class="Scalar">bIsPartOfBonus:1</Attribute>
+			<Attribute Class="Scalar">fTwist:-0.7853981633</Attribute>
+			<Scale>0.6</Scale>
+		</ArtRef>
+		<ArtRef Name="art:Coffee_crop">
+			<!-- when in the rough -->
+			<Attribute Class="Scalar">NIF:Art/Terrain/Resources/Coffee/Cofwes_LSystem.nif::2x2_01_Cofwe_Normal</Attribute>
+			<Attribute Class="Improvement">NO_IMPROVEMENT,IMPROVEMENT_ALL,!IMPROVEMENT_PLANTATION,!IMPROVEMENT_SLAVE_PLANTATION</Attribute>
+			<Attribute Class="Bonus">BONUS_COFFEE</Attribute>
+			<Attribute Class="Scalar">bCutTrees:1</Attribute>
+			<Attribute Class="Scalar">bBonusImprovedOnly:0</Attribute>
+			<Attribute Class="Scalar">bIsPartOfBonus:1</Attribute>
+			<Attribute Class="Scalar">szBatchGroup:coffee_crop</Attribute>
+			<Scale>0.8</Scale>
+			<Rotate>+45</Rotate>
+		</ArtRef>
+		<!-- Tea -->
+		<ArtRef Name="goal:IMPROVEMENT_PLANTATION">
+			<!-- worked ancient coffee plantation -->
+			<Attribute Class="Improvement">IMPROVEMENT_PLANTATION</Attribute>
+			<Attribute Class="Bonus">BONUS_TEA</Attribute>
+			<Attribute Class="Scalar">iCropArea:16</Attribute>
+			<Attribute Class="Scalar">szExtra:art:TEA_PLANTATION_GRINDER</Attribute>
+			<Attribute Class="Scalar">szExtra:art:TEA_PLANTATION_RACK</Attribute>
+			<Attribute Class="Era">ERA_ANCIENT,ERA_CLASSICAL,ERA_MEDIEVAL,ERA_RENAISSANCE</Attribute>
+			<Attribute Class="Scalar">NIF:Art/Structures/Improvements/Plantation_Plain/Plantation.nif</Attribute>
+			<Attribute Class="Scalar">KFM:Art/Structures/Improvements/Plantation_Plain/Plantation.kfm</Attribute>
+			<Attribute Class="Scalar">fTwist:-0.7853981633</Attribute>
+			<Attribute Class="Scalar">bImprovementWorkedOnly:1</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bIsPartOfBonus:1</Attribute>
+			<Attribute Class="Rotation">0,180</Attribute>
+			<Scale>0.9</Scale>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_PLANTATION">
+			<!-- worked ancient coffee plantation -->
+			<Attribute Class="Improvement">IMPROVEMENT_PLANTATION</Attribute>
+			<Attribute Class="Bonus">BONUS_TEA</Attribute>
+			<Attribute Class="Scalar">iCropArea:16</Attribute>
+			<Attribute Class="Scalar">szExtra:art:TEA_PLANTATION_GRINDER</Attribute>
+			<Attribute Class="Scalar">szExtra:art:TEA_PLANTATION_RACK</Attribute>
+			<Attribute Class="Era">ERA_INDUSTRIAL,ERA_MODERN,ERA_FUTURE</Attribute>
+			<Attribute Class="Scalar">NIF:Art/Structures/Improvements/Plantation_Plain/Plantation_Modern.nif</Attribute>
+			<Attribute Class="Scalar">fTwist:-0.7853981633</Attribute>
+			<Attribute Class="Scalar">bImprovementWorkedOnly:1</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bIsPartOfBonus:1</Attribute>
+			<Attribute Class="Rotation">0,180</Attribute>
+			<Scale>0.9</Scale>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_PLANTATION">
+			<!-- unworked ancient coffee plantation -->
+			<Attribute Class="Improvement">IMPROVEMENT_PLANTATION</Attribute>
+			<Attribute Class="Bonus">BONUS_TEA</Attribute>
+			<Attribute Class="Scalar">iCropArea:8</Attribute>
+			<Attribute Class="Scalar">szExtra:art:TEA_PLANTATION_GRINDER</Attribute>
+			<Attribute Class="Scalar">szExtra:art:TEA_PLANTATION_RACK</Attribute>
+			<Attribute Class="Era">ERA_ANCIENT,ERA_CLASSICAL,ERA_MEDIEVAL,ERA_RENAISSANCE</Attribute>
+			<Attribute Class="Scalar">NIF:Art/Structures/Improvements/Plantation_Plain/Plantation.nif</Attribute>
+			<Attribute Class="Scalar">KFM:Art/Structures/Improvements/Plantation_Plain/Plantation.kfm</Attribute>
+			<Scale>0.9</Scale>
+			<Attribute Class="Scalar">fTwist:-0.7853981633</Attribute>
+			<Attribute Class="Scalar">bImprovementWorkedOnly:0</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bIsPartOfBonus:1</Attribute>
+			<Attribute Class="Rotation">0,180</Attribute>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_PLANTATION">
+			<!-- unworked modern coffee plantation -->
+			<Attribute Class="Improvement">IMPROVEMENT_PLANTATION</Attribute>
+			<Attribute Class="Bonus">BONUS_TEA</Attribute>
+			<Attribute Class="Scalar">iCropArea:8</Attribute>
+			<Attribute Class="Scalar">szExtra:art:TEA_PLANTATION_GRINDER</Attribute>
+			<Attribute Class="Scalar">szExtra:art:TEA_PLANTATION_RACK</Attribute>
+			<Attribute Class="Era">ERA_INDUSTRIAL,ERA_MODERN,ERA_FUTURE</Attribute>
+			<Attribute Class="Scalar">NIF:Art/Structures/Improvements/Plantation_Plain/Plantation_Modern.nif</Attribute>
+			<Attribute Class="Scalar">fTwist:-0.7853981633</Attribute>
+			<Attribute Class="Scalar">bImprovementWorkedOnly:0</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">bIsPartOfBonus:1</Attribute>
+			<Attribute Class="Rotation">0,180</Attribute>
+			<Scale>0.9</Scale>
+		</ArtRef>
+		<ArtRef Name="goal:BONUS_TEA">
+			<!-- unworked spice -->
+			<Attribute Class="Bonus">BONUS_TEA</Attribute>
+			<Attribute Class="Improvement">NO_IMPROVEMENT,IMPROVEMENT_ALL,!IMPROVEMENT_FARM</Attribute>
+			<Attribute Class="Scalar">bGoalOnly:1</Attribute>
+			<Attribute Class="Scalar">bPlace:0</Attribute>
+			<Attribute Class="Scalar">iCropArea:12</Attribute>
+			<Attribute Class="Scalar">bIsPartOfBonus:1</Attribute>
+			<Attribute Class="Scalar">fTwist:-0.7853981633</Attribute>
+			<Scale>0.6</Scale>
+		</ArtRef>
+		<ArtRef Name="art:Tea_crop">
+			<!-- when in the rough -->
+			<Attribute Class="Scalar">NIF:Art/Terrain/Resources/Tea/Spices_LSystem.nif::2x2_01_Spice_Normal</Attribute>
+			<Attribute Class="Improvement">NO_IMPROVEMENT,IMPROVEMENT_ALL,!IMPROVEMENT_PLANTATION,!IMPROVEMENT_SLAVE_PLANTATION</Attribute>
+			<Attribute Class="Bonus">BONUS_TEA</Attribute>
+			<Attribute Class="Scalar">bCutTrees:1</Attribute>
+			<Attribute Class="Scalar">bBonusImprovedOnly:0</Attribute>
+			<Attribute Class="Scalar">bIsPartOfBonus:1</Attribute>
+			<Attribute Class="Scalar">szBatchGroup:tea_crop</Attribute>
+			<Scale>0.8</Scale>
+			<Rotate>+45</Rotate>
 		</ArtRef>
 	</LNode>
 	<!-- ******************************************************************************************** -->
@@ -3279,7 +3531,18 @@
 			<Attribute Class="Era">ERA_ANCIENT,ERA_CLASSICAL</Attribute>
 			<Attribute Class="Scalar">NIF:Art/Structures/Improvements/Farm/an_eu_farm01.nif</Attribute>
 			<Attribute Class="Scalar">KFM:Art/Structures/Improvements/Farm/an_eu_farm01.kfm</Attribute>
-			<Attribute Class="Bonus">BONUS_RICE,BONUS_WHEAT</Attribute>
+			<Attribute Class="Bonus">BONUS_WHEAT</Attribute>
+			<Attribute Class="Scalar">szExtra:art:IMPROVEMENT_FARM1</Attribute>
+			<Attribute Class="Scalar">szExtra:art:IMPROVEMENT_FARM2</Attribute>
+			<Attribute Class="Scalar">bZMode_Ground:1</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Rotate>-45</Rotate>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_PADDY_FIELD">
+			<Attribute Class="Era">ERA_ANCIENT,ERA_CLASSICAL</Attribute>
+			<Attribute Class="Scalar">NIF:Art/Structures/Improvements/Farm/an_eu_farm01.nif</Attribute>
+			<Attribute Class="Scalar">KFM:Art/Structures/Improvements/Farm/an_eu_farm01.kfm</Attribute>
+			<Attribute Class="Bonus">BONUS_RICE</Attribute>
 			<Attribute Class="Scalar">szExtra:art:IMPROVEMENT_FARM1</Attribute>
 			<Attribute Class="Scalar">szExtra:art:IMPROVEMENT_FARM2</Attribute>
 			<Attribute Class="Scalar">bZMode_Ground:1</Attribute>
@@ -3322,7 +3585,20 @@
 			<Attribute Class="Era">ERA_MEDIEVAL,ERA_RENAISSANCE</Attribute>
 			<Attribute Class="Scalar">NIF:Art/Structures/Improvements/Farm/med_eu_farm01.nif</Attribute>
 			<Attribute Class="Scalar">KFM:Art/Structures/Improvements/Farm/med_eu_farm01.kfm</Attribute>
-			<Attribute Class="Bonus">BONUS_RICE,BONUS_WHEAT</Attribute>
+			<Attribute Class="Bonus">BONUS_WHEAT</Attribute>
+			<Attribute Class="Scalar">szExtra:art:IMPROVEMENT_FARM1</Attribute>
+			<Attribute Class="Scalar">szExtra:art:IMPROVEMENT_FARM2</Attribute>
+			<Attribute Class="Scalar">bZMode_Ground:1</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">szForceContourGeometry:Shadow</Attribute>
+			<Rotate>-45</Rotate>
+			<Scale>0.5</Scale>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_PADDY_FIELD">
+			<Attribute Class="Era">ERA_MEDIEVAL,ERA_RENAISSANCE</Attribute>
+			<Attribute Class="Scalar">NIF:Art/Structures/Improvements/Farm/med_eu_farm01.nif</Attribute>
+			<Attribute Class="Scalar">KFM:Art/Structures/Improvements/Farm/med_eu_farm01.kfm</Attribute>
+			<Attribute Class="Bonus">BONUS_RICE</Attribute>
 			<Attribute Class="Scalar">szExtra:art:IMPROVEMENT_FARM1</Attribute>
 			<Attribute Class="Scalar">szExtra:art:IMPROVEMENT_FARM2</Attribute>
 			<Attribute Class="Scalar">bZMode_Ground:1</Attribute>
@@ -3367,7 +3643,20 @@
 			<Attribute Class="Era">ERA_INDUSTRIAL,ERA_GLOBAL,ERA_DIGITAL</Attribute>
 			<Attribute Class="Scalar">NIF:Art/Structures/Improvements/Farm/mod_eu_farm01.nif</Attribute>
 			<Attribute Class="Scalar">KFM:Art/Structures/Improvements/Farm/mod_eu_farm01.kfm</Attribute>
-			<Attribute Class="Bonus">BONUS_RICE,BONUS_WHEAT</Attribute>
+			<Attribute Class="Bonus">BONUS_WHEAT</Attribute>
+			<Attribute Class="Scalar">szExtra:art:IMPROVEMENT_FARM1</Attribute>
+			<Attribute Class="Scalar">szExtra:art:IMPROVEMENT_FARM2</Attribute>
+			<Attribute Class="Scalar">bZMode_Ground:1</Attribute>
+			<Attribute Class="Scalar">bIsPartOfImprovement:1</Attribute>
+			<Attribute Class="Scalar">szForceContourGeometry:Shadow</Attribute>
+			<Rotate>-45</Rotate>
+			<Scale>0.5</Scale>
+		</ArtRef>
+		<ArtRef Name="goal:IMPROVEMENT_PADDY_FIELD">
+			<Attribute Class="Era">ERA_INDUSTRIAL,ERA_GLOBAL,ERA_DIGITAL</Attribute>
+			<Attribute Class="Scalar">NIF:Art/Structures/Improvements/Farm/mod_eu_farm01.nif</Attribute>
+			<Attribute Class="Scalar">KFM:Art/Structures/Improvements/Farm/mod_eu_farm01.kfm</Attribute>
+			<Attribute Class="Bonus">BONUS_RICE</Attribute>
 			<Attribute Class="Scalar">szExtra:art:IMPROVEMENT_FARM1</Attribute>
 			<Attribute Class="Scalar">szExtra:art:IMPROVEMENT_FARM2</Attribute>
 			<Attribute Class="Scalar">bZMode_Ground:1</Attribute>
@@ -3678,28 +3967,56 @@
 	<!-- SPECIAL Rice & wheat farm:			Place a farm in the top-right of the plot -->
 	<LProduction Name="4x4_Farm_Rice" From="Node_12x12">
 		<Attribute Class="Improvement">IMPROVEMENT_FARM</Attribute>
-		<Attribute Class="Bonus">BONUS_RICE,BONUS_WHEAT</Attribute>
+		<Attribute Class="Bonus">BONUS_WHEAT</Attribute>
+		<To Name="Farm_4x4">
+			<Translate>3,3</Translate>
+		</To>
+	</LProduction>
+	<LProduction Name="4x4_Farm_Rice" From="Node_12x12">
+		<Attribute Class="Improvement">IMPROVEMENT_PADDY_FIELD</Attribute>
+		<Attribute Class="Bonus">BONUS_RICE</Attribute>
 		<To Name="Farm_4x4">
 			<Translate>3,3</Translate>
 		</To>
 	</LProduction>
 	<LProduction Name="4x4_Farm_Rice2" From="Node_12x12">
 		<Attribute Class="Improvement">IMPROVEMENT_FARM</Attribute>
-		<Attribute Class="Bonus">BONUS_RICE,BONUS_WHEAT</Attribute>
+		<Attribute Class="Bonus">BONUS_WHEAT</Attribute>
+		<To Name="Farm_4x4">
+			<Translate>-3,3</Translate>
+		</To>
+	</LProduction>
+	<LProduction Name="4x4_Farm_Rice2" From="Node_12x12">
+		<Attribute Class="Improvement">IMPROVEMENT_PADDY_FIELD</Attribute>
+		<Attribute Class="Bonus">BONUS_RICE</Attribute>
 		<To Name="Farm_4x4">
 			<Translate>-3,3</Translate>
 		</To>
 	</LProduction>
 	<LProduction Name="4x4_Farm_Rice3" From="Node_12x12">
 		<Attribute Class="Improvement">IMPROVEMENT_FARM</Attribute>
-		<Attribute Class="Bonus">BONUS_RICE,BONUS_WHEAT</Attribute>
+		<Attribute Class="Bonus">BONUS_WHEAT</Attribute>
+		<To Name="Farm_4x4">
+			<Translate>-3,-3</Translate>
+		</To>
+	</LProduction>
+	<LProduction Name="4x4_Farm_Rice3" From="Node_12x12">
+		<Attribute Class="Improvement">IMPROVEMENT_PADDY_FIELD</Attribute>
+		<Attribute Class="Bonus">BONUS_RICE</Attribute>
 		<To Name="Farm_4x4">
 			<Translate>-3,-3</Translate>
 		</To>
 	</LProduction>
 	<LProduction Name="4x4_Farm_Rice4" From="Node_12x12">
 		<Attribute Class="Improvement">IMPROVEMENT_FARM</Attribute>
-		<Attribute Class="Bonus">BONUS_RICE,BONUS_WHEAT</Attribute>
+		<Attribute Class="Bonus">BONUS_WHEAT</Attribute>
+		<To Name="Farm_4x4">
+			<Translate>3,-3</Translate>
+		</To>
+	</LProduction>
+	<LProduction Name="4x4_Farm_Rice4" From="Node_12x12">
+		<Attribute Class="Improvement">IMPROVEMENT_PADDY_FIELD</Attribute>
+		<Attribute Class="Bonus">BONUS_RICE</Attribute>
 		<To Name="Farm_4x4">
 			<Translate>3,-3</Translate>
 		</To>
@@ -3934,7 +4251,7 @@
 	</LProduction>
 	<LProduction From="Node_2x2">
 		<Attribute Class="Improvement">NO_IMPROVEMENT</Attribute>
-		<Attribute Class="Bonus">BONUS_SILK,BONUS_DYE,BONUS_SPICES,BONUS_SUGAR,BONUS_CORN,BONUS_COTTON</Attribute>
+		<Attribute Class="Bonus">BONUS_SILK,BONUS_DYE,BONUS_SPICES,BONUS_SUGAR,BONUS_CORN,BONUS_COTTON,BONUS_COFFEE,BONUS_TEA,BONUS_TOBACCO</Attribute>
 		<To Name="BLeaf_2x2"/>
 	</LProduction>
 	<LProduction From="Node_2x2">

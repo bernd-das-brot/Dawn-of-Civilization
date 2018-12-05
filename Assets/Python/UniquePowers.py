@@ -76,10 +76,14 @@ class UniquePowers:
 			elif iOtherTeam == iMongolia:
 				for city in utils.getCityList(iTeam):
 					city.setMongolUP(False)
-					
-	def onTechAcquired(self, iPlayer, iTech):
-		if iPlayer == iBabylonia:
-			self.babylonianUP()
+			
+	def setup(self):
+		# Babylonian UP: receive a free tech after discovering the first four techs
+		pBabylonia.setFreeTechsOnDiscovery(4)
+		
+	def onBuildingBuilt(self, city, iOwner, iBuilding):
+		if iOwner == iMughals:
+			self.mughalUP(city, iBuilding)
 					
 #------------------VIKING UP----------------------
 
@@ -93,6 +97,7 @@ class UniquePowers:
 		if (iOwner == iVikings and gc.getGame().getGameTurn() <= getTurnForYear(1500)) or pWinningUnit.getUnitType() == iCorsair:
 			if cLosingUnit.getDomainType() == DomainTypes.DOMAIN_SEA:
 				iGold = cLosingUnit.getProductionCost() / 2
+				iGold = utils.getTurns(iGold)
 				gc.getPlayer(iOwner).changeGold(iGold)
 				sAdjective = gc.getPlayer(pLosingUnit.getOwner()).getCivilizationAdjectiveKey()
 				CyInterface().addMessage(iOwner, False, iDuration, CyTranslator().getText("TXT_KEY_VIKING_NAVAL_UP", (iGold, sAdjective, pLosingUnit.getNameKey())), "", 0, "", ColorTypes(iWhite), -1, -1, True, True)
@@ -208,32 +213,6 @@ class UniquePowers:
 
 #------------------ARABIAN U.P.-------------------
 
-	def mughalUP(self, city): # Unused
-		return
-		# pMughals = gc.getPlayer(iMughals)
-		iStateReligion = pMughals.getStateReligion()
-
-		if iStateReligion >= 0:
-			city.setHasReligion(iStateReligion, True, True, False)
-
-	def seljukUP(self, city): # Unused
-		return
-		# pSeljuks = gc.getPlayer(iSeljuks)
-		iStateReligion = pSeljuks.getStateReligion()
-
-		if iStateReligion >= 0:
-			for iReligion in range(iNumReligions):	# Leoreth: now removes foreign religions and buildings (except holy cities) as well
-				if city.isHasReligion(iReligion) and not city.isHolyCityByType(iReligion):
-					city.setHasReligion(iReligion, False, False, False)
-				if city.hasBuilding(iTemple + iReligion*4):
-					city.setHasRealBuilding((iTemple + iReligion*4), False)
-				if city.hasBuilding(iCathedral + iReligion*4):
-					city.setHasRealBuilding((iCathedral + iReligion*4), False)
-				if city.hasBuilding(iMonastery + iReligion*4):
-					city.setHasRealBuilding((iMonastery + iReligion*4), False)
-			city.setHasReligion(iStateReligion, True, True, False)
-		
-
 	def arabianUP(self, city):
 		#pArabia = gc.getPlayer(iArabia)
 		iStateReligion = pArabia.getStateReligion()
@@ -301,7 +280,7 @@ class UniquePowers:
 #------------------TURKISH U.P.-------------------
 
 
-	def turkishUP(self, city, iCiv, iPreviousOwner):
+	def ottomanUP(self, city, iCiv, iPreviousOwner):
 		tPlot = (city.getX(), city.getY())
 		x, y = tPlot
 		for (i, j) in utils.surroundingPlots(tPlot, 2):
@@ -361,10 +340,9 @@ class UniquePowers:
 							if bUnitsApproaching:
 								print ("citynear", cityNear.getName(), "passed3")
 								utils.flipUnitsInCityBefore(tPlot, iMongolia, iOwnerNear)
-								data.tTempFlippingCity = tPlot
 								utils.flipCity(tPlot, 0, 0, iMongolia, [iOwnerNear])
-								utils.flipUnitsInCityAfter(data.tTempFlippingCity, iMongolia)
-								utils.cultureManager(data.tTempFlippingCity, 50, iOwnerNear, iMongolia, False, False, False)
+								utils.flipUnitsInCityAfter(tPlot, iMongolia)
+								utils.cultureManager(tPlot, 50, iOwnerNear, iMongolia, False, False, False)
 								CyInterface().addMessage(iOwnerNear, False, iDuration, CyTranslator().getText("TXT_KEY_UP_TERROR1", ()) + " " + cityNear.getName() + " " + CyTranslator().getText("TXT_KEY_UP_TERROR2", ()), "", 0, "", ColorTypes(iWhite), -1, -1, True, True)
 								CyInterface().addMessage(iMongolia, False, iDuration, CyTranslator().getText("TXT_KEY_UP_TERROR1", ()) + " " + cityNear.getName() + " " + CyTranslator().getText("TXT_KEY_UP_TERROR2", ()), "", 0, "", ColorTypes(iWhite), -1, -1, True, True)
 
@@ -510,7 +488,7 @@ class UniquePowers:
 		if gc.getPlayer(iCiv).isAlive():
 			cityList = [city for city in utils.getCityList(iCiv) if city.getPopulation() > 1]
 			if cityList:
-				return getRandomEntry(cityList)
+				return utils.getRandomEntry(cityList)
 		return False
 
 
@@ -569,15 +547,8 @@ class UniquePowers:
 			gc.getPlayer(iIndonesia).changeGold(iGold)
 			if utils.getHumanID() == iIndonesia:
 				CyInterface().addMessage(iIndonesia, False, iDuration, CyTranslator().getText("TXT_KEY_INDONESIAN_UP", (iGold,)), "", 0, "", ColorTypes(iWhite), -1, -1, True, True)
-				
-	# Babylonian UP: receives a free tech after the first four techs discovered
-	def babylonianUP(self):
-		iGameTurn = gc.getGame().getGameTurn()
-		if data.iFreeBabylonianTechs < 4 and iGameTurn > data.iLastTurnFreeBabylonianTech:
-			data.iFreeBabylonianTechs += 1
-			data.iLastTurnFreeBabylonianTech = iGameTurn + 1
-
-			if pBabylonia.isHuman():
-				pBabylonia.chooseTech(1, CyTranslator().getText("TXT_KEY_BABYLONIAN_UP", ()), False)
-			else:
-				pBabylonia.AI_chooseFreeTech()
+	
+	# Mughal UP: receives 50% of building cost as culture when building is completed
+	def mughalUP(self, city, iBuilding):
+		iCost = gc.getPlayer(iMughals).getBuildingProductionNeeded(iBuilding)
+		city.changeCulture(iMughals, iCost / 2, True)

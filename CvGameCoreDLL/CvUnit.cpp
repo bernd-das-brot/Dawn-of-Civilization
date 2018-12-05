@@ -91,7 +91,6 @@ void CvUnit::reloadEntity()
 void CvUnit::init(int iID, UnitTypes eUnit, UnitAITypes eUnitAI, PlayerTypes eOwner, int iX, int iY, DirectionTypes eFacingDirection)
 {
 	CvWString szBuffer;
-	int iUnitName;
 	int iI, iJ;
 
 	FAssert(NO_UNIT != eUnit);
@@ -121,12 +120,12 @@ void CvUnit::init(int iID, UnitTypes eUnit, UnitAITypes eUnitAI, PlayerTypes eOw
 	plot()->updateCenterUnit();
 
 	plot()->setFlagDirty(true);
-
+	
+	/* Leoreth: disable random name selection
 	iUnitName = GC.getGameINLINE().getUnitCreatedCount(getUnitType());
 	int iNumNames = m_pUnitInfo->getNumUnitNames();
 	if (iUnitName < iNumNames)
 	{
-		/* Leoreth: disable random name selection
 		int iOffset = GC.getGameINLINE().getSorenRandNum(iNumNames, "Unit name selection");
 
 		for (iI = 0; iI < iNumNames; iI++)
@@ -139,25 +138,8 @@ void CvUnit::init(int iID, UnitTypes eUnit, UnitAITypes eUnitAI, PlayerTypes eOw
 				GC.getGameINLINE().addGreatPersonBornName(szName);
 				break;
 			}
-		}*/
-
-		//Leoreth: names in chronological order, but allow some randomness that increases with the game era
-		/*int iOffset = GC.getGameINLINE().getSorenRandNum(GET_PLAYER(eOwner).getCurrentEra()/2, "Unit name selection");
-
-		int iIndex;
-		for (iI = 0; iI < iNumNames; iI++)
-		{
-			iIndex = iI + (iOffset % (iNumNames - iI));
-
-			CvWString szName = gDLL->getText(m_pUnitInfo->getUnitNames(iIndex));
-			if (!GC.getGameINLINE().isGreatPersonBorn(szName))
-			{
-				setName(szName);
-				GC.getGameINLINE().addGreatPersonBornName(szName);
-				break;
-			}
-		}*/
-	}
+		}
+	}*/
 
 	setGameTurnCreated(GC.getGameINLINE().getGameTurn());
 
@@ -241,17 +223,17 @@ void CvUnit::init(int iID, UnitTypes eUnit, UnitAITypes eUnitAI, PlayerTypes eOw
 	switch (getOwnerINLINE())
 	{
     case KOREA:
-        if (getUnitCombatType() == 8) //naval
+        if (getUnitCombatType() == 9) //naval
             {
-                setHasPromotion((PromotionTypes)PROMOTION_DRILL1, true);
-                setHasPromotion((PromotionTypes)PROMOTION_DRILL2, true);
+                setHasPromotion(PROMOTION_DRILL1, true);
+                setHasPromotion(PROMOTION_DRILL2, true);
             }
         break;
 	case SPAIN:
-		if (getUnitCombatType() == 8) //naval
+		if (getUnitCombatType() == 9) //naval
 			{
-				setHasPromotion((PromotionTypes)PROMOTION_NAVIGATION1, true);
-				setHasPromotion((PromotionTypes)PROMOTION_NAVIGATION2, true);
+				setHasPromotion(PROMOTION_NAVIGATION1, true);
+				setHasPromotion(PROMOTION_NAVIGATION2, true);
 			}
 		break;
 	default:
@@ -397,6 +379,8 @@ void CvUnit::reset(int iID, UnitTypes eUnit, PlayerTypes eOwner, bool bConstruct
 	m_iExtraCityDefensePercent = 0;
 	m_iExtraHillsAttackPercent = 0;
 	m_iExtraHillsDefensePercent = 0;
+	m_iExtraPlainsAttackPercent = 0; // Leoreth
+	m_iExtraPlainsDefensePercent = 0; // Leoreth
 	m_iRevoltProtection = 0;
 	m_iCollateralDamageProtection = 0;
 	m_iPillageChange = 0;
@@ -506,12 +490,13 @@ void CvUnit::convert(CvUnit* pUnit)
 
 	for (int iI = 0; iI < GC.getNumPromotionInfos(); iI++)
 	{
-		setHasPromotion(((PromotionTypes)iI), (/*pUnit->isHasPromotion((PromotionTypes)iI) ||*/ m_pUnitInfo->getFreePromotions(iI)));
+		setHasPromotion(((PromotionTypes)iI), m_pUnitInfo->getFreePromotions(iI) || isHasPromotion((PromotionTypes)iI) || (pUnit->isHasPromotion((PromotionTypes)iI) && GC.getPromotionInfo((PromotionTypes)iI).isLeader()));
 	}
 
 	setGameTurnCreated(pUnit->getGameTurnCreated());
 	setDamage(pUnit->getDamage());
 	setMoves(pUnit->getMoves());
+	setLeaderUnitType(pUnit->getLeaderUnitType());
 
 	int iNewExperience = pUnit->getExperience();
 
@@ -521,7 +506,8 @@ void CvUnit::convert(CvUnit* pUnit)
 	iNewExperience *= iOurModifier;
 	iNewExperience /= iOldModifier;
 
-	if (getLeaderUnitType() == NO_UNIT)
+	// Leoreth: includes German UP
+	if (getLeaderUnitType() == NO_UNIT && getOwner() != GERMANY)
 	{
 		int iOldCombat = GC.getUnitInfo(pUnit->getUnitType()).getCombat();
 		int iNewCombat = GC.getUnitInfo(getUnitType()).getCombat();
@@ -548,7 +534,6 @@ void CvUnit::convert(CvUnit* pUnit)
 		m_szName.replace(m_szName.find(szUnitType), szUnitType.length(), m_pUnitInfo->getDescription());
 	}
 // BUG - Unit Name - end
-	setLeaderUnitType(pUnit->getLeaderUnitType());
 
 	CvUnit* pTransportUnit = pUnit->getTransportUnit();
 	if (pTransportUnit != NULL)
@@ -744,24 +729,29 @@ void CvUnit::kill(bool bDelay, PlayerTypes ePlayer)
 
 	GET_PLAYER(getOwnerINLINE()).AI_changeNumAIUnits(AI_getUnitAIType(), -1);
 
-	// Brandenburg Gate effect: Great General death resets Great General threshold
-	if (GET_PLAYER(getOwnerINLINE()).isHasBuildingEffect((BuildingTypes)BRANDENBURG_GATE))
-	{
-		for (int iI = 0; iI < GC.getNumPromotionInfos(); iI++)
-		{
-			if (isHasPromotion((PromotionTypes)iI))
-			{
-				if (GC.getPromotionInfo((PromotionTypes)iI).isLeader())
-				{
-					GET_PLAYER(getOwnerINLINE()).decrementGreatGeneralsCreated();
-				}
-			}
-		}
-	}
-
 	eOwner = getOwnerINLINE();
 	eCapturingPlayer = getCapturingPlayer();
 	eCaptureUnitType = ((eCapturingPlayer != NO_PLAYER) ? getCaptureUnitType(GET_PLAYER(eCapturingPlayer).getCivilizationType()) : NO_UNIT);
+
+	// captured workers become slaves with Slavery (disabled)
+	/*if (eCaptureUnitType != NO_UNIT && GC.getUnitInfo(eCaptureUnitType).isWorker())
+	{
+		if (eCapturingPlayer != NO_PLAYER && GET_PLAYER(eCapturingPlayer).isSlavery())
+		{
+			eCaptureUnitType = (UnitTypes)GC.getCivilizationInfo(GET_PLAYER(eCapturingPlayer).getCivilizationType()).getCivilizationUnits(GC.getInfoTypeForString("UNITCLASS_SLAVE"));
+		}
+	}*/
+
+	// Leoreth: Turkic UP
+	if (getOwner() == BARBARIAN && eCapturingPlayer == TURKS && GET_TEAM(GET_PLAYER(eCapturingPlayer).getTeam()).isAtWarWithMajorPlayer())
+	{
+		// mounted units
+		if (getUnitCombatType() == 2 || getUnitCombatType() == 3)
+		{
+			eCaptureUnitType = getUnitType();
+		}
+	}
+
 // BUG - Unit Captured Event - start
 	PlayerTypes eFromPlayer = getOwner();
 	UnitTypes eCapturedUnitType = getUnitType();
@@ -775,9 +765,34 @@ void CvUnit::kill(bool bDelay, PlayerTypes ePlayer)
 
 	GET_PLAYER(getOwnerINLINE()).deleteUnit(getID());
 
-	if ((eCapturingPlayer != NO_PLAYER) && (eCaptureUnitType != NO_UNIT) && !(GET_PLAYER(eCapturingPlayer).isBarbarian()) && GET_PLAYER(eCapturingPlayer).canTrain(eCaptureUnitType))
+	if (eCapturingPlayer != NO_PLAYER && eCaptureUnitType != NO_UNIT)
 	{
-		if (GET_PLAYER(eCapturingPlayer).isHuman() || GET_PLAYER(eCapturingPlayer).AI_captureUnit(eCaptureUnitType, pPlot) || 0 == GC.getDefineINT("AI_CAN_DISBAND_UNITS"))
+		UnitClassTypes eCaptureUnitClassType = (UnitClassTypes)GC.getUnitInfo(eCaptureUnitType).getUnitClassType();
+		UnitTypes eOwnCaptureUnitType = (UnitTypes)GC.getCivilizationInfo(GET_PLAYER(eCapturingPlayer).getCivilizationType()).getCivilizationUnits(eCaptureUnitClassType);
+
+		bool bCanCapture = true;
+
+		if (bCanCapture && GET_PLAYER(eCapturingPlayer).isBarbarian()) 
+		{
+			bCanCapture = false;
+		}
+
+		if (bCanCapture && !GET_PLAYER(eCapturingPlayer).canTrain(eOwnCaptureUnitType))
+		{
+			bCanCapture = false;
+		}
+
+		if (bCanCapture && GC.getUnitInfo(eCaptureUnitType).getCombat() == 0 && !GET_PLAYER(eCapturingPlayer).isSlavery())
+		{
+			bCanCapture = false;
+		}
+
+		if (bCanCapture && !GET_PLAYER(eCapturingPlayer).isHuman() && !GET_PLAYER(eCapturingPlayer).AI_captureUnit(eOwnCaptureUnitType, pPlot) && 0 != GC.getDefineINT("AI_CAN_DISBAND_UNITS"))
+		{
+			bCanCapture = false;
+		}
+
+		if (bCanCapture)
 		{
 			CvUnit* pkCapturedUnit = GET_PLAYER(eCapturingPlayer).initUnit(eCaptureUnitType, pPlot->getX_INLINE(), pPlot->getY_INLINE());
 
@@ -787,7 +802,14 @@ void CvUnit::kill(bool bDelay, PlayerTypes ePlayer)
 				CvEventReporter::getInstance().unitCaptured(eFromPlayer, eCapturedUnitType, pkCapturedUnit);
 // BUG - Unit Captured Event - end
 
-				szBuffer = gDLL->getText("TXT_KEY_MISC_YOU_CAPTURED_UNIT", GC.getUnitInfo(eCaptureUnitType).getTextKeyWide());
+				if (GC.getUnitInfo(eCaptureUnitType).getCombat() == 0)
+				{
+					szBuffer = gDLL->getText("TXT_KEY_MISC_YOU_CAPTURED_UNIT", GC.getUnitInfo(eCaptureUnitType).getTextKeyWide());
+				} 
+				else
+				{
+					szBuffer = gDLL->getText("TXT_KEY_MISC_UNIT_JOINED_YOU", GC.getUnitInfo(eCaptureUnitType).getTextKeyWide());
+				}
 				gDLL->getInterfaceIFace()->addMessage(eCapturingPlayer, true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_UNITCAPTURE", MESSAGE_TYPE_INFO, pkCapturedUnit->getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), pPlot->getX_INLINE(), pPlot->getY_INLINE());
 
 				// Add a captured mission
@@ -895,6 +917,13 @@ void CvUnit::doTurn()
 
 	setMoves(0);
 
+	// Leoreth: Turkic UP for the AI
+	if (getOwnerINLINE() == BARBARIAN && plot()->getOwnerINLINE() == TURKS && GC.getGame().getActivePlayer() != TURKS)
+	{
+		setCapturingPlayer(TURKS);
+		kill(false);
+	}
+
 	m_iStuckLoopCount = 0;
 }
 
@@ -913,6 +942,13 @@ void CvUnit::updateAirStrike(CvPlot* pPlot, bool bQuick, bool bFinish)
 		if (!bQuick)
 		{
 			bVisible = isCombatVisible(NULL);
+		}
+
+		// Leoreth/Dale: nuclear bomber
+		if (canNuke(pPlot))
+		{
+			kill(true);
+			return;
 		}
 
 		if (!airStrike(pPlot))
@@ -1254,7 +1290,7 @@ void CvUnit::resolveCombat(CvUnit* pDefender, CvPlot* pPlot, CvBattleDefinition&
 /* BETTER_BTS_AI_MOD                       END                                                  */
 /************************************************************************************************/
 		{
-			if (getCombatFirstStrikes() == 0)	//Leoreth: let cavalry with first strikes flank too (side effects??)
+			if (getCombatFirstStrikes() == 0)	// Leoreth: let cavalry with first strikes flank too (side effects??)
 			//if (true)
 			{
 				if (getDamage() + iAttackerDamage >= maxHitPoints() && GC.getGameINLINE().getSorenRandNum(100, "Withdrawal") < withdrawalProbability())
@@ -1293,14 +1329,38 @@ void CvUnit::resolveCombat(CvUnit* pDefender, CvPlot* pPlot, CvBattleDefinition&
 		{
 			if (pDefender->getCombatFirstStrikes() == 0)
 			{
-				if (std::min(GC.getMAX_HIT_POINTS(), pDefender->getDamage() + iDefenderDamage) > combatLimit())
+				if (std::min(GC.getMAX_HIT_POINTS(), pDefender->getDamage() + iDefenderDamage) > combatLimitAgainst(pDefender))
 				{
 					changeExperience(GC.getDefineINT("EXPERIENCE_FROM_WITHDRAWL"), pDefender->maxXPValue(), true, pPlot->getOwnerINLINE() == getOwnerINLINE(), !pDefender->isBarbarian());
-					pDefender->setDamage(combatLimit(), getOwnerINLINE());
+					pDefender->setDamage(combatLimitAgainst(pDefender), getOwnerINLINE());
 // BUG - Combat Events - start
 					CvEventReporter::getInstance().combatWithdrawal(this, pDefender);
 // BUG - Combat Events - end
 					break;
+				}
+
+				// Leoreth: Krak des Chevaliers effect
+				if (pDefender->getDamage() + iDefenderDamage >= pDefender->maxHitPoints())
+				{
+					if (GET_PLAYER(pDefender->getOwnerINLINE()).isHasBuildingEffect((BuildingTypes)KRAK_DES_CHEVALIERS))
+					{
+						if (pPlot->isCity())
+						{
+							CvCity* pCity = pPlot->getPlotCity();
+
+							if (pCity->getOwner() == pDefender->getOwnerINLINE() && !pCity->isCapital())
+							{
+								CvCity* pCapital = GET_PLAYER(pDefender->getOwnerINLINE()).getCapitalCity();
+								if (pCapital != NULL)
+								{
+									changeExperience(GC.getDefineINT("EXPERIENCE_FROM_WITHDRAWL"), pDefender->maxXPValue(), true, pPlot->getOwnerINLINE() == getOwnerINLINE(), !pDefender->isBarbarian());
+									//pDefender->setXY(pDefender->getX_INLINE()-1, pDefender->getY_INLINE()-1, true, true, pCapital->plot()->isVisibleToWatchingHuman(), true);
+									CvEventReporter::getInstance().combatRetreat(this, pDefender);
+									break;
+								}
+							}
+						}
+					}
 				}
 
 				pDefender->changeDamage(iDefenderDamage, getOwnerINLINE());
@@ -1493,7 +1553,8 @@ void CvUnit::updateCombat(bool bQuick)
 		FAssertMsg(plot()->isFighting(), "Current unit instance plot is not fighting as expected");
 		FAssertMsg(pPlot->isFighting(), "pPlot is not fighting as expected");
 
-		if (!pDefender->canDefend())
+		// Leoreth: includes Turkic UP
+		if (!pDefender->canDefendAgainst(this))
 		{
 			if (!bVisible)
 			{
@@ -1650,7 +1711,7 @@ void CvUnit::updateCombat(bool bQuick)
 			}
 			else
 			{
-				bAdvance = canAdvance(pPlot, ((pDefender->canDefend()) ? 1 : 0));
+				bAdvance = canAdvance(pPlot, ((pDefender->canDefendAgainst(this) ) ? 1 : 0));
 
 				if (bAdvance)
 				{
@@ -1659,7 +1720,6 @@ void CvUnit::updateCombat(bool bQuick)
 						pDefender->setCapturingPlayer(getOwnerINLINE());
 					}
 				}
-
 
 				pDefender->kill(false);
 				pDefender = NULL;
@@ -1679,6 +1739,34 @@ void CvUnit::updateCombat(bool bQuick)
 			// This is is put before the plot advancement, the unit will always try to walk back
 			// to the square that they came from, before advancing.
 			getGroup()->clearMissionQueue();
+		}
+		else if (GET_PLAYER(pDefender->getOwnerINLINE()).isHasBuildingEffect((BuildingTypes)KRAK_DES_CHEVALIERS) && pDefender->maxHitPoints() - pDefender->getDamage() < maxHitPoints() - getDamage())
+		{
+			if (!GET_PLAYER(pDefender->getOwnerINLINE()).isMinorCiv() && !GET_PLAYER(pDefender->getOwnerINLINE()).isBarbarian())
+			{
+				szBuffer = gDLL->getText("TXT_KEY_MISC_ENEMY_UNIT_WITHDRAW", pDefender->getNameKey(), getNameKey());
+				gDLL->getInterfaceIFace()->addMessage(getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_THEIR_WITHDRAWL", MESSAGE_TYPE_INFO, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), pPlot->getX_INLINE(), pPlot->getY_INLINE());
+				szBuffer = gDLL->getText("TXT_KEY_MISC_YOU_UNIT_WITHDRAW", pDefender->getNameKey(), getNameKey());
+				gDLL->getInterfaceIFace()->addMessage(pDefender->getOwnerINLINE(), true, GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_THEIR_WITHDRAWL", MESSAGE_TYPE_INFO, NULL, (ColorTypes)GC.getInfoTypeForString("COLOR_RED"), pPlot->getX_INLINE(), pPlot->getY_INLINE());
+
+				bool bAdvance = canAdvance(pPlot, ((pDefender->canDefendAgainst(this) ) ? 1 : 0));
+
+				CvCity* pCapital = GET_PLAYER(pDefender->getOwnerINLINE()).getCapitalCity();
+				pDefender->setXY(pCapital->getX(), pCapital->getY());
+
+				if (!bAdvance)
+				{
+					changeMoves(std::max(GC.getMOVE_DENOMINATOR(), pPlot->movementCost(this, plot())));
+					checkRemoveSelectionAfterAttack();
+				}
+
+				if (pPlot->getNumVisibleEnemyDefenders(this) == 0)
+				{
+					getGroup()->groupMove(pPlot, true, ((bAdvance) ? this : NULL));
+				}
+
+				getGroup()->clearMissionQueue();
+			}
 		}
 		else
 		{
@@ -1831,6 +1919,21 @@ bool CvUnit::isActionRecommended(int iAction)
 				eRoute = ((RouteTypes)(GC.getBuildInfo(eBuild).getRoute()));
 				eBonus = pPlot->getBonusType(getTeam());
 				pWorkingCity = pPlot->getWorkingCity();
+				
+				if (eImprovement != NO_IMPROVEMENT)
+				{
+					if (eBonus != NO_BONUS)
+					{
+						if (GC.getImprovementInfo(eImprovement).isImprovementBonusTrade(eBonus))
+						{
+							return true;
+						}
+						else
+						{
+							return false;
+						}
+					}
+				}
 
 				if (pPlot->getImprovementType() == NO_IMPROVEMENT)
 				{
@@ -2339,7 +2442,7 @@ bool CvUnit::generatePath(const CvPlot* pToPlot, int iFlags, bool bReuse, int* p
 
 bool CvUnit::canEnterTerritory(TeamTypes eTeam, bool bIgnoreRightOfPassage) const
 {
-	//Leoreth: allow to enter enemy territory while you have no cities to avoid being pushed out after spawn
+	// Leoreth: allow entering enemy territory while you have no cities to avoid being pushed out after spawn
 	if (GET_PLAYER(getOwner()).getNumCities() == 0)
 	{
 		return true;
@@ -2353,6 +2456,12 @@ bool CvUnit::canEnterTerritory(TeamTypes eTeam, bool bIgnoreRightOfPassage) cons
 	if (eTeam == NO_TEAM)
 	{
 		return true;
+	}
+
+	// Leoreth: Turkic UP
+	if (getOwnerINLINE() == BARBARIAN && eTeam == TURKS && !GET_TEAM(eTeam).isAtWarWithMajorPlayer())
+	{
+		return false;
 	}
 
 	if (isEnemy(eTeam))
@@ -2394,7 +2503,6 @@ bool CvUnit::canEnterTerritory(TeamTypes eTeam, bool bIgnoreRightOfPassage) cons
 			}
 		}
 	}
-
 
 	//Rhye - start UP (Dutch) - Leoreth: removed
 	//if (getOwnerINLINE() == NETHERLANDS && DOMAIN_SEA == getDomainType())
@@ -2604,7 +2712,7 @@ bool CvUnit::canMoveInto(const CvPlot* pPlot, bool bAttack, bool bDeclareWar, bo
 		{
 			bool bValid = false;
 
-			if (pPlot->isFriendlyCity(*this, true))
+			if (pPlot->isAlliedCity(*this, true) || isRivalTerritory())
 			{
 				bValid = true;
 
@@ -3245,6 +3353,12 @@ bool CvUnit::canGift(bool bTestVisible, bool bTestTransport)
 		return false;
 	}
 
+	// Leoreth: can only gift units to vassals and defensive pact partners
+	if (!GET_TEAM(pPlot->getTeam()).isVassal(getTeam()) && !GET_TEAM(pPlot->getTeam()).isDefensivePact(getTeam()))
+	{
+		return false;
+	}
+
 	if (pPlot->isVisibleEnemyUnit(this))
 	{
 		return false;
@@ -3263,6 +3377,15 @@ bool CvUnit::canGift(bool bTestVisible, bool bTestTransport)
 	for (int iCorp = 0; iCorp < GC.getNumCorporationInfos(); ++iCorp)
 	{
 		if (m_pUnitInfo->getCorporationSpreads(iCorp) > 0)
+		{
+			return false;
+		}
+	}
+
+	// Leoreth: cannot gift missionaries
+	for (int iReligion = 0; iReligion < GC.getNumReligionInfos(); ++iReligion)
+	{
+		if (m_pUnitInfo->getReligionSpreads(iReligion) > 0)
 		{
 			return false;
 		}
@@ -4113,6 +4236,7 @@ bool CvUnit::nuke(int iX, int iY)
 	bool abTeamsAffected[MAX_TEAMS];
 	TeamTypes eBestTeam;
 	int iBestInterception;
+	CvUnit* bestInterceptor;
 	int iI, iJ, iK;
 
 	if (!canNukeAt(plot(), iX, iY))
@@ -4138,13 +4262,45 @@ bool CvUnit::nuke(int iX, int iY)
 		}
 	}
 
+	// Leoreth/Dale: nuclear bomber
+	if (airBaseCombatStr() != 0)
+	{
+		if (interceptTest(pPlot))
+		{
+			return true;
+		}
+	}
+
 	iBestInterception = 0;
 	eBestTeam = NO_TEAM;
+	bestInterceptor = NULL;
 
 	for (iI = 0; iI < MAX_TEAMS; iI++)
 	{
 		if (abTeamsAffected[iI])
 		{
+			if (GET_TEAM((TeamTypes)iI).canSatelliteIntercept())
+			{
+				for (int iJ = NO_DIRECTION; iJ < NUM_DIRECTION_TYPES; iJ++)
+				{
+					CvPlot* pPlot = plotDirection(iX, iY, (DirectionTypes)iJ);
+					for (int iK = 0; iK < pPlot->getNumUnits(); iK++)
+					{
+						CvUnit* pUnit = pPlot->getUnitByIndex(iK);
+						if (pUnit != this && pUnit->getTeam() == iI && pUnit->getSpecialUnitType() == SPECIALUNIT_SATELLITE)
+						{
+							bestInterceptor = pUnit;
+							break;
+						}
+					}
+				}
+			}
+
+			if (bestInterceptor != NULL)
+			{
+				break;
+			}
+
 			if (GET_TEAM((TeamTypes)iI).getNukeInterception() > iBestInterception)
 			{
 				iBestInterception = GET_TEAM((TeamTypes)iI).getNukeInterception();
@@ -4158,11 +4314,27 @@ bool CvUnit::nuke(int iX, int iY)
 
 	setReconPlot(pPlot);
 
-	if (GC.getGameINLINE().getSorenRandNum(100, "Nuke") < iBestInterception)
+	// Leoreth: if a satellite can intercept, it will
+	if (bestInterceptor != NULL)
 	{
 		for (iI = 0; iI < MAX_PLAYERS; iI++)
 		{
-			if (GET_PLAYER((PlayerTypes)iI).isAlive())
+			if (GET_PLAYER((PlayerTypes)iI).isAlive() && (getOwner() == iI || abTeamsAffected[GET_PLAYER((PlayerTypes)iI).getTeam()]))
+			{
+				szBuffer = gDLL->getText("TXT_KEY_MISC_NUKE_INTERCEPTED_SATELLITE", GET_PLAYER(getOwnerINLINE()).getCivilizationAdjective(), getNameKey(), GET_PLAYER(bestInterceptor->getOwnerINLINE()).getCivilizationAdjective(), bestInterceptor->getNameKey());
+				gDLL->getInterfaceIFace()->addMessage(((PlayerTypes)iI), (((PlayerTypes)iI) == getOwnerINLINE()), GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_NUKE_INTERCEPTED", MESSAGE_TYPE_MAJOR_EVENT, getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_RED"), pPlot->getX_INLINE(), pPlot->getY_INLINE(), true, true);
+			}
+		}
+
+		bestInterceptor->kill(true);
+		kill(true);
+		return true;
+	}
+	else if (GC.getGameINLINE().getSorenRandNum(100, "Nuke") < iBestInterception)
+	{
+		for (iI = 0; iI < MAX_PLAYERS; iI++)
+		{
+			if (GET_PLAYER((PlayerTypes)iI).isAlive() && (getOwner() == iI || abTeamsAffected[GET_PLAYER((PlayerTypes)iI).getTeam()]))
 			{
 				szBuffer = gDLL->getText("TXT_KEY_MISC_NUKE_INTERCEPTED", GET_PLAYER(getOwnerINLINE()).getNameKey(), getNameKey(), GET_TEAM(eBestTeam).getName().GetCString());
 				gDLL->getInterfaceIFace()->addMessage(((PlayerTypes)iI), (((PlayerTypes)iI) == getOwnerINLINE()), GC.getEVENT_MESSAGE_TIME(), szBuffer, "AS2D_NUKE_INTERCEPTED", MESSAGE_TYPE_MAJOR_EVENT, getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_RED"), pPlot->getX_INLINE(), pPlot->getY_INLINE(), true, true);
@@ -4187,18 +4359,37 @@ bool CvUnit::nuke(int iX, int iY)
 		return true; // Intercepted!!! (XXX need special event for this...)
 	}
 
+	// Leoreth/Dale: nuclear bomber
 	if (pPlot->isActiveVisible(false))
 	{
-		// Nuke entity mission
-		CvMissionDefinition kDefiniton;
-		kDefiniton.setMissionTime(GC.getMissionInfo(MISSION_NUKE).getTime() * gDLL->getSecsPerTurn());
-		kDefiniton.setMissionType(MISSION_NUKE);
-		kDefiniton.setPlot(pPlot);
-		kDefiniton.setUnit(BATTLE_UNIT_ATTACKER, this);
-		kDefiniton.setUnit(BATTLE_UNIT_DEFENDER, NULL);
+		if (airBaseCombatStr() != 0)
+		{
+			CvAirMissionDefinition kAirMission;
 
-		// Add the non-intercepted mission (defender is NULL)
-		gDLL->getEntityIFace()->AddMission(&kDefiniton);
+			kAirMission.setMissionTime(GC.getMissionInfo(MISSION_AIRSTRIKE).getTime() * gDLL->getSecsPerTurn());
+			kAirMission.setMissionType(MISSION_AIRSTRIKE);
+			kAirMission.setPlot(pPlot);
+			kAirMission.setUnit(BATTLE_UNIT_ATTACKER, this);
+			kAirMission.setUnit(BATTLE_UNIT_DEFENDER, NULL);
+			kAirMission.setDamage(BATTLE_UNIT_DEFENDER, 0);
+			kAirMission.setDamage(BATTLE_UNIT_ATTACKER, 0);
+
+			gDLL->getEntityIFace()->AddMission(&kAirMission);
+		}
+		else 
+		{
+			// Nuke entity mission
+			CvMissionDefinition kDefiniton;
+
+			kDefiniton.setMissionTime(GC.getMissionInfo(MISSION_NUKE).getTime() * gDLL->getSecsPerTurn());
+			kDefiniton.setMissionType(MISSION_NUKE);
+			kDefiniton.setPlot(pPlot);
+			kDefiniton.setUnit(BATTLE_UNIT_ATTACKER, this);
+			kDefiniton.setUnit(BATTLE_UNIT_DEFENDER, NULL);
+
+			// Add the non-intercepted mission (defender is NULL)
+			gDLL->getEntityIFace()->AddMission(&kDefiniton);
+		}
 	}
 
 	setMadeAttack(true);
@@ -4807,7 +4998,7 @@ bool CvUnit::canPillage(const CvPlot* pPlot) const
 bool CvUnit::pillage()
 {
 	CvWString szBuffer;
-	int iPillageGold;
+	int iPillageGold = 0;
 	long lPillageGold;
 	ImprovementTypes eTempImprovement = NO_IMPROVEMENT;
 	RouteTypes eTempRoute = NO_ROUTE;
@@ -5758,7 +5949,7 @@ int CvUnit::getSpreadChance(ReligionTypes eReligion) const
 		iSpreadChance += (100 - iSpreadChance) / 2;
 	}
 
-	if (eSpreadFactor == RELIGION_SPREAD_MINORITY) iSpreadChance /= 2;
+	if (eSpreadFactor == RELIGION_SPREAD_NONE) iSpreadChance /= 2;
 
 	return iSpreadChance;
 }
@@ -5959,14 +6150,22 @@ bool CvUnit::canJoin(const CvPlot* pPlot, SpecialistTypes eSpecialist) const
 	}
 
 	//Leoreth: no slavery in the motherland or with egalitarianism
-	if (getUnitType() == GC.getInfoTypeForString("UNIT_SLAVE"))
+	if (GC.getUnitInfo(getUnitType()).isSlave())
 	{
-		if (!GET_PLAYER(getOwner()).isSlavery() && !GET_PLAYER(getOwner()).isColonialSlavery())
+		if (!GET_PLAYER(getOwnerINLINE()).canUseSlaves())
 		{
 			return false;
 		}
 
 		if (!pCity->canSlaveJoin())
+		{
+			return false;
+		}
+	}
+
+	if (GC.getSpecialistInfo(eSpecialist).isSatellite())
+	{
+		if (!pCity->canSatelliteJoin())
 		{
 			return false;
 		}
@@ -5990,6 +6189,12 @@ bool CvUnit::join(SpecialistTypes eSpecialist)
 	if (pCity != NULL)
 	{
 		pCity->changeFreeSpecialistCount(eSpecialist, 1);
+
+		// Leoreth: Neuschwanstein Castle effect
+		if (GET_PLAYER(getOwnerINLINE()).isHasBuildingEffect((BuildingTypes)NEUSCHWANSTEIN))
+		{
+			pCity->changeGreatPeopleProgress(GET_PLAYER(getOwnerINLINE()).greatPeopleThreshold(false) / 4);
+		}
 	}
 
 	if (plot()->isActiveVisible(false))
@@ -6080,27 +6285,15 @@ bool CvUnit::construct(BuildingTypes eBuilding)
 }
 
 
-TechTypes CvUnit::getDiscoveryTech() const
+TechTypes CvUnit::getDiscoveryTech(TechTypes eIgnoreTech) const
 {
-	return ::getDiscoveryTech(getUnitType(), getOwnerINLINE());
+	return ::getDiscoveryTech(getUnitType(), getOwnerINLINE(), eIgnoreTech);
 }
 
 
 int CvUnit::getDiscoverResearch(TechTypes eTech) const
 {
-	int iResearch;
-
-	iResearch = (m_pUnitInfo->getBaseDiscover() + (m_pUnitInfo->getDiscoverMultiplier() * GET_TEAM(getTeam()).getTotalPopulation()));
-
-	iResearch *= GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getUnitDiscoverPercent();
-	iResearch /= 100;
-
-    if (eTech != NO_TECH)
-    {
-        iResearch = std::min(GET_TEAM(getTeam()).getResearchLeft(eTech), iResearch);
-    }
-
-	return std::max(0, iResearch);
+	return ::getDiscoverResearch(getUnitType(), getOwner(), eTech);
 }
 
 
@@ -6131,17 +6324,36 @@ bool CvUnit::canDiscover(const CvPlot* pPlot) const
 
 bool CvUnit::discover()
 {
-	TechTypes eDiscoveryTech;
+	TechTypes eFirstDiscoveryTech, eSecondDiscoveryTech;
 
 	if (!canDiscover(plot()))
 	{
 		return false;
 	}
 
-	eDiscoveryTech = getDiscoveryTech();
-	FAssertMsg(eDiscoveryTech != NO_TECH, "DiscoveryTech is not assigned a valid value");
+	eFirstDiscoveryTech = getDiscoveryTech();
+	eSecondDiscoveryTech = getDiscoveryTech(eFirstDiscoveryTech);
 
-	GET_TEAM(getTeam()).changeResearchProgress(eDiscoveryTech, getDiscoverResearch(eDiscoveryTech), getOwnerINLINE());
+	FAssertMsg(eFirstDiscoveryTech != NO_TECH, "FirstDiscoveryTech is not assigned a valid value");
+
+	if (eFirstDiscoveryTech != NO_TECH)
+	{
+		int iFirstResearchLeft = GET_TEAM(getTeam()).getResearchLeft(eFirstDiscoveryTech);
+		int iFirstResearch = getDiscoverResearch(eFirstDiscoveryTech);
+
+		GET_TEAM(getTeam()).changeResearchProgress(eFirstDiscoveryTech, std::min(iFirstResearch, iFirstResearchLeft), getOwnerINLINE());
+
+		if (eSecondDiscoveryTech != NO_TECH)
+		{
+			int iSecondResearchLeft = GET_TEAM(getTeam()).getResearchLeft(eSecondDiscoveryTech);
+			int iSecondResearch = std::max(0, getDiscoverResearch(eSecondDiscoveryTech) - iFirstResearchLeft);
+
+			if (iSecondResearch > 0)
+			{
+				GET_TEAM(getTeam()).changeResearchProgress(eSecondDiscoveryTech, std::min(iSecondResearch, iSecondResearchLeft), getOwnerINLINE());
+			}
+		}
+	}
 
 	if (plot()->isActiveVisible(false))
 	{
@@ -6268,14 +6480,14 @@ int CvUnit::getTradeGold(const CvPlot* pPlot) const
 
 	iGold = (m_pUnitInfo->getBaseTrade() + (m_pUnitInfo->getTradeMultiplier() * ((pCapitalCity != NULL) ? pCity->calculateTradeProfit(pCapitalCity) : 0)));
 
-	iGold *= GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getUnitTradePercent();
-	iGold /= 100;
-
 	// Leoreth: to help Mali
-	if (pCity->isHolyCity())
+	if (pCity->isHolyCity() && iGold < 2000)
 	{
 		iGold = std::min(iGold*2, 2000);
 	}
+
+	iGold *= GC.getGameSpeedInfo(GC.getGameINLINE().getGameSpeedType()).getUnitTradePercent();
+	iGold /= 100;
 
 	return std::max(0, iGold);
 }
@@ -6567,26 +6779,20 @@ bool CvUnit::canEspionage(const CvPlot* pPlot, bool bTestVisible) const
 }
 
 //SuperSpies: TSHEEP start
-bool CvUnit::awardSpyExperience(TeamTypes eTargetTeam, int iCost, int iModifier)
+bool CvUnit::awardSpyExperience(TeamTypes eTargetTeam, EspionageMissionTypes eMission)
 {
-	// cheap missions do not give XP: avoid farming
-	if (iCost < std::min(100, GET_TEAM(getTeam()).getEspionagePointsAgainstTeam(eTargetTeam)))
+	int iExperience = GC.getEspionageMissionInfo(eMission).getBaseExperience();
+	int iDifficulty = (getSpyInterceptPercent(eTargetTeam) * (100 + GC.getEspionageMissionInfo(eMission).getDifficultyMod())) / 100;
+
+	iExperience *= 2 * iDifficulty;
+	iExperience /= 100;
+
+	if (iExperience < 100)
 	{
 		return false;
 	}
 
-	int iDifficulty = (getSpyInterceptPercent(eTargetTeam) * (100 + iModifier)) / 100;
-	int iExperience = 1;
-
-	if (iDifficulty >= 90) iExperience += 4;
-	else if (iDifficulty >= 80) iExperience += 3;
-	else if (iDifficulty >= 65) iExperience += 2;
-	else if (iDifficulty >= 50) iExperience += 1;
-
-	if (iExperience == 0)
-	{
-		return false;
-	}
+	iExperience /= 100;
 
 	changeExperience(iExperience);
 	testPromotionReady();
@@ -6785,7 +6991,7 @@ bool CvUnit::espionage(EspionageMissionTypes eMission, int iData)
 				}
 				
 				//SuperSpies: TSHEEP Give spies xp for successful missions
-				awardSpyExperience(GET_PLAYER(eTargetPlayer).getTeam(), iMissionCost, GC.getEspionageMissionInfo(eMission).getDifficultyMod());
+				awardSpyExperience(GET_PLAYER(eTargetPlayer).getTeam(), eMission);
 			}
 
 			return true;
@@ -6802,6 +7008,17 @@ bool CvUnit::testSpyIntercepted(PlayerTypes eTargetPlayer, int iModifier)
 	if (kTargetPlayer.isBarbarian() || kTargetPlayer.isMinorCiv()) //Rhye
 	{
 		return false;
+	}
+
+	// Leoreth: Bletchley Park effect
+	if (GET_PLAYER(getOwnerINLINE()).isHasBuildingEffect((BuildingTypes)BLETCHLEY_PARK))
+	{
+		iModifier += 50;
+	}
+
+	if (GET_PLAYER(eTargetPlayer).isHasBuildingEffect((BuildingTypes)BLETCHLEY_PARK))
+	{
+		iModifier -= 50;
 	}
 
 	if (GC.getGameINLINE().getSorenRandNum(10000, "Spy Interception") >= getSpyInterceptPercent(kTargetPlayer.getTeam()) * (100 + iModifier))
@@ -7031,7 +7248,7 @@ bool CvUnit::canBuild(const CvPlot* pPlot, BuildTypes eBuild, bool bTestVisible)
 		return false;
 	}
 
-	if (getUnitClassType() == GC.getInfoTypeForString("UNITCLASS_SLAVE"))
+	if (GC.getUnitInfo(getUnitType()).isSlave() && GC.getBuildInfo(eBuild).isKill())
 	{
 		if (!pPlot->canUseSlave(getOwner())) return false;
 	}
@@ -7057,7 +7274,19 @@ bool CvUnit::build(BuildTypes eBuild)
 
 	GET_PLAYER(getOwnerINLINE()).changeGold(-(GET_PLAYER(getOwnerINLINE()).getBuildCost(plot(), eBuild)));
 
-	bFinished = plot()->changeBuildProgress(eBuild, workRate(false), getTeam());
+	int iWorkRate = workRate(false);
+
+	// Leoreth: Chateau Frontenac effect
+	if (eBuild != NO_BUILD && GET_PLAYER(getOwnerINLINE()).isHasBuildingEffect((BuildingTypes)FRONTENAC))
+	{
+		if (GC.getBuildInfo(eBuild).getTechPrereq() == RAILROAD)
+		{
+			iWorkRate *= 150;
+			iWorkRate /= 100;
+		}
+	}
+
+	bFinished = plot()->changeBuildProgress(eBuild, iWorkRate, getTeam());
 
 	finishMoves(); // needs to be at bottom because movesLeft() can affect workRate()...
 
@@ -7157,7 +7386,10 @@ void CvUnit::promote(PromotionTypes ePromotion, int iLeaderUnitId)
 	if (!GC.getPromotionInfo(ePromotion).isLeader())
 	{
 		changeLevel(1);
-		changeDamage(-(getDamage() / 2));
+
+		// Leoreth: Triumphal Arch effect
+		int iDamageHealed = GET_PLAYER(getOwnerINLINE()).isHasBuildingEffect((BuildingTypes)TRIUMPHAL_ARCH) ? getDamage() : getDamage() / 2;
+		changeDamage(-iDamageHealed);
 	}
 
 	setHasPromotion(ePromotion, true);
@@ -7353,13 +7585,6 @@ int CvUnit::upgradePrice(UnitTypes eUnit) const
 	{
 		return 0;
 	}
-
-	//Rhye - start UP
-	if (getOwnerINLINE() == GERMANY)
-	{
-		return 0;
-	}
-	//Rhye - end UP
 
 	iPrice = GC.getDefineINT("BASE_UNIT_UPGRADE_COST");
 
@@ -7731,21 +7956,6 @@ void CvUnit::upgrade(UnitTypes eUnit)
 // BUG - Upgrade Unit Event - start
 	CvEventReporter::getInstance().unitUpgraded(this, pUpgradeUnit, iPrice);
 // BUG - Upgrade Unit Event - end
-
-	//Rhye - start UP (used to be German and Ethiopian UP)
-	/*if (pUpgradeUnit->getOwnerINLINE() == GERMANY) {
-		if (pUpgradeUnit->getUnitCombatType() == 5) //gunpowder
-			{
-				pUpgradeUnit->setHasPromotion(((PromotionTypes)14), true); //commando
-			}
-	}
-	if (pUpgradeUnit->getOwnerINLINE() == ETHIOPIA) {
-		if (pUpgradeUnit->getUnitCombatType() == 5) //gunpowder
-			{
-				pUpgradeUnit->setHasPromotion(((PromotionTypes)0), true); //combat1
-			}
-	}*/
-	//Rhye - end UP
 }
 
 //Rhye - start (for some UPs)
@@ -7871,7 +8081,18 @@ int CvUnit::visibilityRange() const
 
 int CvUnit::baseMoves() const
 {
-	return (m_pUnitInfo->getMoves() + getExtraMoves() + GET_TEAM(getTeam()).getExtraMoves(getDomainType()));
+	int iMoves = m_pUnitInfo->getMoves() + getExtraMoves() + GET_TEAM(getTeam()).getExtraMoves(getDomainType());
+
+	// Leoreth: Kremlin effect
+	if (GET_PLAYER(getOwnerINLINE()).isHasBuildingEffect((BuildingTypes)KREMLIN))
+	{
+		if (!canFight())
+		{
+			iMoves += 1;
+		}
+	}
+
+	return iMoves;
 }
 
 
@@ -8016,6 +8237,7 @@ BuildTypes CvUnit::getBuildType() const
 		case MISSION_DIPLOMATIC_MISSION: // Leoreth
 		case MISSION_PERSECUTE: // Leoreth
 		case MISSION_GREAT_MISSION:
+		case MISSION_SATELLITE_ATTACK:
 		case MISSION_DIE_ANIMATION:
 			break;
 
@@ -8147,6 +8369,11 @@ bool CvUnit::canCoexistWithEnemyUnit(TeamTypes eTeam) const
 		return false;
 	}
 
+	if (getInvisibleType() != NO_INVISIBLE && isRivalTerritory())
+	{
+		return true;
+	}
+
 	if (isInvisible(eTeam, false))
 	{
 		return true;
@@ -8261,6 +8488,8 @@ int CvUnit::maxCombatStr(const CvPlot* pPlot, const CvUnit* pAttacker, CombatDet
 		pCombatDetails->iCityDefenseModifier = 0;
 		pCombatDetails->iHillsAttackModifier = 0;
 		pCombatDetails->iHillsDefenseModifier = 0;
+		pCombatDetails->iPlainsAttackModifier = 0; // Leoreth
+		pCombatDetails->iPlainsDefenseModifier = 0; // Leoreth
 		pCombatDetails->iFeatureAttackModifier = 0;
 		pCombatDetails->iFeatureDefenseModifier = 0;
 		pCombatDetails->iTerrainAttackModifier = 0;
@@ -8302,12 +8531,9 @@ int CvUnit::maxCombatStr(const CvPlot* pPlot, const CvUnit* pAttacker, CombatDet
 	iExtraModifier = getExtraCombatPercent();
 
 	// Leoreth: Ethiopian UP: +10% strength for land units in own borders
-	if (pPlot != NULL)
+	if (getOwnerINLINE() == ETHIOPIA && getDomainType() == DOMAIN_LAND && plot()->getOwnerINLINE() == ETHIOPIA)
 	{
-		if (getOwnerINLINE() == ETHIOPIA && getDomainType() == DOMAIN_LAND && pPlot->getOwnerINLINE() == ETHIOPIA)
-		{
-			iExtraModifier += 10;
-		}
+		iExtraModifier += 10;
 	}
 
 	iModifier += iExtraModifier;
@@ -8448,6 +8674,17 @@ int CvUnit::maxCombatStr(const CvPlot* pPlot, const CvUnit* pAttacker, CombatDet
 			}
 		}
 
+		// Leoreth
+		if (pPlot->isPlains())
+		{
+			iExtraModifier = plainsDefenseModifier();
+			iModifier += iExtraModifier;
+			if (pCombatDetails != NULL)
+			{
+				pCombatDetails->iPlainsDefenseModifier = iExtraModifier;
+			}
+		}
+
 		if (pPlot->getFeatureType() != NO_FEATURE)
 		{
 			iExtraModifier = featureDefenseModifier(pPlot->getFeatureType());
@@ -8517,6 +8754,17 @@ int CvUnit::maxCombatStr(const CvPlot* pPlot, const CvUnit* pAttacker, CombatDet
 			if (pCombatDetails != NULL)
 			{
 				pCombatDetails->iHillsAttackModifier = iExtraModifier;
+			}
+		}
+
+		// Leoreth
+		if (pAttackedPlot->isPlains())
+		{
+			iExtraModifier = -pAttacker->plainsAttackModifier();
+			iTempModifier += iExtraModifier;
+			if (pCombatDetails != NULL)
+			{
+				pCombatDetails->iPlainsAttackModifier = iExtraModifier;
 			}
 		}
 
@@ -8743,6 +8991,7 @@ bool CvUnit::canAttack() const
 
 	return true;
 }
+
 bool CvUnit::canAttack(const CvUnit& defender) const
 {
 	if (!canAttack())
@@ -8750,7 +8999,7 @@ bool CvUnit::canAttack(const CvUnit& defender) const
 		return false;
 	}
 
-	if (defender.getDamage() >= combatLimit())
+	if (defender.getDamage() >= combatLimitAgainst(&defender))
 	{
 		return false;
 	}
@@ -8758,7 +9007,7 @@ bool CvUnit::canAttack(const CvUnit& defender) const
 	// Artillery can't amphibious attack
 	if (plot()->isWater() && !defender.plot()->isWater())
 	{
-		if (combatLimit() < 100)
+		if (combatLimitAgainst(&defender) < 100)
 		{
 			return false;
 		}
@@ -8788,6 +9037,22 @@ bool CvUnit::canDefend(const CvPlot* pPlot) const
 	}
 
 	return true;
+}
+
+
+// Leoreth
+bool CvUnit::canDefendAgainst(const CvUnit* pAttacker, const CvPlot* pPlot) const
+{
+	// Leoreth: Turkic UP
+	if (getOwnerINLINE() == BARBARIAN && pAttacker->getOwnerINLINE() == TURKS && GET_TEAM(pAttacker->getTeam()).isAtWarWithMajorPlayer())
+	{
+		if (getUnitCombatType() == 2 || getUnitCombatType() == 3)
+		{
+			return false;
+		}
+	}
+
+	return canDefend(pPlot);
 }
 
 
@@ -8889,6 +9154,24 @@ float CvUnit::airCurrCombatStrFloat(const CvUnit* pOther) const
 int CvUnit::combatLimit() const
 {
 	return m_pUnitInfo->getCombatLimit();
+}
+
+
+// Leoreth
+int CvUnit::combatLimitAgainst(const CvUnit* pUnit) const
+{
+	int iCombatLimit = combatLimit();
+
+	if (iCombatLimit < 100)
+	{
+		if (pUnit != NULL && pUnit->plot()->isCity())
+		{
+			int iCityDefense = std::max(0, 100 - pUnit->plot()->getPlotCity()->getDefenseModifier(ignoreBuildingDefense()));
+			iCombatLimit = std::min(iCombatLimit, iCityDefense);
+		}
+	}
+
+	return iCombatLimit;
 }
 
 
@@ -9303,7 +9586,19 @@ bool CvUnit::isNukeImmune() const
 
 int CvUnit::maxInterceptionProbability() const
 {
-	return std::max(0, m_pUnitInfo->getInterceptionProbability() + getExtraIntercept());
+	int iInterceptProbability = m_pUnitInfo->getInterceptionProbability() + getExtraIntercept();
+
+	// Leoreth: Iron Dome effect
+	if (GET_PLAYER(getOwnerINLINE()).isHasBuildingEffect((BuildingTypes)IRON_DOME))
+	{
+		if (plot()->getOwner() == getOwnerINLINE())
+		{
+			iInterceptProbability *= 3;
+			iInterceptProbability /= 2;
+		}
+	}
+
+	return std::max(0, iInterceptProbability);
 }
 
 
@@ -9382,6 +9677,20 @@ int CvUnit::hillsAttackModifier() const
 int CvUnit::hillsDefenseModifier() const
 {
 	return (m_pUnitInfo->getHillsDefenseModifier() + getExtraHillsDefensePercent());
+}
+
+
+// Leoreth
+int CvUnit::plainsAttackModifier() const
+{
+	return m_pUnitInfo->getPlainsAttackModifier() + getExtraPlainsAttackPercent();
+}
+
+
+// Leoreth
+int CvUnit::plainsDefenseModifier() const
+{
+	return m_pUnitInfo->getPlainsDefenseModifier() + getExtraPlainsDefensePercent();
 }
 
 
@@ -9933,7 +10242,7 @@ void CvUnit::setXY(int iX, int iY, bool bGroup, bool bUpdate, bool bShow, bool b
 					{
 						if (!pLoopUnit->canCoexistWithEnemyUnit(getTeam()))
 						{
-							if (NO_UNITCLASS == pLoopUnit->getUnitInfo().getUnitCaptureClassType() && pLoopUnit->canDefend(pNewPlot))
+							if (NO_UNITCLASS == pLoopUnit->getUnitInfo().getUnitCaptureClassType() && pLoopUnit->canDefendAgainst(this, pNewPlot))
 							{
 								pLoopUnit->jumpToNearestValidPlot(); // can kill unit
 							}
@@ -10591,7 +10900,9 @@ void CvUnit::changeExperience(int iChange, int iMax, bool bFromCombat, bool bInB
 
 	// Leoreth: Terracotta Army effect
 	if (GET_PLAYER(getOwner()).isHasBuildingEffect((BuildingTypes)TERRACOTTA_ARMY) && iMax != GC.getDefineINT("ANIMAL_MAX_XP_VALUE"))
+	{
 		iMax = MAX_INT;
+	}
 
 	if (bFromCombat)
 	{
@@ -11157,6 +11468,40 @@ void CvUnit::changeExtraHillsDefensePercent(int iChange)
 	if (iChange != 0)
 	{
 		m_iExtraHillsDefensePercent += iChange;
+
+		setInfoBarDirty(true);
+	}
+}
+
+// Leoreth
+int CvUnit::getExtraPlainsAttackPercent() const
+{
+	return m_iExtraPlainsAttackPercent;
+}
+
+// Leoreth
+void CvUnit::changeExtraPlainsAttackPercent(int iChange)
+{
+	if (iChange != 0)
+	{
+		m_iExtraPlainsAttackPercent += iChange;
+
+		setInfoBarDirty(true);
+	}
+}
+
+// Leoreth
+int CvUnit::getExtraPlainsDefensePercent() const
+{
+	return m_iExtraPlainsDefensePercent;
+}
+
+// Leoreth
+void CvUnit::changeExtraPlainsDefensePercent(int iChange)
+{
+	if (iChange != 0)
+	{
+		m_iExtraPlainsDefensePercent += iChange;
 
 		setInfoBarDirty(true);
 	}
@@ -12139,6 +12484,8 @@ void CvUnit::setHasPromotion(PromotionTypes eIndex, bool bNewValue)
 		changeExtraCityDefensePercent(GC.getPromotionInfo(eIndex).getCityDefensePercent() * iChange);
 		changeExtraHillsAttackPercent(GC.getPromotionInfo(eIndex).getHillsAttackPercent() * iChange);
 		changeExtraHillsDefensePercent(GC.getPromotionInfo(eIndex).getHillsDefensePercent() * iChange);
+		changeExtraPlainsAttackPercent(GC.getPromotionInfo(eIndex).getPlainsAttackPercent() * iChange); // Leoreth
+		changeExtraPlainsDefensePercent(GC.getPromotionInfo(eIndex).getPlainsDefensePercent() * iChange); // Leoreth
 		changeRevoltProtection(GC.getPromotionInfo(eIndex).getRevoltProtection() * iChange);
 		changeCollateralDamageProtection(GC.getPromotionInfo(eIndex).getCollateralDamageProtection() * iChange);
 		changePillageChange(GC.getPromotionInfo(eIndex).getPillageChange() * iChange);
@@ -12293,6 +12640,8 @@ void CvUnit::read(FDataStreamBase* pStream)
 	pStream->Read(&m_iExtraCityDefensePercent);
 	pStream->Read(&m_iExtraHillsAttackPercent);
 	pStream->Read(&m_iExtraHillsDefensePercent);
+	pStream->Read(&m_iExtraPlainsAttackPercent); // Leoreth
+	pStream->Read(&m_iExtraPlainsDefensePercent); // Leoreth
 	pStream->Read(&m_iRevoltProtection);
 	pStream->Read(&m_iCollateralDamageProtection);
 	pStream->Read(&m_iPillageChange);
@@ -12399,6 +12748,8 @@ void CvUnit::write(FDataStreamBase* pStream)
 	pStream->Write(m_iExtraCityDefensePercent);
 	pStream->Write(m_iExtraHillsAttackPercent);
 	pStream->Write(m_iExtraHillsDefensePercent);
+	pStream->Write(m_iExtraPlainsAttackPercent); // Leoreth
+	pStream->Write(m_iExtraPlainsDefensePercent); // Leoreth
 	pStream->Write(m_iRevoltProtection);
 	pStream->Write(m_iCollateralDamageProtection);
 	pStream->Write(m_iPillageChange);
@@ -12603,6 +12954,14 @@ void CvUnit::collateralCombat(const CvPlot* pPlot, CvUnit* pSkipUnit)
 				iCollateralDamage = std::max(0, iCollateralDamage);
 
 				int iMaxDamage = std::min(collateralDamageLimit(), (collateralDamageLimit() * (iCollateralStrength + iStrengthFactor)) / (iTheirStrength + iStrengthFactor));
+
+				// Leoreth: city defense limits collateral damage
+				if (pPlot->isCity())
+				{
+					int iCityDefenseLimit = std::max(0, 100 - pPlot->getPlotCity()->getDefenseModifier(false));
+					iMaxDamage = std::min(iMaxDamage, iCityDefenseLimit);
+				}
+
 				iUnitDamage = std::max(pBestUnit->getDamage(), std::min(pBestUnit->getDamage() + iCollateralDamage, iMaxDamage));
 
 				if (pBestUnit->getDamage() != iUnitDamage)
@@ -13649,6 +14008,12 @@ bool CvUnit::isAlwaysHostile(const CvPlot* pPlot) const
 		return false;
 	}
 
+	// Leoreth: land units are safe in own territory
+	if (NULL != pPlot && !pPlot->isWater() && pPlot->getOwnerINLINE() == getOwnerINLINE())
+	{
+		return false;
+	}
+
 	return true;
 }
 
@@ -13822,17 +14187,6 @@ int CvUnit::getOriginalArtStyle(int regionID)
 			return GC.getCivilizationInfo(GET_PLAYER((PlayerTypes)PHOENICIA).getCivilizationType()).getUnitArtStyleType();
 		}
 	}
-	/*else if (id == REGION_ANATOLIA)
-	{
-		if (GET_PLAYER((PlayerTypes)BYZANTIUM).isAlive() && !(GET_PLAYER((PlayerTypes)SELJUKS).isAlive() || GET_PLAYER((PlayerTypes)TURKEY).isAlive()))
-		{
-			return GC.getCivilizationInfo(GET_PLAYER((PlayerTypes)BYZANTIUM).getCivilizationType()).getUnitArtStyleType();
-		}
-		else
-		{
-			return GC.getCivilizationInfo(GET_PLAYER((PlayerTypes)TURKEY).getCivilizationType()).getUnitArtStyleType();
-		}
-	}*/
 	else if (id == REGION_EUROPE)
 	{
 		return GC.getCivilizationInfo(GET_PLAYER((PlayerTypes)INDEPENDENT).getCivilizationType()).getUnitArtStyleType();
@@ -14070,7 +14424,7 @@ bool CvUnit::diplomaticMission()
 	{
 		for (int iI = 0; iI < NUM_MEMORY_TYPES; iI++)
 		{
-			if (GET_PLAYER(ePlayer).AI_getMemoryAttitude(getOwner(), (MemoryTypes)iI))
+			if (GET_PLAYER(ePlayer).AI_getMemoryAttitude(getOwner(), (MemoryTypes)iI) < 0)
 			{
 				GET_PLAYER(ePlayer).AI_changeMemoryCount(getOwner(), (MemoryTypes)iI, -GET_PLAYER(ePlayer).AI_getMemoryCount(getOwner(), (MemoryTypes)iI));
 			}
@@ -14181,6 +14535,9 @@ bool CvUnit::persecute(ReligionTypes eReligion)
 				pCity->setHasReligion(eReligion, false, true);
 			}
 
+			pCity->changeCultureUpdateTimer(1);
+			pCity->changeOccupationTimer(1);
+
 			gDLL->getInterfaceIFace()->addMessage(getOwner(), false, GC.getEVENT_MESSAGE_TIME(), gDLL->getText("TXT_KEY_MESSAGE_PERSECUTION", pCity->getName().c_str(), GC.getReligionInfo(eReligion).getDescription(), iLoot), "AS2D_PLAGUE", MESSAGE_TYPE_INFO, getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_GREEN"), getX_INLINE(), getY_INLINE(), true, true);
 		}
 		else
@@ -14188,8 +14545,6 @@ bool CvUnit::persecute(ReligionTypes eReligion)
 			gDLL->getInterfaceIFace()->addMessage(getOwner(), false, GC.getEVENT_MESSAGE_TIME(), gDLL->getText("TXT_KEY_MESSAGE_PERSECUTION_FAIL", pCity->getName().c_str()), "AS2D_PLAGUE", MESSAGE_TYPE_INFO, getButton(), (ColorTypes)GC.getInfoTypeForString("COLOR_RED"), getX_INLINE(), getY_INLINE(), true, true);
 		}
 
-		pCity->changeCultureUpdateTimer(1);
-		pCity->changeOccupationTimer(1);
 		pCity->changeHurryAngerTimer(pCity->flatHurryAngerLength());
 
 		if (plot()->isActiveVisible(false))
@@ -14259,6 +14614,63 @@ bool CvUnit::greatMission()
 	return true;
 }
 
+bool CvUnit::canSatelliteAttack(const CvPlot* pPlot) const
+{
+	if (getSpecialUnitType() != SPECIALUNIT_SATELLITE)
+	{
+		return false;
+	}
+
+	if (!GET_TEAM(getTeam()).canSatelliteAttack())
+	{
+		return false;
+	}
+
+	for (int iI = 0; iI < pPlot->getNumUnits(); iI++)
+	{
+		CvUnit* pUnit = pPlot->getUnitByIndex(iI);
+		if (pUnit != this && pUnit->getSpecialUnitType() == SPECIALUNIT_SATELLITE)
+		{
+			if (atWar(getTeam(), pUnit->getTeam()))
+			{
+				return true;
+			}
+		}
+	}
+
+	return false;
+}
+
+bool CvUnit::satelliteAttack()
+{
+	if (!canSatelliteAttack(plot()))
+	{
+		return false;
+	}
+
+	for (int iI = 0; iI < plot()->getNumUnits(); iI++)
+	{
+		CvUnit* pUnit = plot()->getUnitByIndex(iI);
+		if (pUnit != this && pUnit->getSpecialUnitType() == SPECIALUNIT_SATELLITE)
+		{
+			if (atWar(getTeam(), pUnit->getTeam()))
+			{
+				pUnit->kill(true, getOwnerINLINE());
+
+				if (plot()->isActiveVisible(false))
+				{
+					NotifyEntity(MISSION_SATELLITE_ATTACK);
+				}
+
+				finishMoves();
+				return true;
+			}
+		}
+	}
+
+	return false;
+}
+
 SpecialistTypes CvUnit::getSettledSpecialist() const
 {
 	int iI;
@@ -14275,5 +14687,5 @@ SpecialistTypes CvUnit::getSettledSpecialist() const
 
 bool CvUnit::isWorker() const
 {
-	return GC.getUnitInfo(getUnitType()).isWorker();
+	return m_pUnitInfo->isWorker();
 }

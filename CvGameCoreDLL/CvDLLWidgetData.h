@@ -58,6 +58,7 @@ public:
 	void doPediaTechJump(CvWidgetDataStruct &widgetDataStruct);
 	void doPediaUnitJump(CvWidgetDataStruct &widgetDataStruct);
 	void doPediaBuildingJump(CvWidgetDataStruct &widgetDataStruct);
+	void doPediaCultureLevelJump(CvWidgetDataStruct &widgetDataStruct);
 	void doPediaBack();
 	void doPediaForward();
 	void doPediaBonusJump(CvWidgetDataStruct &widgetDataStruct, bool bData2 = false);
@@ -144,6 +145,7 @@ public:
 // BUG - Trade Denial - end
 	void parseTechPrereqHelp(CvWidgetDataStruct &widgetDataStruct, CvWStringBuffer &szBuffer);
 	void parseTechTreePrereq(CvWidgetDataStruct &widgetDataStruct, CvWStringBuffer &szBuffer, bool bTechTreeInfo);
+	void parseCultureLevelHelp(CvWidgetDataStruct &widgetDataStruct, CvWStringBuffer &szBuffer);
 	void parseObsoleteHelp(CvWidgetDataStruct &widgetDataStruct, CvWStringBuffer &szBuffer);
 	void parseObsoleteBonusString(CvWidgetDataStruct &widgetDataStruct, CvWStringBuffer &szBuffer);
 	void parseObsoleteSpecialHelp(CvWidgetDataStruct &widgetDataStruct, CvWStringBuffer &szBuffer);
@@ -200,6 +202,7 @@ public:
 	void parsePediaBack(CvWidgetDataStruct &widgetDataStruct, CvWStringBuffer &szBuffer);
 	void parsePediaForward(CvWidgetDataStruct &widgetDataStruct, CvWStringBuffer &szBuffer);
 	void parseBonusHelp(CvWidgetDataStruct &widgetDataStruct, CvWStringBuffer &szBuffer);
+	void parseBonusHelpCity(CvWidgetDataStruct &widgetDataStruct, CvWStringBuffer &szBuffer);
 // BUG - Trade Denial - start
 	void parseBonusTradeHelp(CvWidgetDataStruct &widgetDataStruct, CvWStringBuffer &szBuffer);
 // BUG - Trade Denial - end
@@ -211,6 +214,7 @@ public:
 	void parseEventHelp(CvWidgetDataStruct &widgetDataStruct, CvWStringBuffer &szBuffer);
 	void parseUnitCombatHelp(CvWidgetDataStruct &widgetDataStruct, CvWStringBuffer &szBuffer);
 	void parseImprovementHelp(CvWidgetDataStruct &widgetDataStruct, CvWStringBuffer &szBuffer);
+	void parseRemoveHelp(CvWidgetDataStruct &widgetDataStruct, CvWStringBuffer &szBuffer); // Leoreth
 	void parseCivicHelp(CvWidgetDataStruct &widgetDataStruct, CvWStringBuffer &szBuffer);
 	void parseCivilizationHelp(CvWidgetDataStruct &widgetDataStruct, CvWStringBuffer &szBuffer);
 	void parseLeaderHelp(CvWidgetDataStruct &widgetDataStruct, CvWStringBuffer &szBuffer);
@@ -244,6 +248,9 @@ public:
 
 	void parseMinorReligionHelp(CvWidgetDataStruct &widgetDataStruct, CvWStringBuffer &szBuffer);
 	void doPediaMinorReligionJump(CvWidgetDataStruct &widgetDataStruct);
+
+	void parseRouteHelp(CvWidgetDataStruct &widgetDataStruct, CvWStringBuffer &szBuffer);
+	void doPediaRouteJump(CvWidgetDataStruct &widgetDataStruct);
 
 protected:
 	

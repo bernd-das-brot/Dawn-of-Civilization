@@ -251,6 +251,8 @@ public:
 	int getHappiness() const; // Leoreth
 
 	bool isVisible() const;				// Exposed to Python
+	bool isNoGlobalEffects() const; // Leoreth
+	bool isSatellite() const;
 
 	// Arrays
 
@@ -258,6 +260,10 @@ public:
 	const int* getYieldChangeArray() const;		// Exposed to Python - For Moose - CvWidgetData
 	int getCommerceChange(int i) const;		// Exposed to Python
 	int getFlavorValue(int i) const;		// Exposed to Python
+
+	int getCultureLevelYieldChange(int eCultureLevel, int eYield) const;
+	int getCultureLevelCommerceChange(int eCultureLevel, int eCommerce) const;
+	int getCultureLevelGreatPeopleRateChange(int eCultureLevel) const;
 
 	const TCHAR* getTexture() const;				// Exposed to Python
 	void setTexture(const TCHAR* szVal);
@@ -275,6 +281,7 @@ protected:
 	int m_iHappiness; // Leoreth
 
 	bool m_bVisible;				// Exposed to Python
+	bool m_bNoGlobalEffects; // Leoreth
 
 	CvString m_szTexture;
 
@@ -283,6 +290,10 @@ protected:
 	int* m_piYieldChange;
 	int* m_piCommerceChange;
 	int* m_piFlavorValue;
+	int* m_piCultureLevelGreatPeopleRateChanges;
+
+	int** m_paiCultureLevelYieldChanges;
+	int** m_paiCultureLevelCommerceChanges;
 
 };
 
@@ -474,6 +485,8 @@ public:
 	int getCityDefensePercent() const;				// Exposed to Python
 	int getHillsAttackPercent() const;				// Exposed to Python
 	int getHillsDefensePercent() const;				// Exposed to Python
+	int getPlainsAttackPercent() const; // Leoreth
+	int getPlainsDefensePercent() const; // Leoreth
 	int getCommandType() const;									// Exposed to Python
 	void setCommandType(int iNewType);
 
@@ -550,6 +563,8 @@ protected:
 	int m_iCityDefensePercent;
 	int m_iHillsAttackPercent;
 	int m_iHillsDefensePercent;
+	int m_iPlainsAttackPercent;
+	int m_iPlainsDefensePercent;
 	int m_iCommandType;
 	int m_iRevoltProtection;
 	int m_iCollateralDamageProtection;
@@ -848,6 +863,8 @@ public:
 	int getAnimalCombatModifier() const;			// Exposed to Python
 	int getHillsAttackModifier() const;			// Exposed to Python
 	int getHillsDefenseModifier() const;			// Exposed to Python
+	int getPlainsAttackModifier() const; // Leoreth
+	int getPlainsDefenseModifier() const; // Leoreth
 	int getBombRate() const;									// Exposed to Python
 	int getBombardRate() const;								// Exposed to Python
 	int getSpecialCargo() const;							// Exposed to Python
@@ -1052,6 +1069,8 @@ protected:
 	int m_iAnimalCombatModifier;
 	int m_iHillsAttackModifier;
 	int m_iHillsDefenseModifier;
+	int m_iPlainsAttackModifier; // Leoreth
+	int m_iPlainsDefenseModifier; // Leoreth
 	int m_iBombRate;
 	int m_iBombardRate;
 	int m_iSpecialCargo;
@@ -1134,6 +1153,7 @@ protected:
 	bool m_bDiplomaticMission;
 	bool m_bPersecute;
 	bool m_bGreatMission;
+	bool m_bSlave;
 
 	float m_fUnitMaxSpeed;
 	float m_fUnitPadTime;
@@ -1270,6 +1290,7 @@ public:
 	virtual ~CvSpecialUnitInfo();
 
 	bool isValid() const;
+	bool isPlayerValid() const; // Leoreth
 	bool isCityLoad() const;
 
 	// Arrays
@@ -1284,6 +1305,7 @@ public:
 protected:
 
 	bool m_bValid;
+	bool m_bPlayerValid; // Leoreth
 	bool m_bCityLoad;
 
 	// Arrays
@@ -1346,14 +1368,14 @@ public:
 	int getDistanceMaintenanceModifier() const;				// Exposed to Python
 	int getNumCitiesMaintenanceModifier() const;				// Exposed to Python
 	int getCorporationMaintenanceModifier() const;				// Exposed to Python
-	int getCorporationCommerceModifier() const; //Leoreth
+	int getCorporationCommerceModifier() const; // Leoreth
 	int getCorporationUnhappinessModifier() const; // Leoreth
 	int getWonderProductionModifier() const; // Leoreth
-	int getProcessModifier() const; //Leoreth
+	int getProcessModifier() const; // Leoreth
 	int getExtraHealth() const;						// Exposed to Python
-	int getPollutionModifier() const; //Leoreth
+	int getPollutionModifier() const; // Leoreth
 	int getFreeExperience() const;				// Exposed to Python
-	int getWorkerProductionModifier() const; // Leoreth
+	int getWorkerCostModifier() const; // Leoreth
 	int getWorkerSpeedModifier() const;				// Exposed to Python
 	int getImprovementUpgradeRateModifier() const;				// Exposed to Python
 	int getMilitaryProductionModifier() const;				// Exposed to Python
@@ -1364,17 +1386,16 @@ public:
 	int getGoldPerUnit() const;				// Exposed to Python
 	int getGoldPerMilitaryUnit() const;				// Exposed to Python
 	int getHappyPerMilitaryUnit() const;				// Exposed to Python
-	int getMilitaryHappinessLimit() const; //Leoreth
 	int getLargestCityHappiness() const;					// Exposed to Python
 	int getSpecialistHappiness() const; // Leoreth
 	int getWarWearinessModifier() const;					// Exposed to Python
 	int getFreeSpecialist() const;				// Exposed to Python
-	int getCoreFreeSpecialist() const; //Leoreth
+	int getCoreFreeSpecialist() const; // Leoreth
 	int getTradeRoutes() const;				// Exposed to Python
 	int getCapitalTradeModifier() const; // Leoreth
 	int getDefensivePactTradeModifier() const; // Leoreth
 	int getVassalCityCommerce() const; // Leoreth
-	int getHappinessBonusCommerce() const; // Leoreth
+	int getColonyCommerce() const; // Leoreth
 	int getCaptureGoldModifier() const; // Leoreth
 	int getTechPrereq() const;				// Exposed to Python
 	int getCivicPercentAnger() const;				// Exposed to Python
@@ -1386,9 +1407,6 @@ public:
 	int getStateReligionFreeExperience() const;								// Exposed to Python
 	int getExpInBorderModifier() const;				// Exposed to Python
 
-	int getSpecialistExtraYieldBaseThreshold() const; //Leoreth
-	int getSpecialistExtraYieldEraThreshold() const; //Leoreth
-
 	bool isMilitaryFoodProduction() const;				// Exposed to Python
 	bool isNoUnhealthyPopulation() const;				// Exposed to Python
 	bool isBuildingOnlyHealthy() const;				// Exposed to Python
@@ -1398,12 +1416,8 @@ public:
 	bool isNoForeignCorporations() const;				// Exposed to Python
 	bool isStateReligion() const;				// Exposed to Python
 	bool isNoNonStateReligionSpread() const;				// Exposed to Python
-	bool isStabilityVassalBonus() const;				//Rhye 6th
-	bool isStabilityFoundBonus() const;				//Rhye 6th
-	bool isStabilityConquestBonus() const;				//Rhye 6th
-	bool isStabilityCommerceBonus() const;				//Rhye 6th
-	bool isEnslave() const; // Leoreth
 	bool isSlavery() const; // Leoreth
+	bool isNoSlavery() const; // Leoreth
 	bool isColonialSlavery() const; // Leoreth
 
 	std::wstring pyGetWeLoveTheKing() { return getWeLoveTheKing(); }			// Exposed to Python
@@ -1424,14 +1438,14 @@ public:
 	int* getCapitalCommerceModifierArray() const;
 	int getSpecialistExtraCommerce(int i) const;				// Exposed to Python
 	int* getSpecialistExtraCommerceArray() const;
-	int getSpecialistExtraYield(int i) const; //Leoreth
-	int* getSpecialistExtraYieldArray() const; //Leoreth
-	int getSpecialistThresholdExtraYield(int i) const; //Leoreth
-	int* getSpecialistThresholdExtraYieldArray() const; //Leoreth
+	int getSpecialistExtraYield(int i) const; // Leoreth
+	int* getSpecialistExtraYieldArray() const; // Leoreth
 	int getHappinessExtraYield(int i) const; // Leoreth
 	int* getHappinessExtraYieldArray() const; // Leoreth
 	int getUnhappinessExtraYield(int i) const; // Leoreth
 	int* getUnhappinessExtraYieldArray() const; // Leoreth
+	int getUnimprovedTileYield(int i) const; // Leoreth
+	int* getUnimprovedTileYieldArray() const; // Leoreth
 	int getBuildingHappinessChanges(int i) const;				// Exposed to Python
 	int getBuildingHealthChanges(int i) const;				// Exposed to Python
 	int getBuildingProductionModifier(int i) const;	//Leoreth
@@ -1465,14 +1479,14 @@ protected:
 	int m_iDistanceMaintenanceModifier;
 	int m_iNumCitiesMaintenanceModifier;
 	int m_iCorporationMaintenanceModifier;
-	int m_iCorporationCommerceModifier; //Leoreth
+	int m_iCorporationCommerceModifier; // Leoreth
 	int m_iCorporationUnhappinessModifier; // Leoreth
 	int m_iWonderProductionModifier; // Leoreth
-	int m_iProcessModifier; //Leoreth
+	int m_iProcessModifier; // Leoreth
 	int m_iExtraHealth;
 	int m_iPollutionModifier; //Leoreth
 	int m_iFreeExperience;
-	int m_iWorkerProductionModifier; // Leoreth
+	int m_iWorkerCostModifier; // Leoreth
 	int m_iWorkerSpeedModifier;
 	int m_iImprovementUpgradeRateModifier;
 	int m_iMilitaryProductionModifier;
@@ -1483,17 +1497,16 @@ protected:
 	int m_iGoldPerUnit;
 	int m_iGoldPerMilitaryUnit;
 	int m_iHappyPerMilitaryUnit;
-	int m_iMilitaryHappinessLimit; //Leoreth
 	int m_iLargestCityHappiness;
 	int m_iSpecialistHappiness; // Leoreth
 	int m_iWarWearinessModifier;
 	int m_iFreeSpecialist;
-	int m_iCoreFreeSpecialist; //Leoreth
+	int m_iCoreFreeSpecialist; // Leoreth
 	int m_iTradeRoutes;
 	int m_iCapitalTradeModifier; // Leoreth
 	int m_iDefensivePactTradeModifier; // Leoreth
 	int m_iVassalCityCommerce; // Leoreth
-	int m_iHappinessBonusCommerce; // Leoreth
+	int m_iColonyCommerce; // Leoreth
 	int m_iCaptureGoldModifier; // Leoreth
 	int m_iTechPrereq;
 	int m_iCivicPercentAnger;
@@ -1505,9 +1518,6 @@ protected:
 	int m_iStateReligionFreeExperience;
 	int m_iExpInBorderModifier;
 
-	int m_iSpecialistExtraYieldBaseThreshold; //Leoreth
-	int m_iSpecialistExtraYieldEraThreshold; //Leoreth
-
 	bool m_bMilitaryFoodProduction;
 	bool m_bNoUnhealthyPopulation;
 	bool m_bBuildingOnlyHealthy;
@@ -1517,12 +1527,8 @@ protected:
 	bool m_bNoForeignCorporations;
 	bool m_bStateReligion;
 	bool m_bNoNonStateReligionSpread;
-	bool m_bStabilityVassalBonus; //Rhye 6th
-	bool m_bStabilityFoundBonus; //Rhye 6th
-	bool m_bStabilityConquestBonus; //Rhye 6th
-	bool m_bStabilityCommerceBonus; //Rhye 6th
-	bool m_bEnslave; // Leoreth
 	bool m_bSlavery; // Leoreth
+	bool m_bNoSlavery; // Leoreth
 	bool m_bColonialSlavery; // Leoreth
 
 	CvWString m_szWeLoveTheKingKey;
@@ -1535,13 +1541,13 @@ protected:
 	int* m_piCommerceModifier;
 	int* m_piCapitalCommerceModifier;
 	int* m_piSpecialistExtraCommerce;
-	int* m_piSpecialistExtraYield; //Leoreth
-	int* m_piSpecialistThresholdExtraYield; //Leoreth
+	int* m_piSpecialistExtraYield; // Leoreth
 	int* m_piHappinessExtraYield; // Leoreth
 	int* m_piUnhappinessExtraYield; // Leoreth
+	int* m_piUnimprovedTileYield; // Leoreth
 	int* m_paiBuildingHappinessChanges;
 	int* m_paiBuildingHealthChanges;
-	int* m_paiBuildingProductionModifiers; //Leoreth
+	int* m_paiBuildingProductionModifiers; // Leoreth
 	int* m_paiFeatureHappinessChanges;
 
 	int* m_paiDomainProductionModifiers; // Leoreth
@@ -1738,6 +1744,8 @@ public:
 	int getHealth() const;				// Exposed to Python
 	int getAreaHealth() const;				// Exposed to Python
 	int getGlobalHealth() const;				// Exposed to Python
+	int getBuildingUnhealthModifier() const; // Leoreth
+	int getCorporationUnhealthModifier() const; // Leoreth
 	int getGlobalPopulationChange() const;				// Exposed to Python
 	int getFreeTechs() const;				// Exposed to Python
 	int getDefenseModifier() const;					// Exposed to Python
@@ -1858,8 +1866,8 @@ public:
 
 	// Leoreth
 	int getPrereqBuildingClassPercent(int i) const;
-	int getImprovementHappiness(int i) const;
-	int getImprovementHealth(int i) const;
+	int getImprovementHappinessPercent(int i) const;
+	int getImprovementHealthPercent(int i) const;
 
 	// Other
 
@@ -1965,6 +1973,8 @@ protected:
 	int m_iHealth;
 	int m_iAreaHealth;
 	int m_iGlobalHealth;
+	int m_iBuildingUnhealthModifier; // Leoreth
+	int m_iCorporationUnhealthModifier; // Leoreth
 	int m_iGlobalPopulationChange;
 	int m_iFreeTechs;
 	int m_iDefenseModifier;
@@ -2045,8 +2055,8 @@ protected:
 	// Leoreth
 	int* m_piPrereqBuildingClassPercent;
 	int* m_piReligionYieldChange;
-	int* m_piImprovementHappiness;
-	int* m_piImprovementHealth;
+	int* m_piImprovementHappinessPercent;
+	int* m_piImprovementHealthPercent;
 
 	bool* m_pbCommerceFlexible;
 	bool* m_pbCommerceChangeOriginalOwner;
@@ -3015,8 +3025,8 @@ public:
 	int getUpgradeTime() const;				// Exposed to Python
 	int getAirBombDefense() const;				// Exposed to Python
 	int getDefenseModifier() const;				// Exposed to Python
-	int getHealth() const;
-	int getHappiness() const;				// Exposed to Python
+	int getHealthPercent() const;
+	int getHappinessPercent() const;				// Exposed to Python
 	int getPillageGold() const;				// Exposed to Python
 	int getImprovementPillage() const;				// Exposed to Python
 	void setImprovementPillage(int i);
@@ -3055,6 +3065,8 @@ public:
 	int* getHillsYieldChangeArray();
 	int getIrrigatedYieldChange(int i) const;				// Exposed to Python
 	int* getIrrigatedYieldChangeArray();				// For Moose - CvWidgetData XXX
+	int getCoastalYieldChange(int i) const; // Leoreth
+	int* getCoastalYieldChangeArray();
 
 	bool getTerrainMakesValid(int i) const;				// Exposed to Python
 	bool getFeatureMakesValid(int i) const;				// Exposed to Python
@@ -3096,8 +3108,8 @@ protected:
 	int m_iUpgradeTime;
 	int m_iAirBombDefense;
 	int m_iDefenseModifier;
-	int m_iHealth;
-	int m_iHappiness;
+	int m_iHealthPercent;
+	int m_iHappinessPercent;
 	int m_iPillageGold;
 	int m_iImprovementPillage;
 	int m_iImprovementUpgrade;
@@ -3129,6 +3141,7 @@ protected:
 	int* m_piRiverSideYieldChange;
 	int* m_piHillsYieldChange;
 	int* m_piIrrigatedChange;
+	int* m_piCoastalYieldChange; // Leoreth
 
 	bool* m_pbTerrainMakesValid;
 	bool* m_pbFeatureMakesValid;
@@ -3196,6 +3209,7 @@ public:
 	int getAIObjective() const;			// Exposed to Python
 	int getHealth() const;							// Exposed to Python
 	int getHappiness() const;						// Exposed to Python
+	int getAffectedCities() const; // Leoreth
 	int getMinAreaSize() const;					// Exposed to Python
 	int getMinLatitude() const;					// Exposed to Python
 	int getMaxLatitude() const;					// Exposed to Python
@@ -3255,6 +3269,7 @@ protected:
 	int m_iAIObjective;
 	int m_iHealth;
 	int m_iHappiness;
+	int m_iAffectedCities; // Leoreth
 	int m_iMinAreaSize;
 	int m_iMinLatitude;
 	int m_iMaxLatitude;
@@ -4146,13 +4161,25 @@ public:
 	int getProductionCost() const;								// Exposed to Python
 	int getNukeInterception() const;							// Exposed to Python
 	int getTechShare() const;											// Exposed to Python
+	int getAirExperience() const; // Leoreth
+	int getFirstAirExperience() const; // Leoreth
+	int getExistingProductionModifier() const; // Leoreth
+	int getSpecialUnit() const; // Leoreth
 	int getEveryoneSpecialUnit() const;						// Exposed to Python
 	int getEveryoneSpecialBuilding() const;				// Exposed to Python
+	int getFirstFreeUnit() const; // Leoreth
+	int getFreePromotion() const; // Leoreth
 	int getVictoryDelayPercent() const;				// Exposed to Python
 	int getSuccessRate() const;				// Exposed to Python
 
 	bool isSpaceship() const;											// Exposed to Python
 	bool isAllowsNukes() const;											// Exposed to Python
+	bool isSatelliteIntercept() const; // Leoreth
+	bool isSatelliteAttack() const; // Leoreth
+	bool isGoldenAge() const; // Leoreth
+	bool isFirstEnemyAnarchy() const; // Leoreth
+	bool isRevealsMap() const; // Leoreth
+
 	const char* getMovieArtDef() const;						// Exposed to Python
 
 	const TCHAR* getCreateSound() const;					// Exposed to Python
@@ -4179,13 +4206,24 @@ protected:
 	int m_iProductionCost;
 	int m_iNukeInterception;
 	int m_iTechShare;
+	int m_iAirExperience; // Leoreth
+	int m_iFirstAirExperience; // Leoreth
+	int m_iExistingProductionModifier; // Leoreth
+	int m_iSpecialUnit; // Leoreth
 	int m_iEveryoneSpecialUnit;
 	int m_iEveryoneSpecialBuilding;
+	int m_iFirstFreeUnit; // Leoreth
+	int m_iFreePromotion; // Leoreth
 	int m_iVictoryDelayPercent;
 	int m_iSuccessRate;
 
 	bool m_bSpaceship;
 	bool m_bAllowsNukes;
+	bool m_bSatelliteIntercept; // Leoreth
+	bool m_bSatelliteAttack; // Leoreth
+	bool m_bGoldenAge; // Leoreth
+	bool m_bFirstEnemyAnarchy; // Leoreth
+	bool m_bRevealsMap; // Leoreth
 
 	CvString m_szCreateSound;
 	CvString m_szMovieArtDef;
@@ -6463,6 +6501,7 @@ public:
 	int getCounterespionageNumTurns() const;
 	int getCounterespionageMod() const;
 	int getDifficultyMod() const;
+	int getBaseExperience() const;
 
 	bool read(CvXMLLoadUtility* pXML);
 
@@ -6502,6 +6541,7 @@ protected:
 	int m_iCounterespionageNumTurns;
 	int m_iCounterespionageMod;
 	int m_iDifficultyMod;
+	int m_iBaseExperience; // Leoreth
 };
 
 

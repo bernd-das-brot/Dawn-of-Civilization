@@ -3,6 +3,7 @@ import CvUtil
 import string
 
 from Consts import *
+from RFCUtils import utils
 
 gc = CyGlobalContext()
 
@@ -90,7 +91,7 @@ class CvPediaReligion:
 			screen.attachImageButton(panel, "", gc.getBuildingInfo(iOrthodoxCathedral).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_BUILDING, iOrthodoxCathedral, 1, False)
 		elif self.iReligion == iProtestantism:
 			screen.attachImageButton(panel, "", gc.getReligionInfo(iCatholicism).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_RELIGION, iCatholicism, 1, False)
-			screen.attachImageButton(panel, "", gc.getTechInfo(iPrinting).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_TECH, iPrinting, 1, False)
+			screen.attachImageButton(panel, "", gc.getTechInfo(iAcademia).getButton(), GenericButtonSizes.BUTTON_SIZE_CUSTOM, WidgetTypes.WIDGET_PEDIA_JUMP_TO_TECH, iAcademia, 1, False)
 			
 	def placeEffects(self):
 		screen = self.top.getScreen()
@@ -115,7 +116,7 @@ class CvPediaReligion:
 		victorytext = CyTranslator().getText("TXT_KEY_PEDIA_RELIGIOUS_VICTORY", ())
 		bullet = u"%c" % CyGame().getSymbolID(FontSymbols.BULLET_CHAR)
 		for iGoal in range(3):
-			victorytext += bullet + CyTranslator().getText(tReligiousGoals[0][self.iReligion][iGoal], ()) + "\n"
+			victorytext += bullet + utils.getReligiousGoalText(self.iReligion, iGoal) + "\n"
 		szHistory = victorytext + "\n" + gc.getReligionInfo(self.iReligion).getCivilopedia()
 		screen.addMultilineText(text, szHistory, self.X_HISTORY + 10, self.Y_HISTORY + 30, self.W_HISTORY - 20, self.H_HISTORY - 40, WidgetTypes.WIDGET_GENERAL, -1, -1, CvUtil.FONT_LEFT_JUSTIFY)
 

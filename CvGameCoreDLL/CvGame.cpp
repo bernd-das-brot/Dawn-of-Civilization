@@ -2344,7 +2344,7 @@ void CvGame::updateTechRanks()
 	int iI, iJ;
 
 	TeamTypes eBestTeam;
-	bool abTeamRanked[MAX_TEAMS];
+	bool* abTeamRanked = new bool[MAX_TEAMS];
 
 	for (iI = 0; iI < MAX_TEAMS; iI++)
 	{
@@ -2915,7 +2915,7 @@ bool CvGame::isTeamVoteEligible(TeamTypes eTeam, VoteSourceTypes eVoteSource) co
 	CvTeam& kTeam = GET_TEAM(eTeam);
 
 	//Rhye - start
-	if (eTeam == INDEPENDENT || eTeam == INDEPENDENT2 || eTeam == NATIVE || eTeam == CELTIA || eTeam == SELJUKS)
+	if (eTeam == INDEPENDENT || eTeam == INDEPENDENT2 || eTeam == NATIVE || eTeam == CELTIA)
 	{
 		return false;
 	}
@@ -3306,6 +3306,11 @@ int CvGame::getNumFreeBonuses(BuildingTypes eBuilding)
 {
 	if (GC.getBuildingInfo(eBuilding).getNumFreeBonuses() == -1)
 	{
+		if (GC.getMapINLINE().getWorldSize() == -1)
+		{
+			return 7;
+		}
+
 		return GC.getWorldInfo(GC.getMapINLINE().getWorldSize()).getNumFreeBuildingBonuses();
 	}
 	else
@@ -5902,7 +5907,8 @@ void CvGame::setHolyCity(ReligionTypes eIndex, CvCity* pNewValue, bool bAnnounce
 		{
 			pHolyCity = getHolyCity(eIndex);
 
-			pHolyCity->setHasReligion(eIndex, true, bAnnounce, true);
+			//pHolyCity->setHasReligion(eIndex, true, bAnnounce, true);
+			pHolyCity->spreadReligion(eIndex, false);
 			pHolyCity->changeReligionInfluence(eIndex, GC.getDefineINT("HOLY_CITY_INFLUENCE"));
 
 			pHolyCity->updateReligionCommerce();
@@ -10510,4 +10516,9 @@ void CvGame::setYResolution(int iNewValue)
 void CvGame::changeYResolution(int iChange)
 {
 	setYResolution(getYResolution() + iChange);
+}
+
+void CvGame::autosave()
+{
+	gDLL->getEngineIFace()->AutoSave();
 }

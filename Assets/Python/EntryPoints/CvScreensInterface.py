@@ -54,11 +54,12 @@ g_bIsScreenActive = -1
 from StoredData import data
 from Consts import *
 import Areas
-import RFCUtils
+from RFCUtils import utils
 import Victory as vic
 import CityNameManager as cnm
 import Congresses as cong
-utils = RFCUtils.RFCUtils()
+import RiseAndFall as rnf
+
 gc = CyGlobalContext()
 
 def getStabilityLevel(argsList):
@@ -232,8 +233,9 @@ def showEraMovie(argsList):
 	
 spaceShip = CvSpaceShipScreen.CvSpaceShipScreen()
 def showSpaceShip(argsList):
-	if (-1 != CyGame().getActivePlayer()):
-		spaceShip.interfaceScreen(argsList[0])
+	showVictoryScreen(argsList)
+	#if (-1 != CyGame().getActivePlayer()):
+	#	spaceShip.interfaceScreen(argsList[0])
 	
 replayScreen = CvReplayScreen.CvReplayScreen(REPLAY_SCREEN)
 def showReplay(argsList):
@@ -335,6 +337,7 @@ def createCivilopedia():
 								PEDIA_FEATURES			: pediaMainScreen,
 								PEDIA_RESOURCES			: pediaMainScreen,
 								PEDIA_IMPROVEMENTS		: pediaMainScreen,
+								PEDIA_ROUTES			: pediaMainScreen,
 								PEDIA_CONCEPTS			: pediaMainScreen,
 								PEDIA_SHORTCUTS 		: pediaMainScreen,
 								PEDIA_BTS_CONCEPTS		: pediaMainScreen,
@@ -367,6 +370,7 @@ def createCivilopedia():
 							PEDIA_FEATURES			: pediaMainScreen,
 							PEDIA_RESOURCES			: pediaMainScreen,
 							PEDIA_IMPROVEMENTS		: pediaMainScreen,
+							PEDIA_ROUTES			: pediaMainScreen,
 							PEDIA_CONCEPTS			: pediaMainScreen,
 							PEDIA_SHORTCUTS 		: pediaMainScreen,
 							PEDIA_BTS_CONCEPTS		: pediaMainScreen,
@@ -432,6 +436,11 @@ def pediaJumpToSpecialist(argsList):
 
 def pediaJumpToTech(argsList):
 	pediaMainScreen.pediaJump(PEDIA_TECHS, argsList[0], True, False)
+	
+	
+	
+def pediaJumpToCultureLevel(argsList):
+	pediaMainScreen.pediaJump(PEDIA_CULTURE_LEVELS, argsList[0], True, False)
 
 
 
@@ -477,6 +486,11 @@ def pediaJumpToBonus(argsList):
 
 def pediaJumpToImprovement(argsList):
 	pediaMainScreen.pediaJump(PEDIA_IMPROVEMENTS, argsList[0], True, False)
+	
+	
+	
+def pediaJumpToRoute(argsList):
+	pediaMainScreen.pediaJump(PEDIA_ROUTES, argsList[0], True, False)
 
 
 
@@ -494,9 +508,11 @@ def getWorldBuilderScreen():
 	return worldBuilderScreen
 
 def showWorldBuilderScreen():
+	utils.removeStabilityOverlay()
 	worldBuilderScreen.interfaceScreen()
 
 def hideWorldBuilderScreen():
+	utils.removeStabilityOverlay()
 	worldBuilderScreen.killScreen()
 
 def WorldBuilderToggleUnitEditCB():
@@ -1044,27 +1060,23 @@ def getUHVTileInfo(argsList):
 		if utils.isPlotInArea((x, y), vic.tSAmericaTL, vic.tSAmericaBR, vic.tSouthAmericaExceptions):
 			return 43
 			
-	elif iPlayer == iTurkey:
+	elif iPlayer == iOttomans:
 		if (x,y) in vic.lEasternMediterranean:
 			return 47
 			
 		if (x,y) in vic.lBlackSea:
 			return 48
 			
-		cx, cy = vic.tCairo
-		if cx-1 <= x <= cx+1 and cy-1 <= y <= cy+1:
+		if (x, y) in utils.surroundingPlots(vic.tCairo):
 			return 49
 				
-		cx, cy = vic.tMecca
-		if cx-1 <= x <= cx+1 and cy-1 <= y <= cy+1:
+		if (x, y) in utils.surroundingPlots(vic.tMecca):
 			return 50
 				
-		cx, cy = vic.tBaghdad
-		if cx-1 <= x <= cx+1 and cy-1 <= y <= cy+1:
+		if (x, y) in utils.surroundingPlots(vic.tBaghdad):
 			return 51
 				
-		cx, cy = tVienna
-		if cx-1 <= x <= cx+1 and cy-1 <= y <= cy+1:
+		if (x, y) in utils.surroundingPlots(vic.tVienna):
 			return 52
 			
 	elif iPlayer == iThailand:
@@ -1145,8 +1157,15 @@ def getUHVTileInfo(argsList):
 	elif iPlayer == iMongolia:
 		if (x, y) in Areas.getNormalArea(iChina, False):
 			return 69
+			
+	elif iPlayer == iTurks:
+		if (x, y) in vic.lMediterraneanPorts:
+			return 70
+			
+		if utils.isPlotInArea((x, y), vic.tChinaTL, vic.tChinaBR):
+			return 71
 				
-		# continue with ID 70
+		# continue with ID 72
 			
 	return -1
 		
@@ -1194,6 +1213,11 @@ def applyBriberyEvent(argsList):
 	
 def applyBriberyResultEvent(argsList):
 	data.currentCongress.applyBriberyResultEvent()
+	
+### Rise And Fall
+
+def applyNewCivSwitchEvent(argsList):
+	rnf.applyNewCivSwitchEvent(argsList)
 
 
 #######################################################################################

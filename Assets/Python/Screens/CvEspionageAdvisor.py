@@ -201,8 +201,8 @@ class CvEspionageAdvisor:
 				screen.setLabelAt("CivName" + str(iRival), PlayerPanel, szCivName, CvUtil.FONT_LEFT_JUSTIFY, self.X_PLAYER_INFO, self.Y_PLAYER_INFO + self.LINE_SPACING, -0.1, FontTypes.SMALL_FONT, WidgetTypes.WIDGET_GENERAL, -1, -1)
 
 				# Weight Buttons
-				screen.setImageButtonAt("WeightIncrease" + str(iRival), PlayerPanel, CyArtFileMgr().getInterfaceArtInfo("INTERFACE_BUTTONS_PLUS").getPath(), self.X_PLAYER_INFO, self.Y_PLAYER_INFO + (self.LINE_SPACING * 2), self.WEIGHT_BUTTON_SIZE, self.WEIGHT_BUTTON_SIZE, WidgetTypes.WIDGET_GENERAL, iRivalTeam, self.iIncrement)
-				screen.setImageButtonAt("WeightDecrease" + str(iRival), PlayerPanel, CyArtFileMgr().getInterfaceArtInfo("INTERFACE_BUTTONS_MINUS").getPath(), self.X_PLAYER_INFO + self.WEIGHT_BUTTON_SIZE, self.Y_PLAYER_INFO + (self.LINE_SPACING * 2), self.WEIGHT_BUTTON_SIZE, self.WEIGHT_BUTTON_SIZE, WidgetTypes.WIDGET_GENERAL, iRivalTeam, self.iIncrement)
+				screen.setImageButtonAt("WeightIncrease" + str(iRival), PlayerPanel, CyArtFileMgr().getInterfaceArtInfo("INTERFACE_BUTTONS_PLUS").getPath(), self.X_PLAYER_INFO, self.Y_PLAYER_INFO + (self.LINE_SPACING * 2), self.WEIGHT_BUTTON_SIZE, self.WEIGHT_BUTTON_SIZE, WidgetTypes.WIDGET_GENERAL, iRivalTeam + 1, self.iIncrement)
+				screen.setImageButtonAt("WeightDecrease" + str(iRival), PlayerPanel, CyArtFileMgr().getInterfaceArtInfo("INTERFACE_BUTTONS_MINUS").getPath(), self.X_PLAYER_INFO + self.WEIGHT_BUTTON_SIZE, self.Y_PLAYER_INFO + (self.LINE_SPACING * 2), self.WEIGHT_BUTTON_SIZE, self.WEIGHT_BUTTON_SIZE, WidgetTypes.WIDGET_GENERAL, iRivalTeam + 1, self.iIncrement)
 
 				# Espionage Accumulated
 				iRivalAmount = pRivalTeam.getEspionagePointsAgainstTeam(self.iActiveTeam)
@@ -382,7 +382,7 @@ class CvEspionageAdvisor:
 						iRow = screen.appendTableRow("ActiveTable")
 						screen.setTableText("ActiveTable", 0, iRow, "<font=2>" + szMission + "</font>", "", WidgetTypes.WIDGET_ESPIONAGE_SELECT_MISSION, iLoopMission, -1, CvUtil.FONT_LEFT_JUSTIFY)
 						if iCost > 0:
-							screen.setTableInt("ActiveTable", 1, iRow, "<font=2>" + szCost + "</font>", "", WidgetTypes.WIDGET_ESPIONAGE_SELECT_MISSION, iLoopMission, -1, CvUtil.FONT_RIGHT_JUSTIFY)
+							screen.setTableInt("ActiveTable", 1, iRow, "<font=2>" + szCost + "   </font>", "", WidgetTypes.WIDGET_ESPIONAGE_SELECT_MISSION, iLoopMission, -1, CvUtil.FONT_RIGHT_JUSTIFY)
 
 
 
@@ -462,14 +462,17 @@ class CvEspionageAdvisor:
 
 
 	def resetEspionageWeights(self):
+		iActivePlayer = CyGame().getActivePlayer()
+		iActiveTeam = CyGame().getActiveTeam()
+	
 		for iRival in xrange(gc.getMAX_CIV_PLAYERS()):
 			pRival = gc.getPlayer(iRival)
 			iRivalTeam = pRival.getTeam()
-			if iRivalTeam == self.iActiveTeam:
+			if iRivalTeam == iActiveTeam:
 				continue
 
-			if pRival.isAlive() and self.pActiveTeam.isHasMet(iRivalTeam):
-				iChange = -1 * self.pActivePlayer.getEspionageSpendingWeightAgainstTeam(iRivalTeam)
+			if pRival.isAlive() and gc.getTeam(iActiveTeam).isHasMet(iRivalTeam):
+				iChange = -1 * gc.getPlayer(iActivePlayer).getEspionageSpendingWeightAgainstTeam(iRivalTeam)
 				CyMessageControl().sendEspionageSpendingWeightChange(iRivalTeam, iChange)
 
 		CyInterface().setDirty(InterfaceDirtyBits.Espionage_Advisor_DIRTY_BIT, True)
@@ -503,10 +506,10 @@ class CvEspionageAdvisor:
 				self.updateRightPanel()
 
 			elif inputClass.getFunctionName().startswith("WeightIncrease"):
-				self.changeEspionageWeight(inputClass.getData1(), self.iIncrement)
+				self.changeEspionageWeight(inputClass.getData1() - 1, self.iIncrement)
 
 			elif inputClass.getFunctionName().startswith("WeightDecrease"):
-				self.changeEspionageWeight(inputClass.getData1(), -self.iIncrement)
+				self.changeEspionageWeight(inputClass.getData1() - 1, -self.iIncrement)
 
 		if inputClass.getFunctionName() == "EspionagePlus" or inputClass.getFunctionName() == "EspionageMinus":
 			iChange = inputClass.getData2()

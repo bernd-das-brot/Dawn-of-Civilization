@@ -115,6 +115,7 @@
 	<ElementType name="bMilitarySupport" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bMilitaryProduction" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bPillage" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bSlave" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bSpy" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bSabotage" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bDestroy" content="textOnly" dt:type="boolean"/>
@@ -366,6 +367,8 @@
 	<ElementType name="iAnimalCombat" content="textOnly" dt:type="int"/>
 	<ElementType name="iHillsAttack" content="textOnly" dt:type="int"/>
 	<ElementType name="iHillsDefense" content="textOnly" dt:type="int"/>
+	<ElementType name="iPlainsAttack" content="textOnly" dt:type="int"/>
+	<ElementType name="iPlainsDefense" content="textOnly" dt:type="int"/>
 	<ElementType name="iKamikazePercent" content="textOnly" dt:type="int"/>
 	<ElementType name="iRevoltProtection" content="textOnly" dt:type="int"/>
 	<ElementType name="iCollateralDamageProtection" content="textOnly" dt:type="int"/>
@@ -544,6 +547,7 @@
 		<element type="bMilitarySupport" minOccurs="0"/>
 		<element type="bMilitaryProduction" minOccurs="0"/>
 		<element type="bPillage" minOccurs="0"/>
+		<element type="bSlave" minOccurs="0"/>
 		<element type="bSpy" minOccurs="0"/>
 		<element type="bSabotage" minOccurs="0"/>
 		<element type="bDestroy" minOccurs="0"/>
@@ -646,6 +650,8 @@
 		<element type="iAnimalCombat" minOccurs="0"/>
 		<element type="iHillsAttack" minOccurs="0"/>
 		<element type="iHillsDefense" minOccurs="0"/>
+		<element type="iPlainsAttack" minOccurs="0"/>
+		<element type="iPlainsDefense" minOccurs="0"/>
 		<element type="TerrainNatives" minOccurs="0"/>
 		<element type="FeatureNatives" minOccurs="0"/>
 		<element type="TerrainAttacks" minOccurs="0"/>
@@ -885,6 +891,8 @@
 		<element type="iCityDefense" minOccurs="0"/>
 		<element type="iHillsAttack" minOccurs="0"/>
 		<element type="iHillsDefense" minOccurs="0"/>
+		<element type="iPlainsAttack" minOccurs="0"/>
+		<element type="iPlainsDefense" minOccurs="0"/>
 		<element type="iKamikazePercent" minOccurs="0"/>
 		<element type="iRevoltProtection" minOccurs="0"/>
 		<element type="iCollateralDamageProtection" minOccurs="0"/>
@@ -925,6 +933,7 @@
 	</ElementType>
 	<ElementType name="Type" content="textOnly"/>
 	<ElementType name="bValid" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bPlayerValid" content="textOnly" dt:type="boolean"/> <!-- Leoreth -->
 	<ElementType name="bCityLoad" content="textOnly" dt:type="boolean"/>
 	<ElementType name="CarrierUnitAI" content="eltOnly">
 		<element type="UnitAIType"/>
@@ -937,6 +946,7 @@
 		<element type="Type"/>
 		<element type="Description"/>
 		<element type="bValid"/>
+		<element type="bPlayerValid"/> <!-- Leoreth -->
 		<element type="bCityLoad"/>
 		<element type="CarrierUnitAIs"/>
 		<element type="ProductionTraits"/>

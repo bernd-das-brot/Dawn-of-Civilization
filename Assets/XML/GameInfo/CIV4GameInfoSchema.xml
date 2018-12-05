@@ -509,10 +509,21 @@
 	<ElementType name="iCost" content="textOnly" dt:type="int"/>
 	<ElementType name="iNukeInterception" content="textOnly" dt:type="int"/>
 	<ElementType name="iTechShare" content="textOnly" dt:type="int"/>
+	<ElementType name="iFirstAirExperience" content="textOnly" dt:type="int"/> <!-- Leoreth -->
+	<ElementType name="iExistingProductionModifier" content="textOnly" dt:type="int"/> <!-- Leoreth -->
+	<ElementType name="iAirExperience" content="textOnly" dt:type="int"/> <!-- Leoreth -->
+	<ElementType name="SpecialUnit" content="textOnly"/> <!-- Leoreth -->
 	<ElementType name="EveryoneSpecialUnit" content="textOnly"/>
 	<ElementType name="EveryoneSpecialBuilding" content="textOnly"/>
+	<ElementType name="FirstFreeUnit" content="textOnly"/> <!-- Leoreth -->
+	<ElementType name="FreePromotion" content="textOnly"/> <!-- Leoreth -->
 	<ElementType name="bSpaceship" content="textOnly" dt:type="boolean"/>
 	<ElementType name="bAllowsNukes" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bSatelliteIntercept" content="textOnly" dt:type="boolean"/> <!-- Leoreth -->
+	<ElementType name="bSatelliteAttack" content="textOnly" dt:type="boolean"/> <!-- Leoreth -->
+	<ElementType name="bGoldenAge" content="textOnly" dt:type="boolean"/> <!-- Leoreth -->
+	<ElementType name="bFirstEnemyAnarchy" content="textOnly" dt:type="boolean"/> <!-- Leoreth -->
+	<ElementType name="bRevealsMap" content="textOnly" dt:type="boolean"/> <!-- Leoreth -->
 	<ElementType name="ProjectType" content="textOnly"/>
 	<ElementType name="iNeeded" content="textOnly" dt:type="int"/>
 	<ElementType name="PrereqProject" content="eltOnly">
@@ -568,10 +579,21 @@
 		<element type="iCost"/>
 		<element type="iNukeInterception"/>
 		<element type="iTechShare"/>
+		<element type="iAirExperience"/> <!-- Leoreth -->
+		<element type="iFirstAirExperience"/> <!-- Leoreth -->
+		<element type="iExistingProductionModifier"/> <!-- Leoreth -->
+		<element type="SpecialUnit"/> <!-- Leoreth -->
 		<element type="EveryoneSpecialUnit"/>
 		<element type="EveryoneSpecialBuilding"/>
+		<element type="FirstFreeUnit"/> <!-- Leoreth -->
+		<element type="FreePromotion"/> <!-- Leoreth -->
 		<element type="bSpaceship"/>
 		<element type="bAllowsNukes"/>
+		<element type="bSatelliteIntercept"/> <!-- Leoreth -->
+		<element type="bSatelliteAttack"/> <!-- Leoreth -->
+		<element type="bGoldenAge"/> <!-- Leoreth -->
+		<element type="bFirstEnemyAnarchy"/> <!-- Leoreth -->
+		<element type="bRevealsMap"/> <!-- Leoreth -->
 		<element type="Button"/>
 		<element type="PrereqProjects"/>
 		<element type="VictoryThresholds"/>
@@ -654,7 +676,7 @@
 	<ElementType name="iExtraHealth" content="textOnly" dt:type="int"/>
 	<ElementType name="iPollutionModifier" content="textOnly" dt:type="int"/> <!-- Leoreth -->
 	<ElementType name="iFreeExperience" content="textOnly" dt:type="int"/>
-	<ElementType name="iWorkerProductionModifier" content="textOnly" dt:type="int"/> <!-- Leoreth -->
+	<ElementType name="iWorkerCostModifier" content="textOnly" dt:type="int"/> <!-- Leoreth -->
 	<ElementType name="iWorkerSpeedModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="iImprovementUpgradeRateModifier" content="textOnly" dt:type="int"/>
 	<ElementType name="iMilitaryProductionModifier" content="textOnly" dt:type="int"/>
@@ -668,8 +690,8 @@
 	<ElementType name="iMilitaryHappinessLimit" content="textOnly" dt:type="int"/> <!-- Leoreth -->
 	<ElementType name="bMilitaryFoodProduction" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iMaxConscript" content="textOnly" dt:type="int"/>
-	<ElementType name="bEnslave" content="textOnly" dt:type="boolean"/> <!-- Leoreth -->
 	<ElementType name="bSlavery" content="textOnly" dt:type="boolean"/> <!-- Leoreth -->
+	<ElementType name="bNoSlavery" content="textOnly" dt:type="boolean"/> <!-- Leoreth -->
 	<ElementType name="bColonialSlavery" content="textOnly" dt:type="boolean"/> <!-- Leoreth -->
 	<ElementType name="bNoUnhealthyPopulation" content="textOnly" dt:type="boolean"/>
 	<ElementType name="iExpInBorderModifier" content="textOnly" dt:type="int"/>
@@ -820,8 +842,11 @@
 	<ElementType name="UnhappinessExtraYields" content="eltOnly">
 		<element type="iYield" minOccurs="0" maxOccurs="*"/>
 	</ElementType>
+	<ElementType name="UnimprovedTileYields" content="eltOnly">
+		<element type="iYield" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
 	<ElementType name="iVassalCityCommerce" content="textOnly" dt:type="int"/>
-	<ElementType name="iHappinessBonusCommerce" content="textOnly" dt:type="int"/>
+	<ElementType name="iColonyCommerce" content="textOnly" dt:type="int"/>
 	<ElementType name="iSpecialistHappiness" content="textOnly" dt:type="int"/>
 	<ElementType name="iCaptureGoldModifier" content="textOnly" dt:type="int"/>
 	<!-- Leoreth end -->
@@ -852,7 +877,7 @@
 		<element type="iExtraHealth" minOccurs="0"/>
 		<element type="iPollutionModifier" minOccurs="0"/> <!-- Leoreth -->
 		<element type="iFreeExperience" minOccurs="0"/>
-		<element type="iWorkerProductionModifier" minOccurs="0"/> <!-- Leoreth -->
+		<element type="iWorkerCostModifier" minOccurs="0"/> <!-- Leoreth -->
 		<element type="iWorkerSpeedModifier" minOccurs="0"/>
 		<element type="iImprovementUpgradeRateModifier" minOccurs="0"/>
 		<element type="iMilitaryProductionModifier" minOccurs="0"/>
@@ -863,11 +888,10 @@
 		<element type="iGoldPerUnit" minOccurs="0"/>
 		<element type="iGoldPerMilitaryUnit" minOccurs="0"/>
 		<element type="iHappyPerMilitaryUnit" minOccurs="0"/>
-		<element type="iMilitaryHappinessLimit" minOccurs="0"/> <!-- Leoreth -->
 		<element type="bMilitaryFoodProduction" minOccurs="0"/>
 		<element type="iMaxConscript" minOccurs="0"/>
-		<element type="bEnslave" minOccurs="0"/> <!-- Leoreth -->
 		<element type="bSlavery" minOccurs="0"/> <!-- Leoreth -->
+		<element type="bNoSlavery" minOccurs="0"/> <!-- Leoreth -->
 		<element type="bColonialSlavery" minOccurs="0"/> <!-- Leoreth -->
 		<element type="bNoUnhealthyPopulation" minOccurs="0"/>
 		<element type="iExpInBorderModifier" minOccurs="0"/>
@@ -881,7 +905,7 @@
 		<element type="iCapitalTradeModifier" minOccurs="0"/> <!-- Leoreth -->
 		<element type="iDefensivePactTradeModifier" minOccurs="0"/> <!-- Leoreth -->
 		<element type="iVassalCityCommerce" minOccurs="0"/> <!-- Leoreth -->
-		<element type="iHappinessBonusCommerce" minOccurs="0"/> <!-- Leoreth -->
+		<element type="iColonyCommerce" minOccurs="0"/> <!-- Leoreth -->
 		<element type="iCaptureGoldModifier" minOccurs="0"/> <!-- Leoreth -->
 		<element type="bNoForeignTrade" minOccurs="0"/>
 		<element type="bNoForeignTradeModifier" minOccurs="0"/> <!-- Leoreth -->
@@ -895,10 +919,6 @@
 		<element type="iStateReligionUnitProductionModifier" minOccurs="0"/>
 		<element type="iStateReligionBuildingProductionModifier" minOccurs="0"/>
 		<element type="iStateReligionFreeExperience" minOccurs="0"/>
-		<element type="bStabilityVassalBonus" minOccurs="0"/>
-		<element type="bStabilityFoundBonus" minOccurs="0"/>
-		<element type="bStabilityConquestBonus" minOccurs="0"/>
-		<element type="bStabilityCommerceBonus" minOccurs="0"/>
 		<element type="YieldModifiers" minOccurs="0"/>
 		<element type="CapitalYieldModifiers" minOccurs="0"/>
 		<element type="TradeYieldModifiers" minOccurs="0"/>
@@ -906,11 +926,9 @@
 		<element type="CapitalCommerceModifiers" minOccurs="0"/>
 		<element type="SpecialistExtraCommerces" minOccurs="0"/>
 		<element type="SpecialistExtraYields" minOccurs="0"/> <!-- Leoreth -->
-		<element type="iSpecialistExtraYieldBaseThreshold" minOccurs="0"/> <!-- Leoreth -->
-		<element type="iSpecialistExtraYieldEraThreshold" minOccurs="0"/> <!-- Leoreth -->
-		<element type="SpecialistThresholdExtraYields" minOccurs="0"/> <!-- Leoreth -->
 		<element type="HappinessExtraYields" minOccurs="0"/> <!-- Leoreth -->
 		<element type="UnhappinessExtraYields" minOccurs="0"/> <!-- Leoreth -->
+		<element type="UnimprovedTileYields" minOccurs="0"/> <!-- Leoreth -->
 		<element type="Hurrys" minOccurs="0"/>
 		<element type="SpecialBuildingNotRequireds" minOccurs="0"/>
 		<element type="SpecialistValids" minOccurs="0"/>
@@ -1069,8 +1087,37 @@
 	<ElementType name="iHotKeyPriorityAlt" content="textOnly" dt:type="int"/>
 	<ElementType name="iOrderPriority" content="textOnly" dt:type="int"/>
 	<ElementType name="bVisible" content="textOnly" dt:type="boolean"/>
+	<ElementType name="bNoGlobalEffects" content="textOnly" dt:type="boolean"/> <!-- Leoreth -->
 	<ElementType name="iGreatPeopleRateChange" content="textOnly" dt:type="int"/>
 	<ElementType name="iHappiness" content="textOnly" dt:type="int"/>
+	<ElementType name="CultureLevelType" content="textOnly"/>
+	<ElementType name="CultureLevelYields" content="eltOnly">
+		<element type="iYield" minOccurs="0"/>
+	</ElementType>
+	<ElementType name="CultureLevelYieldChange" content="eltOnly">
+		<element type="CultureLevelType"/>
+		<element type="CultureLevelYields"/>
+	</ElementType>
+	<ElementType name="CultureLevelYieldChanges" content="eltOnly">
+		<element type="CultureLevelYieldChange" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="CultureLevelCommerces" content="eltOnly">
+		<element type="iCommerce" minOccurs="0"/>
+	</ElementType>
+	<ElementType name="CultureLevelCommerceChange" content="eltOnly">
+		<element type="CultureLevelType"/>
+		<element type="CultureLevelCommerces"/>
+	</ElementType>
+	<ElementType name="CultureLevelCommerceChanges" content="eltOnly">
+		<element type="CultureLevelCommerceChange" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="CultureLevelGreatPeopleRateChange" content="eltOnly">
+		<element type="CultureLevelType"/>
+		<element type="iGreatPeopleRateChange"/>
+	</ElementType>
+	<ElementType name="CultureLevelGreatPeopleRateChanges" content="eltOnly">
+		<element type="CultureLevelGreatPeopleRateChange" minOccurs="0" maxOccurs="*"/>
+	</ElementType>
 	<ElementType name="SpecialistInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description"/>
@@ -1079,10 +1126,14 @@
 		<element type="Help"/>
 		<element type="Texture"/>
 		<element type="bVisible"/>
+		<element type="bNoGlobalEffects" minOccurs="0"/> <!-- Leoreth -->
 		<element type="GreatPeopleUnitClass"/>
 		<element type="iGreatPeopleRateChange"/>
 		<element type="Yields"/>
 		<element type="Commerces"/>
+		<element type="CultureLevelYieldChanges" minOccurs="0"/> <!-- Leoreth -->
+		<element type="CultureLevelCommerceChanges" minOccurs="0"/> <!-- Leoreth -->
+		<element type="CultureLevelGreatPeopleRateChanges" minOccurs="0"/> <!-- Leoreth -->
 		<element type="iExperience"/>
 		<element type="iHappiness" minOccurs="0"/>
 		<element type="Flavors"/>
@@ -1290,6 +1341,7 @@
 	<ElementType name="iPlayerAnarchyCounter" content="textOnly" dt:type="int"/>
 	<ElementType name="iCounterespionageNumTurns" content="textOnly" dt:type="int"/>
 	<ElementType name="iCounterespionageMod" content="textOnly" dt:type="int"/>
+	<ElementType name="iBaseExperience" content="textOnly" dt:type="int"/>
 	<ElementType name="EspionageMissionInfo" content="eltOnly">
 		<element type="Type"/>
 		<element type="Description"/>
@@ -1324,6 +1376,7 @@
 		<element type="iPlayerAnarchyCounter" minOccurs="0"/>
 		<element type="iCounterespionageNumTurns" minOccurs="0"/>
 		<element type="iCounterespionageMod" minOccurs="0"/>
+		<element type="iBaseExperience" minOccurs="0"/>
 	</ElementType>
 	<ElementType name="EspionageMissionInfos" content="eltOnly">
 		<element type="EspionageMissionInfo" maxOccurs="*"/>
